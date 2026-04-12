@@ -425,6 +425,67 @@ img {
 }
 
 /* ============================================
+   Workflow
+   ============================================ */
+.workflow {
+    padding: 100px 0;
+    background: var(--gray-50);
+}
+
+.workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.workflow-step {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.workflow-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+}
+
+.workflow-img {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.workflow-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.workflow-content {
+    padding: 22px;
+}
+
+.step-index {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--green);
+}
+
+.workflow-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    margin: 8px 0;
+    color: var(--black);
+}
+
+.workflow-content p {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+/* ============================================
    Specs
    ============================================ */
 .specs {
@@ -587,6 +648,36 @@ img {
 .compare-cell.highlight {
     font-weight: 600;
     color: var(--green);
+}
+
+/* ============================================
+   Gallery
+   ============================================ */
+.gallery {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.gallery-item {
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
 }
 
 /* ============================================
@@ -777,6 +868,10 @@ img {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .workflow-grid {
+        grid-template-columns: 1fr;
+    }
     
     .specs-grid {
         grid-template-columns: 1fr;
@@ -785,6 +880,10 @@ img {
     
     .apps-grid {
         grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .contact-card {
@@ -852,6 +951,10 @@ img {
         padding-top: 0;
     }
     
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
     .footer-inner {
         grid-template-columns: 1fr;
         text-align: center;
