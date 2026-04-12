@@ -1,16 +1,14 @@
 /**
  * SETTO - Main JavaScript
- * Handles animations, interactions, and form validation
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize AOS (Animate On Scroll)
+    // Initialize AOS
     AOS.init({
-        duration: 800,
-        easing: 'ease-out-cubic',
+        duration: 600,
+        easing: 'ease-out',
         once: true,
-        offset: 100,
-        delay: 100
+        offset: 80
     });
 
     // ============================================
@@ -20,179 +18,120 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
 
-    // Scroll effect for navbar
-    let lastScrollY = window.scrollY;
-    
+    // Scroll effect
     window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 50) {
+        if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-        
-        lastScrollY = currentScrollY;
     });
 
-    // Mobile menu toggle
+    // Mobile menu
     mobileMenuBtn.addEventListener('click', () => {
         mobileMenuBtn.classList.toggle('active');
         navLinks.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     });
 
-    // Close mobile menu when clicking a link
+    // Close mobile menu on link click
     navLinks.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenuBtn.classList.remove('active');
             navLinks.classList.remove('active');
-            document.body.style.overflow = '';
         });
     });
 
-    // Smooth scroll for navigation links
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             e.preventDefault();
             const target = document.querySelector(anchor.getAttribute('href'));
             if (target) {
-                const navbarHeight = navbar.offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                const offset = 80;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
             }
         });
     });
 
     // ============================================
-    // Number Counter Animation
+    // Counter Animation
     // ============================================
-    const counters = document.querySelectorAll('.advantage-number');
-    let countersAnimated = false;
+    const counters = document.querySelectorAll('.stat-num');
+    let animated = false;
 
-    const animateCounter = (counter) => {
-        const target = parseInt(counter.getAttribute('data-count'));
+    const animateCounter = (el) => {
+        const target = parseInt(el.getAttribute('data-count'));
         const duration = 2000;
         const step = target / (duration / 16);
         let current = 0;
 
-        const updateCounter = () => {
+        const update = () => {
             current += step;
             if (current < target) {
-                counter.textContent = Math.floor(current);
-                requestAnimationFrame(updateCounter);
+                el.textContent = Math.floor(current);
+                requestAnimationFrame(update);
             } else {
-                counter.textContent = target;
+                el.textContent = target;
             }
         };
 
-        updateCounter();
+        update();
     };
 
     const checkCounters = () => {
-        if (countersAnimated) return;
-
-        const advantagesSection = document.getElementById('advantages');
-        const sectionTop = advantagesSection.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (sectionTop < windowHeight * 0.8) {
-            countersAnimated = true;
-            counters.forEach(counter => animateCounter(counter));
+        if (animated) return;
+        const section = document.getElementById('advantages');
+        if (section) {
+            const top = section.getBoundingClientRect().top;
+            if (top < window.innerHeight * 0.8) {
+                animated = true;
+                counters.forEach(counter => animateCounter(counter));
+            }
         }
     };
 
     window.addEventListener('scroll', checkCounters);
-    checkCounters(); // Check on load
+    checkCounters();
 
     // ============================================
     // Form Handling
     // ============================================
-    const contactForm = document.getElementById('contactForm');
+    const form = document.getElementById('contactForm');
 
-    contactForm.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const submitBtn = contactForm.querySelector('.btn-submit');
-        const originalText = submitBtn.innerHTML;
+        const btn = form.querySelector('.btn-submit');
+        const originalText = btn.innerHTML;
 
-        // Show loading state
-        submitBtn.innerHTML = `
-            <span>Sending...</span>
-            <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
-                <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round">
-                    <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/>
-                </path>
-            </svg>
-        `;
-        submitBtn.disabled = true;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
 
-        // Simulate form submission
         setTimeout(() => {
-            submitBtn.innerHTML = `
-                <span>Message Sent!</span>
+            btn.innerHTML = `
+                Sent!
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 13l4 4L19 7"/>
                 </svg>
             `;
-            submitBtn.classList.add('success');
 
-            // Reset form
             setTimeout(() => {
-                contactForm.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('success');
+                form.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
             }, 2000);
         }, 1500);
     });
 
     // ============================================
-    // Page Load Animation
+    // Language Toggle
     // ============================================
-    const heroContent = document.querySelector('.hero-content');
-    heroContent.style.opacity = '0';
-    heroContent.style.transform = 'translateY(20px)';
+    const langBtn = document.querySelector('.lang-btn');
+    let isEn = true;
 
-    setTimeout(() => {
-        heroContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        heroContent.style.opacity = '1';
-        heroContent.style.transform = 'translateY(0)';
-    }, 100);
-
-    // ============================================
-    // Language Toggle (Placeholder)
-    // ============================================
-    const langToggle = document.querySelector('.lang-toggle');
-    let isEnglish = true;
-
-    langToggle.addEventListener('click', () => {
-        isEnglish = !isEnglish;
-        langToggle.textContent = isEnglish ? 'EN / 中' : '中 / EN';
-        // Note: Implement actual language switching logic here
-        console.log('Language switched to:', isEnglish ? 'English' : 'Chinese');
+    langBtn.addEventListener('click', () => {
+        isEn = !isEn;
+        langBtn.textContent = isEn ? 'EN / 中' : '中 / EN';
     });
-
-    // ============================================
-    // Intersection Observer for Lazy Loading
-    // ============================================
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.getAttribute('data-src');
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    lazyImages.forEach(img => imageObserver.observe(img));
 });
