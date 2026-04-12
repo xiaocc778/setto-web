@@ -3,21 +3,21 @@
    ============================================ */
 
 :root {
-    --black: #0F0F0F;
-    --white: #FFFFFF;
-    --gray-50: #FAFAFA;
-    --gray-100: #F4F4F5;
-    --gray-200: #E4E4E7;
-    --gray-300: #D4D4D8;
-    --gray-400: #A1A1AA;
-    --gray-500: #71717A;
-    --gray-600: #52525B;
-    --gray-700: #3F3F46;
-    --gray-800: #27272A;
-    --gray-900: #18181B;
+    --black: #123C44;
+    --white: #FCFCFA;
+    --gray-50: #F5F5F2;
+    --gray-100: #ECECE6;
+    --gray-200: #DEDED5;
+    --gray-300: #C9CBC3;
+    --gray-400: #9DA29A;
+    --gray-500: #737A73;
+    --gray-600: #59615C;
+    --gray-700: #444C47;
+    --gray-800: #2F3733;
+    --gray-900: #1F2724;
     
-    --green: #1A5A27;
-    --green-light: #2D7A3A;
+    --green: #0F6A54;
+    --green-light: #2E8C74;
     
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-display: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -42,7 +42,7 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--gray-800);
-    background: var(--white);
+    background: #f7f7f4;
     -webkit-font-smoothing: antialiased;
 }
 
