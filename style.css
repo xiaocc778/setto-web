@@ -132,14 +132,17 @@ img {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 1000;
     transition: var(--transition);
+    background: rgba(252, 252, 250, 0.86);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(68, 76, 71, 0.12);
 }
 
 .header.scrolled {
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--gray-200);
+    background: rgba(252, 252, 250, 0.94);
+    border-bottom: 1px solid rgba(68, 76, 71, 0.16);
+    box-shadow: 0 8px 24px rgba(18, 60, 68, 0.08);
 }
 
 .header-inner {
