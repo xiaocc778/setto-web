@@ -194,6 +194,27 @@ img {
     background: var(--green);
 }
 
+.lang-toggle {
+    padding: 10px 16px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--gray-700);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-left: 12px;
+}
+
+.lang-toggle:hover {
+    background: var(--green);
+}
+
+.lang-toggle.active {
+    background: var(--green);
+}
+
 .nav-toggle {
     display: none;
     width: 32px;
