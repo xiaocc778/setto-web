@@ -6,7 +6,8 @@ const translations = {
         'nav.contact': 'Contact',
         'hero.badge': 'Flooring Installation Grade',
         'hero.title': 'The Adhesive for Wood Floors',
-        'hero.subtitle': 'Professional wood flooring adhesive for engineered wood, laminate, and parquet. Strong bond, low odor, and stable performance for residential and commercial projects.',
+        'hero.subtitle.first': 'Professional wood flooring adhesive for engineered wood, laminate, and parquet.',
+        'hero.subtitle': 'Strong bond, low odor, and stable performance for residential and commercial projects.',
         'hero.actions.sample': 'Request Sample',
         'hero.actions.steps': 'See Installation Steps',
         'proof.cure': 'Full Cure Time',
@@ -20,6 +21,9 @@ const translations = {
         'hero.side.laminate': 'Laminate Floor Systems',
         'hero.side.parquet': 'Parquet Installation',
         'hero.side.residential': 'Residential & Commercial Interior',
+        'hero.meta.dispatch': 'Fast Dispatch',
+        'hero.meta.support': 'On-site Technical Support',
+        'hero.meta.bond': 'Stable Bonding',
         'section.why': 'Why SETTO',
         'section.bonding': 'Built for Reliable Floor Bonding',
         'feature.grab': 'Strong Initial Grab',
@@ -175,7 +179,8 @@ const translations = {
         'contact.section.ready': 'Ready to Start Your Flooring Project?',
         'contact.section.desc': 'We support distributors, contractors, and project owners with product recommendations and technical guidance.',
         'contact.form.type': 'Project Type (Residential / Commercial)',
-        'contact.form.details': 'Floor type, area and requirements'
+        'contact.form.details': 'Floor type, area and requirements',
+        'contact.hero.tag': 'Technical Support'
     },
     zh: {
         'nav.product': '产品',
@@ -184,7 +189,8 @@ const translations = {
         'nav.contact': '联系',
         'hero.badge': '地板安装级别',
         'hero.title': '木地板专用粘合剂',
-        'hero.subtitle': '专业木地板粘合剂，适用于工程木地板、层压板和镶嵌地板。粘接力强、低气味、性能稳定，适用于住宅和商业项目。',
+        'hero.subtitle.first': '专业木地板粘合剂，适用于工程木地板、层压板和镶嵌地板。粘接力强、低气味、性能稳定。',
+        'hero.subtitle': '适用于住宅和商业项目。',
         'hero.actions.sample': '申请样品',
         'hero.actions.steps': '查看安装步骤',
         'proof.cure': '完全固化时间',
@@ -198,6 +204,9 @@ const translations = {
         'hero.side.laminate': '层压板系统',
         'hero.side.parquet': '镶嵌地板安装',
         'hero.side.residential': '住宅和商业室内',
+        'hero.meta.dispatch': '快速发货',
+        'hero.meta.support': '现场技术支持',
+        'hero.meta.bond': '稳定粘接',
         'section.why': '为什么选择SETTO',
         'section.bonding': '可靠的地面粘接解决方案',
         'feature.grab': '强初粘力',
@@ -353,7 +362,8 @@ const translations = {
         'contact.section.ready': '准备好开始您的地板项目了吗？',
         'contact.section.desc': '我们为经销商、承包商和项目方提供产品推荐和技术指导。',
         'contact.form.type': '项目类型（住宅/商业）',
-        'contact.form.details': '地板类型、面积和需求'
+        'contact.form.details': '地板类型、面积和需求',
+        'contact.hero.tag': '技术支持'
     }
 };
 
