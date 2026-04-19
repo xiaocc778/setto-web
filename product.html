@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SETTO - Product Details</title>
+    <title>SETTO Supreme S75 - Product Details</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -13,7 +13,13 @@
 <body>
     <header class="header scrolled" id="header">
         <div class="header-inner">
-            <a href="index.html" class="brand">SETTO</a>
+            <a href="index.html" class="brand" aria-label="SETTO Supreme S75">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <span class="brand-copy">
+                    <strong>SETTO</strong>
+                    <small>Supreme S75</small>
+                </span>
+            </a>
             <nav class="nav" id="nav">
                 <a href="product.html" class="nav-link" data-i18n="nav.product">Product</a>
                 <a href="installation.html" class="nav-link" data-i18n="nav.installation">Installation</a>
@@ -27,23 +33,22 @@
         </div>
     </header>
 
-    <section class="hero" style="min-height: 70vh;">
-        <div class="hero-bg-pattern"></div>
+    <section class="hero page-hero">
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content" data-aos="fade-up">
-                    <div class="hero-badge" data-i18n="product.hero.badge">Product Details</div>
-                    <h1 class="hero-title" data-i18n="product.hero.title">Flooring Adhesive<br>Built for Projects</h1>
-                    <p class="hero-subtitle" data-i18n="product.hero.subtitle">SETTO provides stable bonding for engineered wood, laminate and parquet flooring systems with installer-friendly workability.</p>
+                    <div class="hero-badge" data-i18n="product.hero.badge">Product Detail</div>
+                    <h1 class="hero-title" data-i18n="product.hero.title">Supreme S75 for Premium Timber Flooring Projects</h1>
+                    <p class="hero-subtitle" data-i18n="product.hero.subtitle">Single-component moisture-curing MS hybrid adhesive developed for professional timber floor installation with barrier and acoustic benefits in one system.</p>
                     <div class="hero-actions">
                         <a href="contact.html" class="btn-primary" data-i18n="product.hero.tds">Request TDS</a>
-                        <a href="installation.html" class="btn-ghost" data-i18n="product.hero.workflow">View Workflow</a>
+                        <a href="installation.html" class="btn-ghost" data-i18n="product.hero.workflow">View Installation Guide</a>
                     </div>
                 </div>
                 <div class="hero-visual" data-aos="fade-up" data-aos-delay="120">
                     <div class="hero-product-img">
-                        <img src="https://images.pexels.com/photos/5691493/pexels-photo-5691493.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Wood flooring interior">
-                        <div class="hero-product-tag" data-i18n="product.hero.tag">SETTO Product Line</div>
+                        <img src="assets/images/s75-floor-pattern-room.jpg" alt="Special pattern timber flooring finished with S75">
+                        <div class="hero-product-tag" data-i18n="product.hero.tag">3-in-1 Flooring System</div>
                     </div>
                 </div>
             </div>
@@ -53,25 +58,25 @@
     <section class="features" id="product-features">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag" data-i18n="product.section.benefits">Key Benefits</span>
-                <h2 class="section-title" data-i18n="product.section.why">Why Installers Choose SETTO</h2>
+                <span class="section-tag" data-i18n="product.section.benefits">Core Advantages</span>
+                <h2 class="section-title" data-i18n="product.section.why">Why Flooring Teams Choose S75</h2>
             </div>
             <div class="features-grid">
                 <div class="feature-card" data-aos="fade-up">
-                    <h3 data-i18n="product.feature.grip">High Initial Grip</h3>
-                    <p data-i18n="product.feature.grip.desc">Reduces plank shift after placement and improves alignment confidence in real jobsites.</p>
+                    <h3 data-i18n="product.feature.grip">Permanent Elastic Bond</h3>
+                    <p data-i18n="product.feature.grip.desc">Strong adhesion with dimensional stability helps timber layouts stay aligned while retaining long-term flexibility.</p>
                 </div>
                 <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3 data-i18n="product.feature.odor">Low Odor Application</h3>
-                    <p data-i18n="product.feature.odor.desc">Indoor-friendly formula for residential and commercial renovation environments.</p>
+                    <h3 data-i18n="product.feature.odor">Low Odor, Low VOC</h3>
+                    <p data-i18n="product.feature.odor.desc">Solvent-free and isocyanate-free chemistry is suited to interior renovation environments and installer comfort.</p>
                 </div>
                 <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3 data-i18n="product.feature.moisture">Moisture Resistance</h3>
-                    <p data-i18n="product.feature.moisture.desc">Maintains bonding performance through humid weather and routine maintenance cycles.</p>
+                    <h3 data-i18n="product.feature.moisture">Moisture Barrier Performance</h3>
+                    <p data-i18n="product.feature.moisture.desc">With full 100% coverage, the cured layer forms a continuous moisture-resistant film beneath the flooring system.</p>
                 </div>
                 <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <h3 data-i18n="product.feature.trowel">Easy Trowel Spread</h3>
-                    <p data-i18n="product.feature.trowel.desc">Consistent spread behavior helps teams control coverage and finish faster.</p>
+                    <h3 data-i18n="product.feature.trowel">Acoustic Damping Benefit</h3>
+                    <p data-i18n="product.feature.trowel.desc">One-step installation supports impact sound reduction without needing a separate acoustic underlay layer.</p>
                 </div>
             </div>
         </div>
@@ -81,38 +86,82 @@
         <div class="container">
             <div class="specs-grid">
                 <div class="specs-content" data-aos="fade-right">
-                    <span class="section-tag" data-i18n="section.tech">Technical</span>
-                    <h2 class="section-title" data-i18n="product.specs.title">Specifications</h2>
-                    <p class="specs-intro" data-i18n="product.specs.intro">Reference values for planning flooring installation processes.</p>
+                    <span class="section-tag" data-i18n="section.tech">Technical Data</span>
+                    <h2 class="section-title" data-i18n="product.specs.title">Key Product Data</h2>
+                    <p class="specs-intro" data-i18n="product.specs.intro">Reference values from the current Setto Supreme S75 technical data sheet.</p>
                     <div class="specs-table">
                         <div class="spec-row">
-                            <span class="spec-label" data-i18n="spec.application">Application</span>
-                            <span class="spec-value" data-i18n="spec.application.value">Engineered Wood / Laminate / Parquet</span>
+                            <span class="spec-label">Chemical Base</span>
+                            <span class="spec-value">Silane-terminated polymer</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Color</span>
+                            <span class="spec-value">Light yellow</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Density</span>
+                            <span class="spec-value">Approx. 1.6 g/cm3</span>
                         </div>
                         <div class="spec-row">
                             <span class="spec-label" data-i18n="spec.open">Open Time</span>
-                            <span class="spec-value" data-i18n="spec.open.value">20-30 min at 23°C</span>
+                            <span class="spec-value" data-i18n="spec.open.value">20-40 min</span>
                         </div>
                         <div class="spec-row">
-                            <span class="spec-label" data-i18n="spec.traffic">Light Foot Traffic</span>
-                            <span class="spec-value" data-i18n="spec.traffic.value">After 12 hours</span>
+                            <span class="spec-label">Skin Formation</span>
+                            <span class="spec-value">Approx. 30-60 min</span>
                         </div>
                         <div class="spec-row">
-                            <span class="spec-label" data-i18n="spec.cure">Full Cure</span>
-                            <span class="spec-value" data-i18n="spec.cure.value">24 hours</span>
+                            <span class="spec-label">Tensile Strength</span>
+                            <span class="spec-value">>= 0.8 MPa</span>
                         </div>
                         <div class="spec-row">
-                            <span class="spec-label" data-i18n="spec.coverage">Coverage</span>
-                            <span class="spec-value" data-i18n="spec.coverage.value">0.9-1.3 kg / m²</span>
+                            <span class="spec-label">Elongation at Break</span>
+                            <span class="spec-value">>= 200%</span>
                         </div>
                         <div class="spec-row">
                             <span class="spec-label" data-i18n="spec.pkg">Packaging</span>
-                            <span class="spec-value" data-i18n="spec.pkg.value">15kg / 20kg Pail</span>
+                            <span class="spec-value" data-i18n="spec.pkg.value">10 L / 15 kg pails, 590 ml sausages</span>
                         </div>
                     </div>
                 </div>
                 <div class="specs-visual" data-aos="fade-left">
-                    <img src="https://images.pexels.com/photos/15226296/pexels-photo-15226296.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Product texture">
+                    <img src="assets/images/s75-installation-hero.jpg" alt="S75 adhesive application close-up">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="compare">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Recommended For</span>
+                <h2 class="section-title">Compatible Flooring and Substrates</h2>
+            </div>
+            <div class="compare-table" data-aos="fade-up">
+                <div class="compare-row compare-header">
+                    <div class="compare-cell">Category</div>
+                    <div class="compare-cell highlight">Suitable</div>
+                    <div class="compare-cell">Notes</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell" data-label="Category">Flooring</div>
+                    <div class="compare-cell highlight" data-label="Suitable">Solid, engineered, parquet, bamboo, cork</div>
+                    <div class="compare-cell" data-label="Notes">Including dimensionally sensitive timber species</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell" data-label="Category">Subfloors</div>
+                    <div class="compare-cell highlight" data-label="Suitable">Concrete, screed, cured leveling compounds, timber panels</div>
+                    <div class="compare-cell" data-label="Notes">Substrate must be sound, dry, and properly prepared</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell" data-label="Category">Heating</div>
+                    <div class="compare-cell highlight" data-label="Suitable">Underfloor heating systems</div>
+                    <div class="compare-cell" data-label="Notes">Switch off before install and during cure</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell" data-label="Category">Site Outcome</div>
+                    <div class="compare-cell highlight" data-label="Suitable">Bonding + barrier + acoustic support</div>
+                    <div class="compare-cell" data-label="Notes">Requires full-coverage application for full system effect</div>
                 </div>
             </div>
         </div>
@@ -122,8 +171,8 @@
         <div class="container">
             <div class="footer-inner">
                 <div class="footer-brand">
-                    <span class="footer-logo">SETTO</span>
-                    <p data-i18n="product.footer.brand">Professional flooring adhesive solutions for residential, commercial and project-based installations.</p>
+                    <span class="footer-logo">SETTO Supreme S75</span>
+                    <p data-i18n="product.footer.brand">Professional timber flooring adhesive solution for patterned installations, premium residential interiors, and commercial fit-outs.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-col">
@@ -138,7 +187,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom"><p>&copy; <span data-i18n="footer.copy">2024 SETTO. All rights reserved.</span></p></div>
+            <div class="footer-bottom"><p>&copy; <span data-i18n="footer.copy">2026 SETTO Supreme S75. All rights reserved.</span></p></div>
         </div>
     </footer>
 
