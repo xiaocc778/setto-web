@@ -1,91 +1,122 @@
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.AOS) {
-        AOS.init({
-            duration: 650,
-            easing: "ease-out-cubic",
-            once: true,
-            offset: 60
-        });
-    }
-
-    document.body.classList.add("page-loaded");
-
-    const header = document.getElementById("header");
-    const nav = document.getElementById("nav");
-    const navToggle = document.getElementById("navToggle");
-
-    const syncHeader = () => {
-        header?.classList.toggle("scrolled", window.scrollY > 24);
-    };
-
-    syncHeader();
-    window.addEventListener("scroll", syncHeader, { passive: true });
-
-    navToggle?.addEventListener("click", () => {
-        navToggle.classList.toggle("active");
-        nav?.classList.toggle("active");
+document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({
+        duration: 700,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 60
     });
 
-    document.querySelectorAll("a[href]").forEach(link => {
-        link.addEventListener("click", () => {
-            navToggle?.classList.remove("active");
-            nav?.classList.remove("active");
+    document.body.classList.add('page-loaded');
+
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header?.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile nav
+    const navToggle = document.getElementById('navToggle');
+    const nav = document.getElementById('nav');
+    navToggle?.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        nav?.classList.toggle('active');
+    });
+
+    // Smooth scroll (same-page anchors only)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const href = a.getAttribute('href');
+            if (!href || href.length <= 1) return;
+
+            const target = document.querySelector(href);
+            if (!target) return;
+
+            e.preventDefault();
+            const top = target.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, behavior: 'smooth' });
+            navToggle?.classList.remove('active');
+            nav?.classList.remove('active');
         });
     });
 
-    const counters = document.querySelectorAll(".proof-num");
-    const proofSection = document.querySelector(".proof");
+    // Counter animation
+    const counters = document.querySelectorAll('.proof-num');
     let animated = false;
 
-    const animateCounter = (el) => {
+    const animateCounter = el => {
         const target = Number(el.dataset.count || 0);
-        const duration = 1400;
-        const start = performance.now();
+        const duration = 1800;
+        const step = target / (duration / 16);
+        let current = 0;
 
-        const tick = (now) => {
-            const progress = Math.min((now - start) / duration, 1);
-            el.textContent = String(Math.round(target * progress));
-            if (progress < 1) {
-                requestAnimationFrame(tick);
-            }
+        const update = () => {
+            current += step;
+            el.textContent = current < target ? Math.floor(current) : target;
+            if (current < target) requestAnimationFrame(update);
         };
 
-        requestAnimationFrame(tick);
+        update();
     };
 
-    const onScroll = () => {
-        if (animated || !proofSection) return;
-        if (proofSection.getBoundingClientRect().top < window.innerHeight * 0.8) {
+    const checkCounters = () => {
+        if (animated) return;
+        const proof = document.querySelector('.proof');
+        if (proof && proof.getBoundingClientRect().top < window.innerHeight * 0.82) {
             animated = true;
             counters.forEach(animateCounter);
         }
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    window.addEventListener('scroll', checkCounters);
+    checkCounters();
 
-    const form = document.getElementById("contactForm");
-    form?.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const button = form.querySelector(".btn-submit");
-        if (!button) return;
+    // Subtle pointer parallax
+    const parallaxTargets = document.querySelectorAll('.hero-product-img, .gallery-item img');
+    window.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 8;
+        const y = (e.clientY / window.innerHeight - 0.5) * 8;
 
-        const sendingText = document.documentElement.lang === "zh" ? "发送中..." : "Sending...";
-        const sentText = document.documentElement.lang === "zh" ? "已发送" : "Sent";
-        const defaultText = button.dataset.defaultText || button.textContent;
+        parallaxTargets.forEach((el, i) => {
+            const factor = (i % 3 + 1) * 0.08;
+            el.style.transform = `translate3d(${x * factor}px, ${y * factor}px, 0)`;
+        });
+    });
 
-        button.dataset.defaultText = defaultText;
-        button.textContent = sendingText;
-        button.disabled = true;
+    // Interactive tilt cards
+    const tiltCards = document.querySelectorAll('.feature-card, .app-card, .workflow-step, .gallery-item');
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const px = (e.clientX - rect.left) / rect.width;
+            const py = (e.clientY - rect.top) / rect.height;
+            const rotateY = (px - 0.5) * 7;
+            const rotateX = (0.5 - py) * 7;
+
+            card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
+    // Form submit
+    const form = document.getElementById('contactForm');
+    form?.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = form.querySelector('.btn-submit');
+        if (!btn) return;
+
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
 
         setTimeout(() => {
-            button.textContent = sentText;
-
+            btn.textContent = 'Sent!';
             setTimeout(() => {
                 form.reset();
-                button.textContent = defaultText;
-                button.disabled = false;
-            }, 1400);
-        }, 1000);
+                btn.textContent = 'Send Request';
+                btn.disabled = false;
+            }, 1600);
+        }, 1200);
     });
 });
