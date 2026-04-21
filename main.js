@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     AOS.init({
         duration: 700,
         easing: 'ease-out-cubic',
         once: true,
-        offset: 60
+        offset: 60,
+        disable: prefersReducedMotion
     });
 
     document.body.classList.add('page-loaded');
@@ -17,9 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile nav
     const navToggle = document.getElementById('navToggle');
     const nav = document.getElementById('nav');
+    const setMobileNavState = isOpen => {
+        navToggle?.classList.toggle('active', isOpen);
+        nav?.classList.toggle('active', isOpen);
+        navToggle?.setAttribute('aria-expanded', String(isOpen));
+    };
+
     navToggle?.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        nav?.classList.toggle('active');
+        const isOpen = !nav?.classList.contains('active');
+        setMobileNavState(Boolean(isOpen));
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') setMobileNavState(false);
+    });
+
+    nav?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => setMobileNavState(false));
     });
 
     // Smooth scroll (same-page anchors only)
@@ -34,8 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const top = target.getBoundingClientRect().top + window.scrollY - 80;
             window.scrollTo({ top, behavior: 'smooth' });
-            navToggle?.classList.remove('active');
-            nav?.classList.remove('active');
+            setMobileNavState(false);
         });
     });
 
@@ -70,35 +86,46 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', checkCounters);
     checkCounters();
 
-    // Subtle pointer parallax
-    const parallaxTargets = document.querySelectorAll('.hero-product-img, .gallery-item img');
-    window.addEventListener('mousemove', e => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 8;
-        const y = (e.clientY / window.innerHeight - 0.5) * 8;
+    // Subtle pointer effects (desktop only)
+    const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!prefersReducedMotion && supportsHover) {
+        const parallaxTargets = document.querySelectorAll('.hero-product-img, .gallery-item img');
+        let rafPending = false;
+        let lastX = 0;
+        let lastY = 0;
 
-        parallaxTargets.forEach((el, i) => {
-            const factor = (i % 3 + 1) * 0.08;
-            el.style.transform = `translate3d(${x * factor}px, ${y * factor}px, 0)`;
-        });
-    });
+        window.addEventListener('mousemove', e => {
+            lastX = (e.clientX / window.innerWidth - 0.5) * 8;
+            lastY = (e.clientY / window.innerHeight - 0.5) * 8;
+            if (rafPending) return;
 
-    // Interactive tilt cards
-    const tiltCards = document.querySelectorAll('.feature-card, .app-card, .workflow-step, .gallery-item');
-    tiltCards.forEach(card => {
-        card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const px = (e.clientX - rect.left) / rect.width;
-            const py = (e.clientY - rect.top) / rect.height;
-            const rotateY = (px - 0.5) * 7;
-            const rotateX = (0.5 - py) * 7;
-
-            card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+            rafPending = true;
+            requestAnimationFrame(() => {
+                parallaxTargets.forEach((el, i) => {
+                    const factor = (i % 3 + 1) * 0.08;
+                    el.style.transform = `translate3d(${lastX * factor}px, ${lastY * factor}px, 0)`;
+                });
+                rafPending = false;
+            });
         });
 
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
+        const tiltCards = document.querySelectorAll('.feature-card, .app-card, .workflow-step, .gallery-item');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const px = (e.clientX - rect.left) / rect.width;
+                const py = (e.clientY - rect.top) / rect.height;
+                const rotateY = (px - 0.5) * 7;
+                const rotateX = (0.5 - py) * 7;
+
+                card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
         });
-    });
+    }
 
     // Form submit
     const form = document.getElementById('contactForm');

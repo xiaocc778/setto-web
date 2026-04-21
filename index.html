@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SETTO wood flooring adhesive for engineered wood, laminate, and parquet. Low odor, strong bond, and project-ready technical support.">
     <title>SETTO - Wood Flooring Adhesive</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +24,7 @@
                 <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
             </nav>
             <button class="lang-toggle" id="langToggle" aria-label="Language">EN</button>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav" type="button">
                 <span></span><span></span>
             </button>
         </div>
@@ -396,16 +397,20 @@
                 </div>
                 <form class="contact-form" data-aos="fade-left" id="contactForm">
                     <div class="form-group">
-                        <input type="text" data-i18n-placeholder="form.name" placeholder="Your Name" required>
+                        <label for="contactName" class="sr-only">Name</label>
+                        <input id="contactName" name="name" type="text" data-i18n-placeholder="form.name" placeholder="Your Name" autocomplete="name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" data-i18n-placeholder="form.email" placeholder="Email Address" required>
+                        <label for="contactEmail" class="sr-only">Email</label>
+                        <input id="contactEmail" name="email" type="email" data-i18n-placeholder="form.email" placeholder="Email Address" autocomplete="email" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" data-i18n-placeholder="form.company" placeholder="Company (Optional)">
+                        <label for="contactCompany" class="sr-only">Company</label>
+                        <input id="contactCompany" name="company" type="text" data-i18n-placeholder="form.company" placeholder="Company (Optional)" autocomplete="organization">
                     </div>
                     <div class="form-group">
-                        <textarea rows="4" data-i18n-placeholder="form.requirements" placeholder="Your Requirements" required></textarea>
+                        <label for="contactRequirements" class="sr-only">Requirements</label>
+                        <textarea id="contactRequirements" name="requirements" rows="4" data-i18n-placeholder="form.requirements" placeholder="Your Requirements" required></textarea>
                     </div>
                     <button type="submit" class="btn-submit" data-i18n="form.submit">Send Request</button>
                 </form>
