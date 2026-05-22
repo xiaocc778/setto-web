@@ -20,7 +20,7 @@ window.SETTO_CONTENT = {
         // TODO: replace with final optimized product visual.
         heroProductImage: "/assets/generated/product-pail-front.webp",
         // TODO: replace with final optimized product visual.
-        heroFlooringImage: "/assets/generated/hero-setto-product-flooring.webp",
+        heroFlooringImage: "/assets/generated/home-cinematic-flooring.webp",
         // TODO: replace with final optimized product visual.
         productPail: "/assets/generated/product-pail-front.webp",
         // TODO: replace with final optimized product visual.
