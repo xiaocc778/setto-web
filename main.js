@@ -1,23 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    AOS.init({
-        duration: 700,
-        easing: 'ease-out-cubic',
-        once: true,
-        offset: 60,
-        disable: prefersReducedMotion
-    });
+    if (window.AOS) {
+        AOS.init({
+            duration: 650,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 60,
+            disable: prefersReducedMotion
+        });
+    }
 
     document.body.classList.add('page-loaded');
 
-    // Header scroll
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
         header?.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Mobile nav
     const navToggle = document.getElementById('navToggle');
     const nav = document.getElementById('nav');
     const setMobileNavState = isOpen => {
@@ -27,27 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     navToggle?.addEventListener('click', () => {
-        const isOpen = !nav?.classList.contains('active');
-        setMobileNavState(Boolean(isOpen));
-    });
-
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') setMobileNavState(false);
+        setMobileNavState(!nav?.classList.contains('active'));
     });
 
     nav?.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => setMobileNavState(false));
     });
 
-    // Smooth scroll (same-page anchors only)
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
             const href = a.getAttribute('href');
             if (!href || href.length <= 1) return;
-
             const target = document.querySelector(href);
             if (!target) return;
-
             e.preventDefault();
             const top = target.getBoundingClientRect().top + window.scrollY - 80;
             window.scrollTo({ top, behavior: 'smooth' });
@@ -55,95 +47,141 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Counter animation
-    const counters = document.querySelectorAll('.proof-num');
-    let animated = false;
+    document.querySelectorAll('[data-pattern-target]').forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.patternTarget;
+            document.querySelectorAll('[data-pattern-target]').forEach(item => {
+                item.classList.toggle('active', item === tab);
+            });
+            document.querySelectorAll('[data-pattern-panel]').forEach(panel => {
+                panel.classList.toggle('active', panel.dataset.patternPanel === target);
+            });
+        });
+    });
 
-    const animateCounter = el => {
-        const target = Number(el.dataset.count || 0);
-        const duration = 1800;
-        const step = target / (duration / 16);
-        let current = 0;
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const panel = trigger.nextElementSibling;
+            const isOpen = trigger.classList.toggle('active');
+            trigger.setAttribute('aria-expanded', String(isOpen));
+            panel?.classList.toggle('active', isOpen);
+        });
+    });
 
-        const update = () => {
-            current += step;
-            el.textContent = current < target ? Math.floor(current) : target;
-            if (current < target) requestAnimationFrame(update);
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox?.querySelector('img');
+    const closeLightbox = () => {
+        lightbox?.classList.remove('active');
+        lightbox?.setAttribute('aria-hidden', 'true');
+        if (lightboxImg) lightboxImg.src = '';
+    };
+
+    document.querySelectorAll('[data-lightbox-src]').forEach(item => {
+        item.addEventListener('click', () => {
+            if (!lightbox || !lightboxImg) return;
+            const preview = item.querySelector('img');
+            lightboxImg.src = item.dataset.lightboxSrc || '';
+            lightboxImg.alt = preview?.alt || '';
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+        });
+    });
+
+    lightbox?.addEventListener('click', e => {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            setMobileNavState(false);
+            closeLightbox();
+        }
+    });
+
+    const heroMedia = document.querySelector('.hero-media');
+    const heroVideo = document.querySelector('.hero-media video');
+    const heroImage = document.querySelector('.hero-media img');
+    const heroSource = heroVideo?.querySelector('source[data-src]');
+
+    const markHeroVisible = () => {
+        heroImage?.classList.add('is-loaded');
+        heroVideo?.classList.add('is-loaded');
+    };
+
+    if (heroImage) {
+        if (heroImage.complete) {
+            markHeroVisible();
+        } else {
+            heroImage.addEventListener('load', markHeroVisible, { once: true });
+            heroImage.addEventListener('error', markHeroVisible, { once: true });
+        }
+    }
+
+    const canLoadVideo = heroVideo && heroSource && !prefersReducedMotion && !window.matchMedia('(max-width: 768px)').matches;
+    if (canLoadVideo) {
+        const loadHeroVideo = () => {
+            if (heroSource.dataset.loaded === 'true') return;
+            heroSource.src = heroSource.dataset.src;
+            heroSource.dataset.loaded = 'true';
+            heroVideo.load();
+            heroVideo.play().catch(() => {});
+            heroVideo.classList.add('is-loaded');
         };
 
-        update();
-    };
-
-    const checkCounters = () => {
-        if (animated) return;
-        const proof = document.querySelector('.proof');
-        if (proof && proof.getBoundingClientRect().top < window.innerHeight * 0.82) {
-            animated = true;
-            counters.forEach(animateCounter);
+        if ('IntersectionObserver' in window && heroMedia) {
+            const heroObserver = new IntersectionObserver(entries => {
+                if (entries.some(entry => entry.isIntersecting)) {
+                    loadHeroVideo();
+                    heroObserver.disconnect();
+                }
+            }, { threshold: 0.1 });
+            heroObserver.observe(heroMedia);
+        } else {
+            loadHeroVideo();
         }
-    };
+    }
 
-    window.addEventListener('scroll', checkCounters);
-    checkCounters();
-
-    // Subtle pointer effects (desktop only)
     const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     if (!prefersReducedMotion && supportsHover) {
-        const parallaxTargets = document.querySelectorAll('.hero-product-img, .gallery-item img');
+        const parallaxTargets = document.querySelectorAll('.hero-media img');
         let rafPending = false;
         let lastX = 0;
         let lastY = 0;
 
         window.addEventListener('mousemove', e => {
-            lastX = (e.clientX / window.innerWidth - 0.5) * 8;
-            lastY = (e.clientY / window.innerHeight - 0.5) * 8;
+            lastX = (e.clientX / window.innerWidth - 0.5) * 6;
+            lastY = (e.clientY / window.innerHeight - 0.5) * 6;
             if (rafPending) return;
 
             rafPending = true;
             requestAnimationFrame(() => {
-                parallaxTargets.forEach((el, i) => {
-                    const factor = (i % 3 + 1) * 0.08;
-                    el.style.transform = `translate3d(${lastX * factor}px, ${lastY * factor}px, 0)`;
+                parallaxTargets.forEach(el => {
+                    el.style.transform = `scale(1.03) translate3d(${lastX * 0.08}px, ${lastY * 0.08}px, 0)`;
                 });
                 rafPending = false;
             });
         });
-
-        const tiltCards = document.querySelectorAll('.feature-card, .app-card, .workflow-step, .gallery-item');
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const px = (e.clientX - rect.left) / rect.width;
-                const py = (e.clientY - rect.top) / rect.height;
-                const rotateY = (px - 0.5) * 7;
-                const rotateX = (0.5 - py) * 7;
-
-                card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
-        });
     }
 
-    // Form submit
     const form = document.getElementById('contactForm');
     form?.addEventListener('submit', e => {
         e.preventDefault();
         const btn = form.querySelector('.btn-submit');
         if (!btn) return;
 
-        btn.textContent = 'Sending...';
+        const original = btn.textContent;
+        btn.textContent = document.documentElement.lang === 'zh' ? '发送中...' : 'Sending...';
         btn.disabled = true;
 
         setTimeout(() => {
-            btn.textContent = 'Sent!';
+            btn.textContent = document.documentElement.lang === 'zh' ? '已发送' : 'Sent!';
             setTimeout(() => {
                 form.reset();
-                btn.textContent = 'Send Request';
+                btn.textContent = original;
                 btn.disabled = false;
             }, 1600);
-        }, 1200);
+        }, 900);
     });
 });

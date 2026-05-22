@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SETTO - Product Details</title>
+    <meta name="description" content="Explore SETTO SUPREME S75 technical benefits, specifications, packaging, and 3-in-1 performance for timber flooring projects.">
+    <title>SETTO SUPREME S75 - Product Details</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -13,7 +14,7 @@
 <body>
     <header class="header scrolled" id="header">
         <div class="header-inner">
-            <a href="index.html" class="brand">SETTO</a>
+            <a href="index.html" class="brand" aria-label="SETTO Home"><img src="assets/images/brand/setto-logo.png" alt="SETTO" width="132" height="54"></a>
             <nav class="nav" id="nav">
                 <a href="product.html" class="nav-link" data-i18n="nav.product">Product</a>
                 <a href="installation.html" class="nav-link" data-i18n="nav.installation">Installation</a>
@@ -21,29 +22,27 @@
                 <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
             </nav>
             <button class="lang-toggle" id="langToggle" aria-label="Language">EN</button>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu">
-                <span></span><span></span>
-            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav" type="button"><span></span><span></span></button>
         </div>
     </header>
 
-    <section class="hero" style="min-height: 70vh;">
+    <section class="hero subpage-hero">
         <div class="hero-bg-pattern"></div>
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content" data-aos="fade-up">
                     <div class="hero-badge" data-i18n="product.hero.badge">Product Details</div>
-                    <h1 class="hero-title" data-i18n="product.hero.title">Flooring Adhesive<br>Built for Projects</h1>
-                    <p class="hero-subtitle" data-i18n="product.hero.subtitle">SETTO provides stable bonding for engineered wood, laminate and parquet flooring systems with installer-friendly workability.</p>
+                    <h1 class="hero-title" data-i18n="product.hero.title">SETTO SUPREME S75</h1>
+                    <p class="hero-subtitle" data-i18n="product.hero.subtitle">Advanced MS polymer timber flooring adhesive for projects that need bonding strength, moisture resistance, and acoustic performance from one system.</p>
                     <div class="hero-actions">
-                        <a href="contact.html" class="btn-primary" data-i18n="product.hero.tds">Request TDS</a>
+                        <a href="assets/docs/SETTO-S75-TDS.pdf" class="btn-primary" data-i18n="product.hero.tds">Download TDS</a>
                         <a href="installation.html" class="btn-ghost" data-i18n="product.hero.workflow">View Workflow</a>
                     </div>
                 </div>
                 <div class="hero-visual" data-aos="fade-up" data-aos-delay="120">
-                    <div class="hero-product-img">
-                        <img src="https://images.pexels.com/photos/5691493/pexels-photo-5691493.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Wood flooring interior">
-                        <div class="hero-product-tag" data-i18n="product.hero.tag">SETTO Product Line</div>
+                    <div class="hero-product-img product-packshot">
+                        <img src="assets/images/product/setto-s75-pail.jpg" alt="SETTO SUPREME S75 timber flooring adhesive pail" width="1267" height="962">
+                        <div class="hero-product-tag" data-i18n="product.hero.tag">3-in-1 System</div>
                     </div>
                 </div>
             </div>
@@ -54,25 +53,13 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag" data-i18n="product.section.benefits">Key Benefits</span>
-                <h2 class="section-title" data-i18n="product.section.why">Why Installers Choose SETTO</h2>
+                <h2 class="section-title" data-i18n="product.section.why">Why Flooring Teams Choose S75</h2>
             </div>
             <div class="features-grid">
-                <div class="feature-card" data-aos="fade-up">
-                    <h3 data-i18n="product.feature.grip">High Initial Grip</h3>
-                    <p data-i18n="product.feature.grip.desc">Reduces plank shift after placement and improves alignment confidence in real jobsites.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3 data-i18n="product.feature.odor">Low Odor Application</h3>
-                    <p data-i18n="product.feature.odor.desc">Indoor-friendly formula for residential and commercial renovation environments.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3 data-i18n="product.feature.moisture">Moisture Resistance</h3>
-                    <p data-i18n="product.feature.moisture.desc">Maintains bonding performance through humid weather and routine maintenance cycles.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <h3 data-i18n="product.feature.trowel">Easy Trowel Spread</h3>
-                    <p data-i18n="product.feature.trowel.desc">Consistent spread behavior helps teams control coverage and finish faster.</p>
-                </div>
+                <div class="feature-card" data-aos="fade-up"><h3 data-i18n="product.feature.lowvoc">Solvent-free & low VOC</h3><p data-i18n="product.feature.lowvoc.desc">Isocyanate-free, ultra-low VOC formula with low odour during application.</p></div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="80"><h3 data-i18n="product.feature.trowel">Superior trowelability</h3><p data-i18n="product.feature.trowel.desc">Rheologically optimised for easy spread and strong non-slump ridge retention.</p></div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="160"><h3 data-i18n="product.feature.elastic">Permanently elastic bond</h3><p data-i18n="product.feature.elastic.desc">Forms a strong, durable bond while supporting natural timber movement.</p></div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="240"><h3 data-i18n="product.feature.heating">Underfloor heating compatible</h3><p data-i18n="product.feature.heating.desc">Suitable for prepared substrates incorporating radiant heating systems.</p></div>
             </div>
         </div>
     </section>
@@ -82,38 +69,49 @@
             <div class="specs-grid">
                 <div class="specs-content" data-aos="fade-right">
                     <span class="section-tag" data-i18n="section.tech">Technical</span>
-                    <h2 class="section-title" data-i18n="product.specs.title">Specifications</h2>
-                    <p class="specs-intro" data-i18n="product.specs.intro">Reference values for planning flooring installation processes.</p>
+                    <h2 class="section-title" data-i18n="product.specs.title">Technical Data</h2>
+                    <p class="specs-intro" data-i18n="product.specs.intro">Indicative values are subject to site conditions and should be checked against the latest TDS.</p>
                     <div class="specs-table">
-                        <div class="spec-row">
-                            <span class="spec-label" data-i18n="spec.application">Application</span>
-                            <span class="spec-value" data-i18n="spec.application.value">Engineered Wood / Laminate / Parquet</span>
-                        </div>
-                        <div class="spec-row">
-                            <span class="spec-label" data-i18n="spec.open">Open Time</span>
-                            <span class="spec-value" data-i18n="spec.open.value">20-30 min at 23°C</span>
-                        </div>
-                        <div class="spec-row">
-                            <span class="spec-label" data-i18n="spec.traffic">Light Foot Traffic</span>
-                            <span class="spec-value" data-i18n="spec.traffic.value">After 12 hours</span>
-                        </div>
-                        <div class="spec-row">
-                            <span class="spec-label" data-i18n="spec.cure">Full Cure</span>
-                            <span class="spec-value" data-i18n="spec.cure.value">24 hours</span>
-                        </div>
-                        <div class="spec-row">
-                            <span class="spec-label" data-i18n="spec.coverage">Coverage</span>
-                            <span class="spec-value" data-i18n="spec.coverage.value">0.9-1.3 kg / m²</span>
-                        </div>
-                        <div class="spec-row">
-                            <span class="spec-label" data-i18n="spec.pkg">Packaging</span>
-                            <span class="spec-value" data-i18n="spec.pkg.value">15kg / 20kg Pail</span>
-                        </div>
+                        <div class="spec-row"><span class="spec-label" data-i18n="spec.base">Chemical Base</span><span class="spec-value" data-i18n="spec.base.value">Silane-terminated polymer</span></div>
+                        <div class="spec-row"><span class="spec-label" data-i18n="spec.color">Colour</span><span class="spec-value" data-i18n="spec.color.value">Light yellow</span></div>
+                        <div class="spec-row"><span class="spec-label" data-i18n="spec.density">Density</span><span class="spec-value" data-i18n="spec.density.value">Approx. 1.6 g/cm3</span></div>
+                        <div class="spec-row"><span class="spec-label" data-i18n="spec.skin">Skin Formation</span><span class="spec-value" data-i18n="spec.skin.value">Approx. 30-60 minutes</span></div>
+                        <div class="spec-row"><span class="spec-label" data-i18n="spec.open">Open Time</span><span class="spec-value" data-i18n="spec.open.value">20-40 minutes</span></div>
+                        <div class="spec-row"><span class="spec-label" data-i18n="spec.cure">Full Cure Rate</span><span class="spec-value" data-i18n="spec.cure.value">Approx. 3 mm / 24 h</span></div>
+                        <div class="spec-row"><span class="spec-label" data-i18n="spec.tensile">Tensile Strength</span><span class="spec-value" data-i18n="spec.tensile.value">>= 0.8 MPa</span></div>
+                        <div class="spec-row"><span class="spec-label" data-i18n="spec.elongation">Elongation at Break</span><span class="spec-value" data-i18n="spec.elongation.value">>= 200%</span></div>
+                        <div class="spec-row"><span class="spec-label" data-i18n="spec.temp">Service Temperature</span><span class="spec-value" data-i18n="spec.temp.value">-40°C to +90°C</span></div>
+                        <div class="spec-row"><span class="spec-label" data-i18n="spec.pkg">Packaging</span><span class="spec-value" data-i18n="spec.pkg.value">10 L / 15 kg pails | 590 ml sausages</span></div>
                     </div>
                 </div>
-                <div class="specs-visual" data-aos="fade-left">
-                    <img src="https://images.pexels.com/photos/15226296/pexels-photo-15226296.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Product texture">
+                <div class="detail-panel" data-aos="fade-left">
+                    <h3 data-i18n="product.suitable.title">Suitable flooring systems</h3>
+                    <ul>
+                        <li data-i18n="product.suitable.solid">Solid timber flooring</li>
+                        <li data-i18n="product.suitable.engineered">Engineered timber flooring</li>
+                        <li data-i18n="product.suitable.parquet">Multi-layer parquet systems</li>
+                        <li data-i18n="product.suitable.blocks">End-grain wood blocks</li>
+                        <li data-i18n="product.suitable.bamboo">Bamboo and cork flooring systems</li>
+                        <li data-i18n="product.suitable.exotic">Dimensionally sensitive and exotic timber species</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary" data-i18n="product.suitable.cta">Check Project Suitability</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="compare">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="section.compare">Why Compare</span>
+                <h2 class="section-title" data-i18n="section.advantage">S75 3-in-1 Advantage</h2>
+            </div>
+            <div class="compare-table" data-aos="fade-up">
+                <div class="compare-row compare-header"><div class="compare-cell" data-i18n="compare.item">Project Need</div><div class="compare-cell highlight" data-i18n="compare.setto">S75</div><div class="compare-cell" data-i18n="compare.conventional">Separate Systems</div></div>
+                <div class="compare-row"><div class="compare-cell" data-label="Project Need" data-i18n="compare.bond">Structural bonding</div><div class="compare-cell highlight" data-label="S75" data-i18n="compare.bond.setto">Included</div><div class="compare-cell" data-label="Separate Systems" data-i18n="compare.bond.conv">Adhesive required</div></div>
+                <div class="compare-row"><div class="compare-cell" data-label="Project Need" data-i18n="compare.moisture">Moisture protection</div><div class="compare-cell highlight" data-label="S75" data-i18n="compare.moisture.setto">Full-coverage film</div><div class="compare-cell" data-label="Separate Systems" data-i18n="compare.moisture.conv">Separate barrier</div></div>
+                <div class="compare-row"><div class="compare-cell" data-label="Project Need" data-i18n="compare.acoustic">Acoustic performance</div><div class="compare-cell highlight" data-label="S75" data-i18n="compare.acoustic.setto">One-step support</div><div class="compare-cell" data-label="Separate Systems" data-i18n="compare.acoustic.conv">Separate underlay</div></div>
+                <div class="compare-row"><div class="compare-cell" data-label="Project Need" data-i18n="compare.waste">Site logistics</div><div class="compare-cell highlight" data-label="S75" data-i18n="compare.waste.setto">Reduced material layers</div><div class="compare-cell" data-label="Separate Systems" data-i18n="compare.waste.conv">More stock and waste</div></div>
             </div>
         </div>
     </section>
@@ -121,24 +119,13 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-inner">
-                <div class="footer-brand">
-                    <span class="footer-logo">SETTO</span>
-                    <p data-i18n="product.footer.brand">Professional flooring adhesive solutions for residential, commercial and project-based installations.</p>
-                </div>
+                <div class="footer-brand"><img src="assets/images/brand/setto-logo.png" alt="SETTO" width="132" height="54"><p data-i18n="footer.brand">SETTO SUPREME S75 timber flooring adhesive by Setto Australia.</p></div>
                 <div class="footer-links">
-                    <div class="footer-col">
-                        <h5 data-i18n="product.footer.pages">Pages</h5>
-                        <a href="index.html" data-i18n="product.footer.home">Home</a>
-                        <a href="installation.html" data-i18n="nav.installation">Installation</a>
-                        <a href="applications.html" data-i18n="nav.applications">Applications</a>
-                    </div>
-                    <div class="footer-col">
-                        <h5 data-i18n="nav.contact">Contact</h5>
-                        <a href="contact.html" data-i18n="product.footer.quote">Get Quote</a>
-                    </div>
+                    <div class="footer-col"><h5 data-i18n="footer.product">Product</h5><a href="assets/docs/SETTO-S75-TDS.pdf" data-i18n="footer.tds">Download TDS</a><a href="installation.html" data-i18n="footer.install">Installation</a><a href="applications.html" data-i18n="footer.apps">Applications</a></div>
+                    <div class="footer-col"><h5 data-i18n="footer.company">Setto Australia</h5><a href="contact.html" data-i18n="footer.contact">Contact</a></div>
                 </div>
             </div>
-            <div class="footer-bottom"><p>&copy; <span data-i18n="footer.copy">2024 SETTO. All rights reserved.</span></p></div>
+            <div class="footer-bottom"><p>&copy; <span data-i18n="footer.copy">2026 SETTO. All rights reserved.</span></p></div>
         </div>
     </footer>
 
