@@ -4,7 +4,70 @@ const imagePath = key => content.images?.[key] || "/assets/placeholders/missing-
 
 function renderHeader() {
     document.querySelectorAll("[data-site-header]").forEach(header => {
+        const isReplicaHome = document.body.classList.contains("homey-replica");
         const nav = content.navigation || [];
+
+        if (isReplicaHome) {
+            header.innerHTML = `
+                <div class="replica-topbar">
+                    <div class="topbar-inner">
+                        <div class="topbar-contact">
+                            <span>✉ ${content.brand.email}</span>
+                            <span>☎ ${content.brand.phone}</span>
+                        </div>
+                        <div class="topbar-social" aria-label="Social links">
+                            <a href="#" aria-label="Facebook">f</a>
+                            <a href="#" aria-label="Instagram">i</a>
+                            <a href="#" aria-label="YouTube">y</a>
+                            <a href="#" aria-label="LinkedIn">in</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-inner">
+                    <a class="brand" href="/index.html" aria-label="Setto home">
+                        <img src="${content.brand.logo}" alt="Setto logo" width="190" height="76">
+                    </a>
+                    <div class="replica-nav-wrap">
+                        <nav class="nav" id="siteNav" aria-label="Primary navigation">
+                            <a href="/index.html#about">About Us</a>
+                            <div class="nav-item">
+                                <span class="nav-item-trigger" tabindex="0">Products</span>
+                                <div class="mega-menu">
+                                    <a href="/product.html">Setto Supreme S75</a>
+                                    <a href="/product.html#quick-facts">10 L / 15 kg Pail</a>
+                                    <a href="/product.html#quick-facts">590 ml Sausage</a>
+                                    <a href="/installation.html#technical-data">Technical Data Sheet</a>
+                                </div>
+                            </div>
+                            <div class="nav-item">
+                                <span class="nav-item-trigger" tabindex="0">Solutions</span>
+                                <div class="mega-menu">
+                                    <a href="/applications.html">Timber Flooring</a>
+                                    <a href="/applications.html">Herringbone & Chevron</a>
+                                    <a href="/applications.html">Moisture Barrier</a>
+                                    <a href="/applications.html">Acoustic Flooring</a>
+                                    <a href="/applications.html">Underfloor Heating</a>
+                                    <a href="/applications.html">Commercial Projects</a>
+                                </div>
+                            </div>
+                            <a href="/installation.html">Video</a>
+                            <a href="/blog.html">Blog</a>
+                            <a href="/contact.html">Distributor</a>
+                        </nav>
+                    </div>
+                    <div class="header-tools">
+                        <button class="language-trigger" type="button">English</button>
+                        <button class="search-trigger" type="button" data-open-modal="quote">Search</button>
+                        <button class="btn btn-primary header-quote" type="button" data-open-modal="quote">Contact Us</button>
+                        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+                            <span></span><span></span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
         header.innerHTML = `
             <div class="header-inner">
                 <a class="brand" href="/index.html" aria-label="Setto home">
@@ -41,14 +104,14 @@ function renderFooter() {
                     }).join("")}
                 </div>
                 <div>
-                    <h3>Products</h3>
+                    <h3>Product Categories</h3>
                     <a href="/product.html">Setto Supreme S75</a>
                     <a href="/product.html#quick-facts">10 L / 15 kg Pail</a>
                     <a href="/product.html#quick-facts">590 ml Sausage</a>
                     <a href="${content.documents.tds}">Technical Data Sheet</a>
                 </div>
                 <div>
-                    <h3>Contact</h3>
+                    <h3>Stay In Touch</h3>
                     <a href="tel:${brand.phone?.replace(/[^0-9]/g, "")}">${brand.phone}</a>
                     <a href="mailto:${brand.email}">${brand.email}</a>
                     <p>${brand.location}</p>
@@ -138,11 +201,13 @@ function initNavigation() {
     const header = document.querySelector(".site-header");
     const menuToggle = document.getElementById("menuToggle");
     const nav = document.getElementById("siteNav");
+    const navItems = document.querySelectorAll(".nav-item");
 
     const closeMenu = () => {
         nav?.classList.remove("open");
         menuToggle?.classList.remove("active");
         menuToggle?.setAttribute("aria-expanded", "false");
+        navItems.forEach(item => item.classList.remove("open"));
     };
 
     window.addEventListener("scroll", () => {
@@ -157,6 +222,11 @@ function initNavigation() {
     });
 
     nav?.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+    navItems.forEach(item => {
+        item.querySelector(".nav-item-trigger")?.addEventListener("click", () => {
+            item.classList.toggle("open");
+        });
+    });
     document.addEventListener("keydown", event => {
         if (event.key === "Escape") closeMenu();
     });
@@ -206,6 +276,93 @@ function initReveal() {
     items.forEach(item => observer.observe(item));
 }
 
+function initHeroSlider() {
+    const slider = document.querySelector("[data-hero-slider]");
+    if (!slider) return;
+
+    const slides = [...slider.querySelectorAll("[data-slide]")];
+    const dots = [...slider.querySelectorAll(".hero-progress span")];
+    let current = 0;
+    let timer;
+
+    const show = index => {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => slide.classList.toggle("active", slideIndex === current));
+        dots.forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === current));
+    };
+
+    const restart = () => {
+        window.clearInterval(timer);
+        timer = window.setInterval(() => show(current + 1), 5200);
+    };
+
+    slider.querySelector("[data-hero-prev]")?.addEventListener("click", () => {
+        show(current - 1);
+        restart();
+    });
+    slider.querySelector("[data-hero-next]")?.addEventListener("click", () => {
+        show(current + 1);
+        restart();
+    });
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            show(index);
+            restart();
+        });
+    });
+    restart();
+}
+
+function initCertificateSlider() {
+    document.querySelectorAll("[data-cert-slider]").forEach(slider => {
+        const track = slider.querySelector(".certificate-track");
+        const scrollByCard = direction => {
+            const card = track?.querySelector(".certificate-card");
+            const amount = card ? card.getBoundingClientRect().width + 56 : 260;
+            track?.scrollBy({ left: amount * direction, behavior: "smooth" });
+        };
+
+        slider.querySelector("[data-cert-prev]")?.addEventListener("click", () => scrollByCard(-1));
+        slider.querySelector("[data-cert-next]")?.addEventListener("click", () => scrollByCard(1));
+    });
+}
+
+function initReplicaModals() {
+    const openModal = name => {
+        const modal = document.querySelector(`[data-modal="${name}"]`);
+        if (!modal) return;
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("no-scroll");
+    };
+
+    const closeModal = modal => {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("no-scroll");
+    };
+
+    document.querySelectorAll("[data-open-modal]").forEach(trigger => {
+        trigger.addEventListener("click", event => {
+            event.preventDefault();
+            openModal(trigger.dataset.openModal);
+        });
+    });
+
+    document.querySelectorAll(".replica-modal").forEach(modal => {
+        modal.querySelector("[data-close-modal]")?.addEventListener("click", () => closeModal(modal));
+        modal.addEventListener("click", event => {
+            if (event.target === modal) closeModal(modal);
+        });
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            document.querySelectorAll(".replica-modal.open").forEach(closeModal);
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     renderHeader();
     renderFooter();
@@ -216,5 +373,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initNavigation();
     initTabs();
     initInquiryForm();
+    initHeroSlider();
+    initCertificateSlider();
+    initReplicaModals();
     initReveal();
 });
