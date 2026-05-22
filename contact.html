@@ -3,117 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SETTO - Contact</title>
+    <meta name="description" content="Contact Setto Australia for Setto Supreme S75 timber flooring adhesive quotes, technical data and distribution inquiries.">
+    <title>Contact Setto Australia | Timber Flooring Adhesive Inquiry</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header scrolled" id="header">
-        <div class="header-inner">
-            <a href="index.html" class="brand">SETTO</a>
-            <nav class="nav" id="nav">
-                <a href="product.html" class="nav-link" data-i18n="nav.product">Product</a>
-                <a href="installation.html" class="nav-link" data-i18n="nav.installation">Installation</a>
-                <a href="applications.html" class="nav-link" data-i18n="nav.applications">Applications</a>
-                <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
-            </nav>
-            <button class="lang-toggle" id="langToggle" aria-label="Language">EN</button>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu">
-                <span></span><span></span>
-            </button>
-        </div>
-    </header>
+    <header class="site-header" data-site-header></header>
 
-    <section class="hero" style="min-height: 60vh;">
-        <div class="hero-bg-pattern"></div>
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content" data-aos="fade-up">
-                    <div class="hero-badge" data-i18n="contact.hero.badge">Contact SETTO</div>
-                    <h1 class="hero-title" data-i18n="contact.hero.title">Tell Us About<br>Your Project</h1>
-                    <p class="hero-subtitle" data-i18n="contact.hero.subtitle">Share flooring type, area size, and site conditions. Our team will suggest suitable adhesive usage and application workflow.</p>
+    <main>
+        <section class="section-card" id="contact">
+            <div class="section-inner contact-layout">
+                <div class="contact-info reveal">
+                    <p class="section-kicker">Contact</p>
+                    <h1>Get In Touch</h1>
+                    <p>Tell us about your flooring project, product requirement or distribution inquiry.</p>
+                    <a href="tel:1300855668">Phone: 1300-855-668</a>
+                    <a href="mailto:info@setto.com.au">Email: info@setto.com.au</a>
+                    <p>Location: 12-18 Lascelles St, Springvale VIC 3171, Australia</p>
+                    <a class="btn btn-outline" href="#" data-tds-link>Download TDS</a>
                 </div>
-                <div class="hero-visual" data-aos="fade-up" data-aos-delay="100">
-                    <div class="hero-product-img">
-                        <img src="https://images.pexels.com/photos/7489108/pexels-photo-7489108.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Project consultation">
-                        <div class="hero-product-tag" data-i18n="contact.hero.tag">Technical Support</div>
-                    </div>
+                <div class="form-card reveal" id="inquiry">
+                    <form class="inquiry-form" data-inquiry-form>
+                        <div class="field"><label for="name">Name</label><input id="name" name="name" required></div>
+                        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+                        <div class="field"><label for="phone">Phone / WhatsApp</label><input id="phone" name="phone"></div>
+                        <div class="field"><label for="company">Company</label><input id="company" name="company"></div>
+                        <div class="field"><label for="country">Country / Region</label><input id="country" name="country"></div>
+                        <div class="field"><label for="projectType">Project Type</label><input id="projectType" name="projectType"></div>
+                        <div class="field full"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+                        <div class="field full"><button class="btn btn-primary" type="submit">Send Inquiry</button></div>
+                    </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-card">
-                <div class="contact-info" data-aos="fade-right">
-                    <span class="section-tag" data-i18n="contact.section.tag">Get In Touch</span>
-                    <h2 class="section-title" data-i18n="contact.section.ready">Ready to Start Your Flooring Project?</h2>
-                    <p data-i18n="contact.section.desc">We support distributors, contractors, and project owners with product recommendations and technical guidance.</p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                            <span>sales@setto.com</span>
-                        </div>
-                        <div class="contact-method">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                            </svg>
-                            <span>+86 138 0000 0000</span>
-                        </div>
-                        <div class="contact-method">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                            <span>Guangzhou, China</span>
-                        </div>
+        <section class="section-card warm-section">
+            <div class="section-inner">
+                <div class="section-head">
+                    <div>
+                        <p class="section-kicker">Before You Send</p>
+                        <h2>Helpful Project Details</h2>
                     </div>
+                    <p>For faster technical guidance, include flooring type, subfloor condition, area size, expected installation date and whether moisture or acoustic performance is required.</p>
                 </div>
-                <form class="contact-form" data-aos="fade-left" id="contactForm">
-                    <div class="form-group"><input type="text" data-i18n-placeholder="form.name" placeholder="Your Name" required></div>
-                    <div class="form-group"><input type="email" data-i18n-placeholder="form.email" placeholder="Email Address" required></div>
-                    <div class="form-group"><input type="text" data-i18n-placeholder="contact.form.type" placeholder="Project Type (Residential / Commercial)"></div>
-                    <div class="form-group"><textarea rows="4" data-i18n-placeholder="contact.form.details" placeholder="Floor type, area and requirements" required></textarea></div>
-                    <button type="submit" class="btn-submit" data-i18n="form.submit">Send Request</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-brand">
-                    <span class="footer-logo">SETTO</span>
-                    <p data-i18n="footer.brand">Premium industrial sealants and adhesives. Engineered for performance, built to last.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h5 data-i18n="footer.product">Product</h5>
-                        <a href="product.html" data-i18n="footer.specs">Specifications</a>
-                        <a href="applications.html" data-i18n="footer.apps">Applications</a>
-                        <a href="contact.html" data-i18n="footer.sample">Request Sample</a>
-                    </div>
-                    <div class="footer-col">
-                        <h5 data-i18n="footer.company">Company</h5>
-                        <a href="index.html" data-i18n="footer.about">About Us</a>
-                        <a href="product.html" data-i18n="footer.qa">Quality Assurance</a>
-                        <a href="installation.html" data-i18n="footer.network">Global Network</a>
-                    </div>
+                <div class="grid grid-3">
+                    <article class="icon-card reveal"><span class="icon-mark">1</span><h3>Flooring System</h3><p>Solid timber, engineered timber, parquet, bamboo or cork flooring.</p></article>
+                    <article class="icon-card reveal"><span class="icon-mark">2</span><h3>Project Requirement</h3><p>Full coverage, strip bonding, moisture barrier or acoustic performance.</p></article>
+                    <article class="icon-card reveal"><span class="icon-mark">3</span><h3>Subfloor Condition</h3><p>Concrete, screed, levelling compound, timber panels or underfloor heating.</p></article>
                 </div>
             </div>
-            <div class="footer-bottom"><p>&copy; <span data-i18n="footer.copy">2024 SETTO. All rights reserved.</span></p></div>
-        </div>
-    </footer>
+        </section>
+    </main>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <footer class="site-footer" data-site-footer></footer>
+    <div class="float-actions" aria-label="Quick contact actions">
+        <a href="mailto:info@setto.com.au">Email</a>
+        <a href="#inquiry">Contact</a>
+    </div>
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+    <script src="/assets/data/siteContent.js"></script>
     <script src="main.js"></script>
-    <script src="i18n.js"></script>
 </body>
 </html>
