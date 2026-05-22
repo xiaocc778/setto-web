@@ -10,10 +10,10 @@ window.SETTO_CONTENT = {
     navigation: [
         { label: "Home", href: "/index.html" },
         { label: "Products", href: "/product.html" },
-        { label: "Solutions", href: "/index.html#solutions" },
-        { label: "Technical Data", href: "/product.html#technical-data" },
+        { label: "Solutions", href: "/applications.html" },
+        { label: "Technical Data", href: "/installation.html#technical-data" },
         { label: "About", href: "/index.html#about" },
-        { label: "Blog", href: "/index.html#knowledge" },
+        { label: "Blog", href: "/blog.html" },
         { label: "Contact", href: "/contact.html" }
     ],
     images: {
@@ -70,37 +70,37 @@ window.SETTO_CONTENT = {
             title: "Timber Flooring Installation",
             description: "For solid timber, engineered timber and multi-layer parquet systems.",
             imageKey: "herringbone",
-            href: "/index.html#solutions"
+            href: "/applications.html"
         },
         {
             title: "Herringbone & Chevron Flooring",
             description: "Ideal visual category for premium patterned timber flooring installations.",
             imageKey: "chevron",
-            href: "/index.html#solutions"
+            href: "/applications.html"
         },
         {
             title: "Moisture Barrier System",
             description: "Creates a continuous moisture-resistant film after full cure.",
             imageKey: "moistureBarrier",
-            href: "/index.html#solutions"
+            href: "/applications.html"
         },
         {
             title: "Acoustic Flooring System",
             description: "Supports impact noise reduction and improved acoustic performance.",
             imageKey: "acousticFlooring",
-            href: "/index.html#solutions"
+            href: "/applications.html"
         },
         {
             title: "Underfloor Heating Compatible",
             description: "Suitable for radiant heating subfloor systems when properly prepared.",
             imageKey: "underfloorHeating",
-            href: "/index.html#solutions"
+            href: "/applications.html"
         },
         {
             title: "Commercial Flooring Projects",
             description: "For installers, distributors and project-based timber flooring applications.",
             imageKey: "commercialProject",
-            href: "/index.html#solutions"
+            href: "/applications.html"
         }
     ],
     technicalHighlights: [
