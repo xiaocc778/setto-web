@@ -114,6 +114,7 @@ function renderFooter() {
                     <h3>Stay In Touch</h3>
                     <a href="tel:${brand.phone?.replace(/[^0-9]/g, "")}">${brand.phone}</a>
                     <a href="mailto:${brand.email}">${brand.email}</a>
+                    <p>Manufacturer / Importer: ${brand.manufacturer}</p>
                     <p>${brand.location}</p>
                 </div>
             </div>

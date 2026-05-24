@@ -2,9 +2,10 @@ window.SETTO_CONTENT = {
     brand: {
         name: "Setto Australia",
         logo: "/assets/logo.jpg",
-        tagline: "Advanced MS Polymer Timber Flooring Adhesive System",
+        tagline: "SETTO Supreme S75 3-in-1 MS Polymer Timber Flooring Adhesive System",
         phone: "1300-855-668",
         email: "info@setto.com.au",
+        manufacturer: "Seven Fusion Pty Ltd",
         location: "12-18 Lascelles St, Springvale VIC 3171, Australia"
     },
     navigation: [
@@ -36,72 +37,76 @@ window.SETTO_CONTENT = {
     productFormats: [
         {
             title: "Setto Supreme S75 - 10 L / 15 kg Pail",
-            description: "For professional full-coverage timber flooring installation.",
+            description: "10 L / 15 kg format for professional MS polymer timber flooring adhesive system installation.",
             imageKey: "productPail"
         },
         {
             title: "Setto Supreme S75 - 590 ml Sausage",
-            description: "Convenient format for strip bonding and controlled application.",
+            description: "590 ml format for controlled SETTO Supreme S75 application and detail work.",
             imageKey: "productSausage"
         },
         {
             title: "Full-Coverage Bonding",
-            description: "Designed for 100% subfloor coverage when moisture and acoustic performance are required.",
+            description: "Recommended for full moisture protection and acoustic reduction performance.",
             imageKey: "applyAdhesive"
         },
         {
             title: "Strip Bonding Application",
-            description: "Efficient adhesive application for suitable timber flooring projects.",
+            description: "Controlled adhesive application for suitable timber flooring adhesive system projects.",
             imageKey: "herringbone"
         }
     ],
     solutions: [
         {
-            title: "Timber Flooring Installation",
-            description: "For solid timber, engineered timber and multi-layer parquet systems.",
+            title: "Solid Timber Flooring",
+            description: "For professional installation of solid timber flooring with permanent elastic bonding.",
             imageKey: "herringbone",
             href: "/applications.html"
         },
         {
-            title: "Herringbone & Chevron Flooring",
-            description: "Ideal visual category for premium patterned timber flooring installations.",
+            title: "Engineered Timber Flooring",
+            description: "For engineered timber flooring where moisture protection and acoustic reduction are required.",
             imageKey: "chevron",
             href: "/applications.html"
         },
         {
-            title: "Moisture Barrier System",
-            description: "Creates a continuous moisture-resistant film after full cure.",
+            title: "Multi-layer Parquet Systems",
+            description: "Suitable for multi-layer parquet systems, including patterned layouts and premium project floors.",
             imageKey: "moistureBarrier",
             href: "/applications.html"
         },
         {
-            title: "Acoustic Flooring System",
-            description: "Supports impact noise reduction and improved acoustic performance.",
+            title: "End-grain Wood Blocks",
+            description: "For dimensionally demanding end-grain wood block installations when properly specified.",
             imageKey: "acousticFlooring",
             href: "/applications.html"
         },
         {
-            title: "Underfloor Heating Compatible",
-            description: "Suitable for radiant heating subfloor systems when properly prepared.",
+            title: "Bamboo & Cork Flooring",
+            description: "Supports bamboo flooring and cork flooring systems with correct subfloor preparation.",
             imageKey: "underfloorHeating",
             href: "/applications.html"
         },
         {
-            title: "Commercial Flooring Projects",
-            description: "For installers, distributors and project-based timber flooring applications.",
+            title: "Sensitive & Exotic Timber",
+            description: "For dimensionally sensitive and exotic timber species subject to project and manufacturer requirements.",
             imageKey: "commercialProject",
             href: "/applications.html"
         }
     ],
     technicalHighlights: [
         { label: "Chemical Base", value: "Silane-Terminated", unit: "Polymer" },
-        { label: "VOC Content", value: "< 50", unit: "g/L" },
-        { label: "Density", value: "approx. 1.6", unit: "g/cm3" },
-        { label: "Open Time", value: "20-30", unit: "min" },
-        { label: "Service Temperature", value: "-40C to +90C", unit: "" },
+        { label: "Colour", value: "Light Yellow", unit: "" },
+        { label: "Cure Mechanism", value: "Moisture", unit: "curing" },
+        { label: "Density", value: "approx. 1.6", unit: "g/cm³" },
+        { label: "Skin Formation Time", value: "approx. 30-60", unit: "minutes" },
+        { label: "Open Time", value: "20-40", unit: "minutes" },
         { label: "Full Cure Rate", value: "approx. 3 mm", unit: "/ 24 h" },
-        { label: "Full-Coverage Consumption", value: "700-1000", unit: "g/m2" },
-        { label: "Shelf Life", value: "12", unit: "months" }
+        { label: "Shore A Hardness", value: "approx. 35-50", unit: "" },
+        { label: "Tensile Strength", value: "≥0.8", unit: "MPa" },
+        { label: "Elongation at Break", value: "≥200", unit: "" },
+        { label: "VOC Content", value: "<50", unit: "g/L" },
+        { label: "Service Temperature", value: "-40°C to +90°C", unit: "" }
     ],
     footerLinks: {
         quickLinks: ["Home", "Products", "Solutions", "Technical Data", "About", "Contact"],
