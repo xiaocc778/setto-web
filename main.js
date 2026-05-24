@@ -12,8 +12,8 @@ function renderHeader() {
                 <div class="replica-topbar">
                     <div class="topbar-inner">
                         <div class="topbar-contact">
-                            <span>✉ ${content.brand.email}</span>
-                            <span>☎ ${content.brand.phone}</span>
+                            <span>Email: ${content.brand.email}</span>
+                            <span>Phone: ${content.brand.phone}</span>
                         </div>
                         <div class="topbar-social" aria-label="Social links">
                             <a href="#" aria-label="Facebook">f</a>
@@ -117,7 +117,7 @@ function renderFooter() {
                     <p>${brand.location}</p>
                 </div>
             </div>
-            <div class="footer-bottom">Copyright © Setto Australia. All rights reserved.</div>
+            <div class="footer-bottom">&copy; Setto Australia. All rights reserved.</div>
         `;
     });
 }
@@ -200,13 +200,16 @@ function initTabs() {
 function initNavigation() {
     const header = document.querySelector(".site-header");
     const menuToggle = document.getElementById("menuToggle");
+    const menuToggles = [menuToggle, ...document.querySelectorAll("[data-mobile-menu-toggle]")].filter(Boolean);
     const nav = document.getElementById("siteNav");
     const navItems = document.querySelectorAll(".nav-item");
 
     const closeMenu = () => {
         nav?.classList.remove("open");
-        menuToggle?.classList.remove("active");
-        menuToggle?.setAttribute("aria-expanded", "false");
+        menuToggles.forEach(toggle => {
+            toggle.classList.remove("active");
+            toggle.setAttribute("aria-expanded", "false");
+        });
         navItems.forEach(item => item.classList.remove("open"));
     };
 
@@ -214,11 +217,15 @@ function initNavigation() {
         header?.classList.toggle("scrolled", window.scrollY > 12);
     });
 
-    menuToggle?.addEventListener("click", () => {
+    menuToggles.forEach(toggle => {
+        toggle.addEventListener("click", () => {
         const isOpen = !nav?.classList.contains("open");
         nav?.classList.toggle("open", isOpen);
-        menuToggle.classList.toggle("active", isOpen);
-        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggles.forEach(item => {
+            item.classList.toggle("active", isOpen);
+            item.setAttribute("aria-expanded", String(isOpen));
+        });
+        });
     });
 
     nav?.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
@@ -310,6 +317,8 @@ function initHeroSlider() {
             restart();
         });
     });
+    slider.addEventListener("mouseenter", () => window.clearInterval(timer));
+    slider.addEventListener("mouseleave", restart);
     restart();
 }
 
@@ -334,6 +343,7 @@ function initReplicaModals() {
         modal.classList.add("open");
         modal.setAttribute("aria-hidden", "false");
         document.body.classList.add("no-scroll");
+        modal.querySelector(".modal-close")?.focus();
     };
 
     const closeModal = modal => {
@@ -364,7 +374,6 @@ function initReplicaModals() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("homey-replica");
     renderHeader();
     renderFooter();
     hydrateImages();

@@ -17,27 +17,17 @@ window.SETTO_CONTENT = {
         { label: "Contact", href: "/contact.html" }
     ],
     images: {
-        // TODO: replace with final optimized product visual.
+        heroSettoProduct: "/assets/generated/hero-setto-product-flooring.webp",
         heroProductImage: "/assets/generated/product-pail-front.webp",
-        // TODO: replace with final optimized product visual.
         heroFlooringImage: "/assets/generated/home-cinematic-flooring.webp",
-        // TODO: replace with final optimized product visual.
         productPail: "/assets/generated/product-pail-front.webp",
-        // TODO: replace with final optimized product visual.
         productSausage: "/assets/generated/product-sausage.webp",
-        // TODO: replace with final optimized product visual.
         herringbone: "/assets/generated/herringbone-flooring-adhesive.webp",
-        // TODO: replace with final optimized product visual.
         chevron: "/assets/generated/chevron-flooring-adhesive.webp",
-        // TODO: replace with final optimized product visual.
         applyAdhesive: "/assets/generated/apply-adhesive-trowel.webp",
-        // TODO: replace with final optimized product visual.
         moistureBarrier: "/assets/generated/moisture-barrier-flooring.webp",
-        // TODO: replace with final optimized product visual.
         acousticFlooring: "/assets/generated/acoustic-flooring-system.webp",
-        // TODO: replace with final optimized product visual.
         underfloorHeating: "/assets/generated/underfloor-heating-flooring.webp",
-        // TODO: replace with final optimized product visual.
         commercialProject: "/assets/generated/commercial-flooring-project.webp"
     },
     documents: {
@@ -45,12 +35,12 @@ window.SETTO_CONTENT = {
     },
     productFormats: [
         {
-            title: "Setto Supreme S75 — 10 L / 15 kg Pail",
+            title: "Setto Supreme S75 - 10 L / 15 kg Pail",
             description: "For professional full-coverage timber flooring installation.",
             imageKey: "productPail"
         },
         {
-            title: "Setto Supreme S75 — 590 ml Sausage",
+            title: "Setto Supreme S75 - 590 ml Sausage",
             description: "Convenient format for strip bonding and controlled application.",
             imageKey: "productSausage"
         },
@@ -106,11 +96,11 @@ window.SETTO_CONTENT = {
     technicalHighlights: [
         { label: "Chemical Base", value: "Silane-Terminated", unit: "Polymer" },
         { label: "VOC Content", value: "< 50", unit: "g/L" },
-        { label: "Density", value: "approx. 1.6", unit: "g/cm³" },
-        { label: "Open Time", value: "20–40", unit: "min" },
-        { label: "Service Temperature", value: "-40°C to +90°C", unit: "" },
+        { label: "Density", value: "approx. 1.6", unit: "g/cm3" },
+        { label: "Open Time", value: "20-30", unit: "min" },
+        { label: "Service Temperature", value: "-40C to +90C", unit: "" },
         { label: "Full Cure Rate", value: "approx. 3 mm", unit: "/ 24 h" },
-        { label: "Full-Coverage Consumption", value: "700–1000", unit: "g/m²" },
+        { label: "Full-Coverage Consumption", value: "700-1000", unit: "g/m2" },
         { label: "Shelf Life", value: "12", unit: "months" }
     ],
     footerLinks: {

@@ -1586,21 +1586,59 @@ h3 {
 
 /* Homeycons-inspired homepage replica */
 .homey-replica {
-    --replica-red: #2f5f1f;
-    --replica-red-dark: #064f2a;
-    --replica-blue: #0d4f5b;
+    --replica-red: #e01822;
+    --replica-red-dark: #b90f18;
+    --replica-blue: #073f49;
     --replica-ink: #111316;
     --replica-muted: #68717a;
     --replica-line: #d8d8d8;
     --replica-bg: #f7f7f7;
     --setto-teal: #0f5963;
-    --setto-teal-dark: #073f49;
+    --setto-teal-dark: #064f2a;
     --setto-sage: #d9e1d7;
     --setto-grey: #d9d9d9;
     --setto-wood: #b88a58;
     background: #fff;
     color: var(--replica-ink);
-    font-family: "DM Sans", Inter, sans-serif;
+    font-family: Inter, sans-serif;
+}
+
+.homey-replica h1,
+.homey-replica h2,
+.homey-replica h3,
+.replica-title {
+    font-family: Poppins, Inter, sans-serif;
+}
+
+.mobile-menu-fallback {
+    position: fixed;
+    top: 59px;
+    left: min(330px, calc(100vw - 60px));
+    z-index: 1500;
+    display: none;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--replica-red, #e01822);
+    background: var(--replica-red-dark, #b90f18);
+    cursor: pointer;
+}
+
+.mobile-menu-fallback span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 3px 0;
+    background: #fff;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mobile-menu-fallback.active span:first-child {
+    transform: translateY(4px) rotate(45deg);
+}
+
+.mobile-menu-fallback.active span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
 }
 
 .homey-replica .site-header {
@@ -1837,6 +1875,17 @@ h3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+}
+
+.replica-hero-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(90deg, rgba(7, 63, 73, 0.62), rgba(185, 15, 24, 0.28)),
+        linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.24));
 }
 
 .replica-hero-slide::after {
@@ -1851,7 +1900,7 @@ h3 {
 
 .replica-hero-content {
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     left: clamp(26px, 24vw, 440px);
     top: 34%;
     max-width: 560px;
@@ -2615,6 +2664,10 @@ h3 {
 }
 
 @media (max-width: 780px) {
+    .mobile-menu-fallback {
+        display: grid !important;
+    }
+
     .replica-topbar .topbar-inner {
         width: min(100% - 28px, 1240px);
         min-height: 44px;
@@ -2629,6 +2682,7 @@ h3 {
         width: min(100% - 28px, 1240px);
         min-height: 76px;
         justify-content: space-between;
+        position: relative;
     }
 
     .homey-replica .brand img {
@@ -2642,18 +2696,26 @@ h3 {
     }
 
     .homey-replica .header-tools {
-        display: flex;
+        display: flex !important;
         margin-left: auto;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .homey-replica .menu-toggle {
         display: block !important;
+        width: 46px;
+        height: 46px;
         flex: 0 0 46px;
-        background: #fff;
-        position: absolute;
-        right: 14px;
-        top: 58px;
+        background: var(--replica-red-dark);
+        position: static;
         z-index: 3;
+    }
+
+    .homey-replica .menu-toggle span {
+        background: #fff;
     }
 
     .homey-replica .nav {
