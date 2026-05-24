@@ -1,7 +1,7 @@
 window.SETTO_CONTENT = {
     brand: {
         name: "Setto Australia",
-        logo: "/assets/generated/setto-logo.png",
+        logo: "/assets/logo.jpg",
         tagline: "Advanced MS Polymer Timber Flooring Adhesive System",
         phone: "1300-855-668",
         email: "info@setto.com.au",

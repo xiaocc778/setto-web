@@ -57,8 +57,8 @@ function renderHeader() {
                     </div>
                     <div class="header-tools">
                         <button class="language-trigger" type="button">English</button>
-                        <button class="search-trigger" type="button" data-open-modal="quote">Search</button>
-                        <button class="btn btn-primary header-quote" type="button" data-open-modal="quote">Contact Us</button>
+                        <a class="search-trigger" href="/contact.html#inquiry" aria-label="Search or inquiry">Search</a>
+                        <a class="btn btn-primary header-quote" href="/contact.html#inquiry">Contact Us</a>
                         <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
                             <span></span><span></span>
                         </button>
@@ -364,6 +364,7 @@ function initReplicaModals() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("homey-replica");
     renderHeader();
     renderFooter();
     hydrateImages();
