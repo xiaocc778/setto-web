@@ -18,16 +18,18 @@ window.SETTO_CONTENT = {
         { label: "Contact", href: "/contact.html" }
     ],
     images: {
-        heroSettoProduct: "/assets/generated/hero-setto-product-flooring.webp",
-        heroProductImage: "/assets/generated/product-pail-front.webp",
-        heroFlooringImage: "/assets/generated/home-cinematic-flooring.webp",
-        productPail: "/assets/generated/product-pail-front.webp",
+        heroSettoProduct: "/assets/generated/setto-s75-hero-system.png",
+        heroProductImage: "/assets/generated/setto-s75-product-bucket.png",
+        heroFlooringImage: "/assets/generated/setto-s75-3in1-cutaway.png",
+        productPail: "/assets/generated/setto-s75-product-bucket.png",
         productSausage: "/assets/generated/product-sausage.webp",
         herringbone: "/assets/generated/herringbone-flooring-adhesive.webp",
         chevron: "/assets/generated/chevron-flooring-adhesive.webp",
-        applyAdhesive: "/assets/generated/apply-adhesive-trowel.webp",
-        moistureBarrier: "/assets/generated/moisture-barrier-flooring.webp",
-        acousticFlooring: "/assets/generated/acoustic-flooring-system.webp",
+        applyAdhesive: "/assets/generated/setto-s75-application-trowel.png",
+        moistureBarrier: "/assets/generated/setto-s75-moisture-barrier.png",
+        acousticFlooring: "/assets/generated/setto-s75-acoustic-reduction.png",
+        systemCutaway: "/assets/generated/setto-s75-3in1-cutaway.png",
+        packagingSteps: "/assets/generated/setto-s75-packaging-steps.png",
         underfloorHeating: "/assets/generated/underfloor-heating-flooring.webp",
         commercialProject: "/assets/generated/commercial-flooring-project.webp"
     },
@@ -48,25 +50,25 @@ window.SETTO_CONTENT = {
         {
             title: "Full-Coverage Bonding",
             description: "Recommended for full moisture protection and acoustic reduction performance.",
-            imageKey: "applyAdhesive"
+            imageKey: "systemCutaway"
         },
         {
-            title: "Strip Bonding Application",
-            description: "Controlled adhesive application for suitable timber flooring adhesive system projects.",
-            imageKey: "herringbone"
+            title: "Ready-to-Use Packaging",
+            description: "Clear on-site opening and application workflow for professional installation teams.",
+            imageKey: "packagingSteps"
         }
     ],
     solutions: [
         {
             title: "Solid Timber Flooring",
             description: "For professional installation of solid timber flooring with permanent elastic bonding.",
-            imageKey: "herringbone",
+            imageKey: "systemCutaway",
             href: "/applications.html"
         },
         {
             title: "Engineered Timber Flooring",
             description: "For engineered timber flooring where moisture protection and acoustic reduction are required.",
-            imageKey: "chevron",
+            imageKey: "applyAdhesive",
             href: "/applications.html"
         },
         {
@@ -84,13 +86,13 @@ window.SETTO_CONTENT = {
         {
             title: "Bamboo & Cork Flooring",
             description: "Supports bamboo flooring and cork flooring systems with correct subfloor preparation.",
-            imageKey: "underfloorHeating",
+            imageKey: "packagingSteps",
             href: "/applications.html"
         },
         {
             title: "Sensitive & Exotic Timber",
             description: "For dimensionally sensitive and exotic timber species subject to project and manufacturer requirements.",
-            imageKey: "commercialProject",
+            imageKey: "productPail",
             href: "/applications.html"
         }
     ],

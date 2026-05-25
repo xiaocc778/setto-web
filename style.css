@@ -1586,18 +1586,18 @@ h3 {
 
 /* Homeycons-inspired homepage replica */
 .homey-replica {
-    --replica-red: #e01822;
-    --replica-red-dark: #b90f18;
-    --replica-blue: #073f49;
+    --replica-red: #c6ad78;
+    --replica-red-dark: #0b472d;
+    --replica-blue: #123c34;
     --replica-ink: #111316;
     --replica-muted: #68717a;
     --replica-line: #d8d8d8;
-    --replica-bg: #f7f7f7;
-    --setto-teal: #0f5963;
-    --setto-teal-dark: #064f2a;
-    --setto-sage: #d9e1d7;
+    --replica-bg: #f7f6f1;
+    --setto-teal: #1d6b4b;
+    --setto-teal-dark: #062d22;
+    --setto-sage: #dfe6dd;
     --setto-grey: #d9d9d9;
-    --setto-wood: #b88a58;
+    --setto-wood: #b9925f;
     background: #fff;
     color: var(--replica-ink);
     font-family: Inter, sans-serif;
@@ -1851,7 +1851,7 @@ h3 {
 
 .replica-hero {
     position: relative;
-    min-height: 430px;
+    min-height: clamp(540px, 72vh, 760px);
     overflow: hidden;
     background: var(--setto-teal-dark);
 }
@@ -1884,8 +1884,8 @@ h3 {
     inset: 0;
     z-index: 1;
     background:
-        linear-gradient(90deg, rgba(7, 63, 73, 0.62), rgba(185, 15, 24, 0.28)),
-        linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.24));
+        linear-gradient(90deg, rgba(6, 45, 34, 0.18), rgba(6, 45, 34, 0.04) 44%, rgba(6, 45, 34, 0.36)),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(6,45,34,0.2));
 }
 
 .replica-hero-slide::after {
@@ -1894,17 +1894,29 @@ h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 44px;
-    background: linear-gradient(90deg, var(--setto-teal) 0 28%, rgba(255,255,255,0.9) 28% 74%, var(--replica-red-dark) 74%);
+    height: 52px;
+    background: linear-gradient(90deg, var(--setto-teal) 0 26%, rgba(255,255,255,0.94) 26% 70%, var(--replica-red-dark) 70%);
 }
 
 .replica-hero-content {
     position: absolute;
     z-index: 3;
-    left: clamp(26px, 24vw, 440px);
-    top: 34%;
+    box-sizing: border-box;
+    left: clamp(24px, 7vw, 112px);
+    top: 50%;
     max-width: 560px;
-    color: #fff;
+    padding: clamp(24px, 4vw, 42px);
+    color: #062d22;
+    background: rgba(255, 255, 255, 0.96);
+    border-left: 8px solid var(--replica-red);
+    box-shadow: 0 24px 70px rgba(6, 45, 34, 0.22);
+    transform: translateY(-50%);
+}
+
+.replica-hero-content.reveal,
+.replica-hero-content.reveal.visible {
+    opacity: 1;
+    transform: translateY(-50%);
 }
 
 .replica-hero-content p {
@@ -1913,14 +1925,25 @@ h3 {
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: #062d22;
 }
 
 .replica-hero-content h1 {
-    margin: 0;
-    color: #fff;
+    margin: 0 0 16px;
+    color: #062d22;
     font-size: clamp(2.1rem, 4vw, 4.3rem);
     line-height: 1.08;
     letter-spacing: 0;
+}
+
+.replica-hero-content p:last-child {
+    margin-bottom: 0;
+    color: #24342f;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.65;
+    text-transform: none;
 }
 
 .hero-arrow,
@@ -1992,7 +2015,7 @@ h3 {
 
 .hot-products {
     padding-top: 82px;
-    background: #f8f8f8;
+    background: var(--replica-bg);
 }
 
 .replica-title {
@@ -2022,7 +2045,8 @@ h3 {
     justify-content: flex-end;
     padding: 34px 22px 34px;
     background: #fff;
-    border: 3px solid #dedede;
+    border: 1px solid #d8d3c5;
+    box-shadow: 0 14px 34px rgba(6, 45, 34, 0.06);
     text-align: center;
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -2030,7 +2054,7 @@ h3 {
 .replica-product-card:hover {
     transform: translateY(-6px);
     border-color: var(--replica-red);
-    box-shadow: 0 18px 35px rgba(6, 79, 42, 0.14);
+    box-shadow: 0 22px 42px rgba(6, 45, 34, 0.16);
 }
 
 .replica-product-card img {
@@ -2057,7 +2081,7 @@ h3 {
 
 .replica-cta-band {
     position: relative;
-    min-height: 286px;
+    min-height: 340px;
     display: grid;
     place-items: center;
     color: #fff;
@@ -2068,7 +2092,7 @@ h3 {
 .cta-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(7, 63, 73, 0.78), rgba(47, 95, 31, 0.72));
+    background: linear-gradient(90deg, rgba(6, 45, 34, 0.88), rgba(11, 71, 45, 0.58));
 }
 
 .cta-band-inner {
@@ -2133,7 +2157,7 @@ h3 {
 }
 
 .stat-strip {
-    background: #fff;
+    background: #fffdf8;
     border-bottom: 1px solid #e7e7e7;
 }
 
@@ -2156,7 +2180,7 @@ h3 {
 }
 
 .stat-grid strong {
-    color: var(--replica-red);
+    color: var(--replica-red-dark);
     font-size: 24px;
     line-height: 1.1;
 }
@@ -2188,18 +2212,19 @@ h3 {
     display: grid;
     place-items: center;
     padding: 24px;
-    background: #fff;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(198,173,120,0.45);
     text-align: center;
 }
 
 .advantage-card strong {
-    color: var(--replica-red-dark);
+    color: var(--replica-red);
     font-size: 24px;
     line-height: 1;
 }
 
 .advantage-card span {
-    color: var(--replica-blue);
+    color: #fff;
     font-size: 14px;
     font-weight: 900;
 }
@@ -2723,13 +2748,32 @@ h3 {
     }
 
     .replica-hero {
-        min-height: 420px;
+        min-height: 560px;
     }
 
     .replica-hero-content {
-        left: 28px;
-        right: 28px;
-        top: 31%;
+        left: 20px;
+        right: auto;
+        width: calc(100% - 40px);
+        top: 50%;
+        max-width: none;
+        padding: 24px;
+        overflow: hidden;
+    }
+
+    .replica-hero-content h1 {
+        font-size: clamp(2rem, 12vw, 3.1rem);
+        overflow-wrap: anywhere;
+    }
+
+    .replica-hero-content p {
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .replica-hero-content p:last-child {
+        font-size: 14px;
+        line-height: 1.6;
     }
 
     .product-catalog,
