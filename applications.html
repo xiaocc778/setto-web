@@ -7,37 +7,62 @@
     <title>SETTO Supreme S75 Application Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="homey-replica">
     <header class="site-header" data-site-header></header>
-    <main>
-        <section class="section-card" id="solutions">
-            <div class="section-inner">
-                <div class="section-head">
-                    <div>
-                        <p class="section-kicker">Solutions</p>
-                        <h1>Application Solutions</h1>
-                    </div>
-                    <p>Explore SETTO Supreme S75 by flooring type, installation method and 3-in-1 performance requirement: adhesive, moisture barrier and acoustic reduction.</p>
-                </div>
-                <div class="grid grid-3" data-solutions></div>
+    <button class="mobile-menu-fallback" type="button" data-mobile-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
+
+    <main class="replica-main replica-subpage">
+        <section class="replica-page-hero">
+            <img src="/assets/generated/setto-s75-3in1-cutaway.png" data-image-key="systemCutaway" alt="SETTO Supreme S75 3-in-1 flooring system layers">
+            <div class="container replica-page-hero-inner">
+                <p class="red-kicker">Solutions</p>
+                <h1>Application Solutions</h1>
+                <p>Explore SETTO Supreme S75 by flooring type, installation method and 3-in-1 performance requirement: adhesive, moisture barrier and acoustic reduction.</p>
             </div>
         </section>
 
-        <section class="section-card technical-section">
-            <div class="section-inner">
-                <div class="section-head">
-                    <div>
-                        <p class="section-kicker">Reference</p>
-                        <h2>Technical Highlights</h2>
-                    </div>
+        <section class="replica-section">
+            <div class="container">
+                <h2 class="replica-title reveal">Flooring Applications</h2>
+                <div class="replica-card-grid" data-solutions></div>
+            </div>
+        </section>
+
+        <section class="advantage-band">
+            <div class="container">
+                <h2 class="replica-title light reveal">3-in-1 Performance</h2>
+                <div class="advantage-grid">
+                    <div class="advantage-card reveal"><strong>Bond</strong><span>Permanent Elastic Bonding</span></div>
+                    <div class="advantage-card reveal"><strong>Film</strong><span>Moisture-Resistant Film</span></div>
+                    <div class="advantage-card reveal"><strong>Sound</strong><span>Acoustic Reduction</span></div>
+                    <div class="advantage-card reveal"><strong>VOC</strong><span>Ultra-low VOC Formula</span></div>
                 </div>
-                <div class="grid metrics-grid" data-technical-highlights></div>
+            </div>
+        </section>
+
+        <section class="replica-section replica-technical-block" id="technical-data">
+            <div class="container">
+                <h2 class="replica-title reveal">Technical Highlights</h2>
+                <div class="replica-metric-grid" data-technical-highlights></div>
+            </div>
+        </section>
+
+        <section class="replica-cta-band" data-bg-key="applyAdhesive">
+            <div class="cta-overlay"></div>
+            <div class="container cta-band-inner reveal">
+                <p class="red-kicker">Project Support</p>
+                <h2>Match SETTO Supreme S75 to your timber flooring project requirement.</h2>
+                <div class="cta-actions">
+                    <a class="replica-btn blue" href="/contact.html#inquiry">Get a Quote</a>
+                    <a class="replica-btn red" href="/product.html">View Product</a>
+                </div>
             </div>
         </section>
     </main>
+
     <footer class="site-footer" data-site-footer></footer>
     <div class="float-actions" aria-label="Quick contact actions"><a href="mailto:info@setto.com.au">Email</a><a href="/contact.html#inquiry">Contact</a></div>
     <script src="/assets/data/siteContent.js"></script>

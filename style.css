@@ -2526,6 +2526,245 @@ h3 {
     color: #fff;
 }
 
+.replica-subpage {
+    display: block;
+    background: var(--replica-bg);
+}
+
+.replica-page-hero {
+    position: relative;
+    min-height: 500px;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+    background: var(--setto-teal-dark);
+}
+
+.replica-page-hero > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.62;
+}
+
+.product-page-hero > img {
+    object-fit: contain;
+    object-position: right center;
+    padding: 34px 7vw 34px 42vw;
+    background: #eef0ea;
+    opacity: 1;
+}
+
+.replica-page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(6,45,34,0.94), rgba(6,45,34,0.68) 48%, rgba(6,45,34,0.2));
+}
+
+.replica-page-hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    height: 42px;
+    background: linear-gradient(90deg, var(--setto-teal) 0 30%, rgba(255,255,255,0.94) 30% 72%, var(--replica-red-dark) 72%);
+}
+
+.replica-page-hero-inner {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 760px;
+    padding: 86px 0 112px;
+}
+
+.replica-page-hero .red-kicker {
+    color: var(--replica-red);
+}
+
+.replica-page-hero h1 {
+    color: #fff;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.95;
+    overflow-wrap: anywhere;
+}
+
+.replica-page-hero p:not(.red-kicker) {
+    max-width: min(680px, 100%);
+    margin: 24px 0 0;
+    color: rgba(255,255,255,0.82);
+    font-size: 18px;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+}
+
+.replica-page-hero .cta-actions {
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+.replica-card-grid,
+.replica-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.replica-card-grid .solution-card,
+.replica-card-grid .product-card,
+.replica-card-grid .article-card {
+    min-height: 100%;
+    border: 1px solid #d8d3c5;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: 0 14px 34px rgba(6, 45, 34, 0.06);
+}
+
+.replica-card-grid .card-image {
+    aspect-ratio: 16 / 10;
+    background: #f2f1eb;
+}
+
+.replica-card-grid .card-body {
+    padding: 24px;
+}
+
+.replica-card-grid .card-body h3 {
+    color: var(--replica-red-dark);
+    font-size: 21px;
+}
+
+.replica-card-grid .card-body p {
+    color: #59655f;
+    font-weight: 650;
+}
+
+.replica-metric-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.replica-metric-grid .metric-card {
+    min-height: 136px;
+    padding: 24px;
+    border: 1px solid rgba(198,173,120,0.48);
+    border-radius: 0;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 14px 34px rgba(6, 45, 34, 0.08);
+}
+
+.replica-metric-grid .metric-card span {
+    color: #5f6b64;
+    font-weight: 900;
+}
+
+.replica-metric-grid .metric-card strong {
+    color: var(--replica-red-dark);
+    font-size: clamp(1.35rem, 2vw, 2rem);
+}
+
+.replica-technical-block {
+    background: linear-gradient(135deg, #f8f7f2, #eef3ed);
+}
+
+.replica-split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1fr);
+    gap: 54px;
+    align-items: center;
+}
+
+.replica-copy-block h2 {
+    margin: 0 0 18px;
+    color: var(--replica-red-dark);
+    font-size: clamp(2.1rem, 4vw, 3.8rem);
+    line-height: 1.04;
+    overflow-wrap: anywhere;
+}
+
+.replica-subpage h1,
+.replica-subpage h2,
+.replica-subpage h3 {
+    overflow-wrap: anywhere;
+}
+
+.replica-copy-block p:not(.red-kicker) {
+    color: #59655f;
+    font-size: 17px;
+    font-weight: 650;
+    line-height: 1.75;
+}
+
+.replica-image-panel {
+    overflow: hidden;
+    border: 1px solid #d8d3c5;
+    background: #fff;
+    box-shadow: 0 20px 48px rgba(6,45,34,0.12);
+}
+
+.replica-image-panel img {
+    width: 100%;
+    aspect-ratio: 1.35 / 1;
+    object-fit: cover;
+}
+
+.replica-step-list {
+    display: grid;
+    gap: 18px;
+}
+
+.replica-step {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    gap: 18px;
+    padding: 22px;
+    border: 1px solid #d8d3c5;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(6,45,34,0.07);
+}
+
+.replica-step span {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: var(--replica-red-dark);
+    font-weight: 900;
+}
+
+.replica-step h3 {
+    margin: 0 0 6px;
+    color: var(--replica-red-dark);
+}
+
+.replica-step p {
+    margin: 0;
+    color: #59655f;
+    font-weight: 650;
+}
+
+.replica-download-row {
+    margin-top: 34px;
+    text-align: center;
+}
+
+.contact-help-grid .advantage-card {
+    min-height: 156px;
+}
+
+.contact-copy li,
+.contact-copy p,
+.contact-copy a {
+    overflow-wrap: anywhere;
+}
+
 .replica-float-actions {
     position: fixed;
     z-index: 999;
@@ -2678,12 +2917,15 @@ h3 {
     }
 
     .product-catalog,
-    .news-grid {
+    .news-grid,
+    .replica-card-grid,
+    .replica-metric-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .who-grid,
-    .contact-grid {
+    .contact-grid,
+    .replica-split {
         grid-template-columns: 1fr;
     }
 }
@@ -2776,10 +3018,29 @@ h3 {
         line-height: 1.6;
     }
 
+    .replica-page-hero {
+        min-height: 440px;
+    }
+
+    .replica-page-hero-inner {
+        padding: 58px 0 86px;
+    }
+
+    .replica-page-hero h1 {
+        font-size: clamp(2.25rem, 12vw, 3.4rem);
+    }
+
+    .product-page-hero > img {
+        padding: 120px 0 0 32vw;
+        object-position: right bottom;
+    }
+
     .product-catalog,
     .advantage-grid,
     .stat-grid,
-    .news-grid {
+    .news-grid,
+    .replica-card-grid,
+    .replica-metric-grid {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -2826,8 +3087,23 @@ h3 {
     .advantage-grid,
     .stat-grid,
     .news-grid,
+    .replica-card-grid,
+    .replica-metric-grid,
     .homey-replica .footer-grid {
         grid-template-columns: 1fr;
+    }
+
+    .replica-step {
+        grid-template-columns: 1fr;
+    }
+
+    .replica-page-hero p:not(.red-kicker) {
+        font-size: 15px;
+    }
+
+    .replica-copy-block h2,
+    .contact-copy h2 {
+        font-size: clamp(1.9rem, 9vw, 2.6rem);
     }
 
     .replica-product-card {
