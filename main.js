@@ -39,7 +39,17 @@ function renderHeader() {
                             </div>
                             <a href="/systems.html">Systems</a>
                             <a href="/trade.html">Trade</a>
-                            <a href="/blog.html">Resources</a>
+                            <div class="nav-item">
+                                <span class="nav-item-trigger" tabindex="0">Resources</span>
+                                <div class="mega-menu">
+                                    <a href="/blog.html">Technical Resource Center</a>
+                                    <a href="/blog.html#installation-guide">Installation Guide</a>
+                                    <a href="/blog.html#technical-standards">Technical Standards</a>
+                                    <a href="/blog.html#video-library">Video Library</a>
+                                    <a href="/blog.html#downloads">Downloads</a>
+                                    <a href="/blog.html#faqs">FAQs</a>
+                                </div>
+                            </div>
                             <a href="/contact.html">Contact</a>
                         </nav>
                     </div>
