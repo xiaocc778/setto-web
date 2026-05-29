@@ -3384,6 +3384,102 @@ h3 {
     box-shadow: 0 8px 22px rgba(0,0,0,0.2);
 }
 
+.qr-float-widget {
+    position: fixed;
+    right: 18px;
+    bottom: 20px;
+    z-index: 1600;
+    display: grid;
+    gap: 10px;
+    justify-items: end;
+}
+
+.qr-float-button {
+    display: grid;
+    grid-template-columns: 24px auto;
+    align-items: center;
+    gap: 8px;
+    min-width: 58px;
+    height: 54px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 999px;
+    color: #fff;
+    background: #0b4b35;
+    box-shadow: 0 12px 30px rgba(6,45,34,0.24);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.qr-float-button:hover {
+    transform: translateY(-2px);
+    background: #063426;
+}
+
+.qr-float-button.whatsapp {
+    background: #118c55;
+}
+
+.qr-float-button svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.qr-float-button span {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.qr-popover {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 14px);
+    width: min(260px, calc(100vw - 36px));
+    padding: 16px;
+    border: 1px solid rgba(198,173,120,0.58);
+    background: #fff;
+    box-shadow: 0 20px 46px rgba(6,45,34,0.22);
+}
+
+.qr-popover[hidden] {
+    display: none;
+}
+
+.qr-popover p {
+    margin: 0 34px 12px 0;
+    color: #062d22;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.qr-popover img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid #e5dfd2;
+    background: #fff;
+}
+
+.qr-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    background: #062d22;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
 .replica-modal {
     position: fixed;
     inset: 0;
@@ -3749,6 +3845,32 @@ h3 {
 }
 
 @media (max-width: 520px) {
+    .qr-float-widget {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .qr-float-button {
+        grid-template-columns: 22px;
+        width: 52px;
+        min-width: 52px;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .qr-float-button span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+
+    .qr-popover {
+        width: min(238px, calc(100vw - 28px));
+    }
+
     .product-catalog,
     .advantage-grid,
     .stat-grid,

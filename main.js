@@ -279,6 +279,90 @@ function initInquiryForm() {
     });
 }
 
+function initFloatingQrActions() {
+    const qrTargets = [
+        {
+            key: "wechat",
+            label: "WeChat",
+            image: "/assets/images/wechatwhatsapp/wechat.jpg",
+            alt: "SETTO WeChat QR code",
+            icon: `
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M9.2 5.4c-3.8 0-6.8 2.3-6.8 5.2 0 1.7 1.1 3.3 2.8 4.2l-.7 2.1 2.4-1.2c.7.2 1.5.3 2.3.3 3.8 0 6.8-2.3 6.8-5.3s-3-5.3-6.8-5.3Zm-2.3 4.4a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Zm4.5 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Z"/>
+                    <path d="M21.6 14.1c0-2.4-2.4-4.4-5.4-4.7.2.5.3 1 .3 1.5 0 3.3-3.3 6-7.3 6h-.5c1 1.2 2.8 2 4.8 2 .6 0 1.2-.1 1.8-.2l2 1 .6-1.7c2.2-.8 3.7-2.2 3.7-3.9Zm-7.3-.8a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4Zm3.6 0a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4Z"/>
+                </svg>`
+        },
+        {
+            key: "whatsapp",
+            label: "WhatsApp",
+            image: "/assets/images/wechatwhatsapp/whatsapp.jpg",
+            alt: "SETTO WhatsApp QR code",
+            icon: `
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 2.5a9.2 9.2 0 0 0-7.8 14.1L3 21.5l5-1.2A9.2 9.2 0 1 0 12 2.5Zm0 2a7.2 7.2 0 0 1 6.1 11 7.2 7.2 0 0 1-8.4 2.7l-.5-.2-3 .7.7-2.9-.3-.5A7.2 7.2 0 0 1 12 4.5Z"/>
+                    <path d="M8.8 8.1c.2-.5.4-.5.7-.5h.6c.2 0 .5.1.6.4l.8 1.8c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.3 0 .6.4.7 1 1.3 1.7 1.8.3.2.4.2.6 0l.8-.6c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.6-.1.6-.4 1.1-.8 1.4-.5.4-1.2.5-2.2.2-2-.6-4.6-2.8-5.5-5.1-.4-1-.3-1.8.1-2.4l.3-.2Z"/>
+                </svg>`
+        }
+    ];
+
+    document.querySelectorAll(".float-actions, .replica-float-actions").forEach(container => {
+        container.className = "qr-float-widget";
+        container.setAttribute("aria-label", "Scan to contact SETTO");
+        container.innerHTML = `
+            <div class="qr-popover" data-qr-popover hidden>
+                <button class="qr-close" type="button" data-qr-close aria-label="Close QR code">x</button>
+                <p data-qr-title>Scan to contact SETTO</p>
+                <img data-qr-image src="" alt="" width="220" height="220">
+            </div>
+            ${qrTargets.map(item => `
+                <button class="qr-float-button ${item.key}" type="button" data-qr-trigger="${item.key}" aria-expanded="false" aria-label="Show SETTO ${item.label} QR code">
+                    ${item.icon}
+                    <span>${item.label}</span>
+                </button>
+            `).join("")}
+        `;
+
+        const popover = container.querySelector("[data-qr-popover]");
+        const title = container.querySelector("[data-qr-title]");
+        const image = container.querySelector("[data-qr-image]");
+        const triggers = container.querySelectorAll("[data-qr-trigger]");
+        const closeButton = container.querySelector("[data-qr-close]");
+
+        const close = () => {
+            popover.hidden = true;
+            container.classList.remove("open");
+            triggers.forEach(trigger => trigger.setAttribute("aria-expanded", "false"));
+        };
+
+        triggers.forEach(trigger => {
+            trigger.addEventListener("click", event => {
+                event.stopPropagation();
+                const target = qrTargets.find(item => item.key === trigger.dataset.qrTrigger);
+                if (!target) return;
+                const isSameOpen = container.classList.contains("open") && image.getAttribute("src") === target.image;
+                if (isSameOpen) {
+                    close();
+                    return;
+                }
+                title.textContent = `Scan ${target.label} QR code`;
+                image.src = target.image;
+                image.alt = target.alt;
+                popover.hidden = false;
+                container.classList.add("open");
+                triggers.forEach(item => item.setAttribute("aria-expanded", String(item === trigger)));
+            });
+        });
+
+        closeButton?.addEventListener("click", close);
+        document.addEventListener("click", event => {
+            if (!container.contains(event.target)) close();
+        });
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") close();
+        });
+    });
+}
+
 function initReveal() {
     const items = document.querySelectorAll(".reveal");
     if (!("IntersectionObserver" in window)) {
@@ -515,6 +599,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initNavigation();
     initTabs();
     initInquiryForm();
+    initFloatingQrActions();
     initHeroSlider();
     initCertificateSlider();
     initReplicaModals();
