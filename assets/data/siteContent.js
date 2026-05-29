@@ -25,7 +25,7 @@ window.SETTO_CONTENT = {
         chevron: "/assets/generated/chevron-flooring-adhesive.webp",
         applyAdhesive: "/assets/generated/setto-s75-application-trowel.png",
         moistureBarrier: "/assets/generated/setto-s75-moisture-barrier.png",
-        acousticFlooring: "/assets/generated/setto-s75-acoustic-reduction.png",
+        comfortFlooring: "/assets/generated/setto-s75-foot-traffic-comfort.png",
         systemCutaway: "/assets/generated/setto-s75-3in1-cutaway.png",
         packagingSteps: "/assets/generated/setto-s75-packaging-steps.png",
         underfloorHeating: "/assets/generated/underfloor-heating-flooring.webp",
@@ -78,7 +78,7 @@ window.SETTO_CONTENT = {
         {
             title: "End-grain Wood Blocks",
             description: "For dimensionally demanding end-grain wood block installations when properly specified.",
-            imageKey: "acousticFlooring",
+            imageKey: "comfortFlooring",
             href: "/applications.html"
         },
         {
@@ -103,10 +103,10 @@ window.SETTO_CONTENT = {
         { label: "Open Time", value: "20-40", unit: "minutes" },
         { label: "Full Cure Rate", value: "approx. 3 mm", unit: "/ 24 h" },
         { label: "Shore A Hardness", value: "approx. 35-50", unit: "" },
-        { label: "Tensile Strength", value: "¡Ý0.8", unit: "MPa" },
-        { label: "Elongation at Break", value: "¡Ý200", unit: "" },
+        { label: "Tensile Strength", value: "â‰¥0.8", unit: "MPa" },
+        { label: "Elongation at Break", value: "â‰¥200", unit: "" },
         { label: "VOC Content", value: "<50", unit: "g/L" },
-        { label: "Service Temperature", value: "-40¡ãC to +90¡ãC", unit: "" }
+        { label: "Service Temperature", value: "-40Â°C to +90Â°C", unit: "" }
     ],
     footerLinks: {
         quickLinks: ["Products", "Systems", "Trade", "Resources", "Contact"],

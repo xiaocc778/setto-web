@@ -2439,6 +2439,50 @@ h3 {
     font-weight: 900;
 }
 
+.installer-feedback-section {
+    background: #fff;
+}
+
+.installer-feedback-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.installer-feedback-card {
+    min-height: 250px;
+    display: grid;
+    align-content: start;
+    gap: 16px;
+    padding: 28px;
+    border: 1px solid #d8d3c5;
+    background: linear-gradient(135deg, #fff, #f8f5ed);
+    box-shadow: 0 14px 34px rgba(6,45,34,0.07);
+}
+
+.installer-feedback-card strong {
+    color: var(--replica-red-dark);
+    font-family: Poppins, Inter, sans-serif;
+    font-size: 22px;
+    line-height: 1.15;
+}
+
+.installer-feedback-card p {
+    margin: 0;
+    color: #59655f;
+    font-weight: 650;
+    line-height: 1.7;
+}
+
+.installer-feedback-card span {
+    align-self: end;
+    color: #8a7a55;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .resource-subnav {
     position: sticky;
     top: 0;
@@ -3463,7 +3507,8 @@ h3 {
 
     .resource-standard-grid,
     .resource-download-grid,
-    .resource-faq-grid {
+    .resource-faq-grid,
+    .installer-feedback-grid {
         grid-template-columns: 1fr;
     }
 
@@ -3637,6 +3682,10 @@ h3 {
     }
 
     .resource-step-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .installer-feedback-grid {
         grid-template-columns: 1fr;
     }
 
