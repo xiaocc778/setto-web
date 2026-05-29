@@ -2,19 +2,17 @@ window.SETTO_CONTENT = {
     brand: {
         name: "Setto Australia",
         logo: "/assets/logo.jpg",
-        tagline: "SETTO Supreme S75 3-in-1 MS Polymer Timber Flooring Adhesive System",
+        tagline: "SETTO Supreme S75 Professional MS Polymer Timber Flooring Adhesive System",
         phone: "1300-855-668",
         email: "info@setto.com.au",
         manufacturer: "Seven Fusion Pty Ltd",
         location: "12-18 Lascelles St, Springvale VIC 3171, Australia"
     },
     navigation: [
-        { label: "Home", href: "/index.html" },
         { label: "Products", href: "/product.html" },
-        { label: "Solutions", href: "/applications.html" },
-        { label: "Technical Data", href: "/installation.html#technical-data" },
-        { label: "About", href: "/index.html#about" },
-        { label: "Blog", href: "/blog.html" },
+        { label: "Systems", href: "/systems.html" },
+        { label: "Trade", href: "/trade.html" },
+        { label: "Resources", href: "/blog.html" },
         { label: "Contact", href: "/contact.html" }
     ],
     images: {
@@ -49,7 +47,7 @@ window.SETTO_CONTENT = {
         },
         {
             title: "Full-Coverage Bonding",
-            description: "Recommended for full moisture protection and acoustic reduction performance.",
+            description: "Recommended for full moisture barrier support and elastic foot-traffic comfort.",
             imageKey: "systemCutaway"
         },
         {
@@ -67,7 +65,7 @@ window.SETTO_CONTENT = {
         },
         {
             title: "Engineered Timber Flooring",
-            description: "For engineered timber flooring where moisture protection and acoustic reduction are required.",
+            description: "For engineered timber flooring where moisture barrier support and installation comfort are required.",
             imageKey: "applyAdhesive",
             href: "/applications.html"
         },
@@ -100,18 +98,19 @@ window.SETTO_CONTENT = {
         { label: "Chemical Base", value: "Silane-Terminated", unit: "Polymer" },
         { label: "Colour", value: "Light Yellow", unit: "" },
         { label: "Cure Mechanism", value: "Moisture", unit: "curing" },
-        { label: "Density", value: "approx. 1.6", unit: "g/cmÂ³" },
+        { label: "Density", value: "approx. 1.6", unit: "g/cm3" },
         { label: "Skin Formation Time", value: "approx. 30-60", unit: "minutes" },
         { label: "Open Time", value: "20-40", unit: "minutes" },
         { label: "Full Cure Rate", value: "approx. 3 mm", unit: "/ 24 h" },
         { label: "Shore A Hardness", value: "approx. 35-50", unit: "" },
-        { label: "Tensile Strength", value: "â‰¥0.8", unit: "MPa" },
-        { label: "Elongation at Break", value: "â‰¥200", unit: "" },
+        { label: "Tensile Strength", value: "¡Ý0.8", unit: "MPa" },
+        { label: "Elongation at Break", value: "¡Ý200", unit: "" },
         { label: "VOC Content", value: "<50", unit: "g/L" },
-        { label: "Service Temperature", value: "-40Â°C to +90Â°C", unit: "" }
+        { label: "Service Temperature", value: "-40¡ãC to +90¡ãC", unit: "" }
     ],
     footerLinks: {
-        quickLinks: ["Home", "Products", "Solutions", "Technical Data", "About", "Contact"],
+        quickLinks: ["Products", "Systems", "Trade", "Resources", "Contact"],
         products: ["Setto Supreme S75", "10 L / 15 kg Pail", "590 ml Sausage", "Technical Data Sheet"]
     }
 };
+

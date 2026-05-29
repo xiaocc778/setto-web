@@ -12,8 +12,7 @@ function renderHeader() {
                 <div class="replica-topbar">
                     <div class="topbar-inner">
                         <div class="topbar-contact">
-                            <span>Email: ${content.brand.email}</span>
-                            <span>Phone: ${content.brand.phone}</span>
+                            <span>Melbourne Stock Available | Apply for Trade Account & Get Free Installer Samples</span>
                         </div>
                         <div class="topbar-social" aria-label="Social links">
                             <a href="#" aria-label="Facebook">f</a>
@@ -29,7 +28,6 @@ function renderHeader() {
                     </a>
                     <div class="replica-nav-wrap">
                         <nav class="nav" id="siteNav" aria-label="Primary navigation">
-                            <a href="/index.html#about">About Us</a>
                             <div class="nav-item">
                                 <span class="nav-item-trigger" tabindex="0">Products</span>
                                 <div class="mega-menu">
@@ -39,26 +37,16 @@ function renderHeader() {
                                     <a href="/installation.html#technical-data">Technical Data Sheet</a>
                                 </div>
                             </div>
-                            <div class="nav-item">
-                                <span class="nav-item-trigger" tabindex="0">Solutions</span>
-                                <div class="mega-menu">
-                                    <a href="/applications.html">Timber Flooring</a>
-                                    <a href="/applications.html">Herringbone & Chevron</a>
-                                    <a href="/applications.html">Moisture Barrier</a>
-                                    <a href="/applications.html">Acoustic Flooring</a>
-                                    <a href="/applications.html">Underfloor Heating</a>
-                                    <a href="/applications.html">Commercial Projects</a>
-                                </div>
-                            </div>
-                            <a href="/installation.html">Video</a>
-                            <a href="/blog.html">Blog</a>
-                            <a href="/contact.html">Distributor</a>
+                            <a href="/systems.html">Systems</a>
+                            <a href="/trade.html">Trade</a>
+                            <a href="/blog.html">Resources</a>
+                            <a href="/contact.html">Contact</a>
                         </nav>
                     </div>
                     <div class="header-tools">
                         <button class="language-trigger" type="button">English</button>
                         <a class="search-trigger" href="/contact.html#inquiry" aria-label="Search or inquiry">Search</a>
-                        <a class="btn btn-primary header-quote" href="/contact.html#inquiry">Contact Us</a>
+                        <a class="btn btn-primary header-quote" href="/contact.html#inquiry">Request Quote</a>
                         <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
                             <span></span><span></span>
                         </button>
@@ -77,7 +65,7 @@ function renderHeader() {
                     ${nav.map(item => `<a href="${item.href}">${item.label}</a>`).join("")}
                 </nav>
                 <div class="header-actions">
-                    <a class="btn btn-primary header-quote" href="/contact.html#inquiry">Get a Quote</a>
+                    <a class="btn btn-primary header-quote" href="/contact.html#inquiry">Request Quote</a>
                     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
                         <span></span><span></span>
                     </button>
@@ -90,11 +78,20 @@ function renderHeader() {
 function renderFooter() {
     document.querySelectorAll("[data-site-footer]").forEach(footer => {
         const brand = content.brand || {};
+        const supportLinks = content.footerLinks?.support || [
+            { label: "Privacy Policy", href: "/privacy-policy.html" },
+            { label: "Shipping Policy", href: "/shipping-policy.html" },
+            { label: "Terms of Service", href: "/terms-of-service.html" },
+            { label: "Refund Policy", href: "/refund-policy.html" },
+            { label: "Contact Us", href: "/contact.html#inquiry" }
+        ];
+        const businessHours = brand.businessHours || "Monday to Friday, 9:00 am - 5:00 pm AEST";
         footer.innerHTML = `
             <div class="container footer-grid">
                 <div class="footer-brand">
                     <img src="${brand.logo}" alt="Setto logo" width="138" height="58">
                     <p>${brand.tagline}</p>
+                    <p>Trade, distributor and project supply enquiries welcome.</p>
                 </div>
                 <div>
                     <h3>Quick Links</h3>
@@ -111,9 +108,14 @@ function renderFooter() {
                     <a href="${content.documents.tds}">Technical Data Sheet</a>
                 </div>
                 <div>
+                    <h3>Support</h3>
+                    ${supportLinks.map(item => `<a href="${item.href}">${item.label}</a>`).join("")}
+                </div>
+                <div>
                     <h3>Stay In Touch</h3>
                     <a href="tel:${brand.phone?.replace(/[^0-9]/g, "")}">${brand.phone}</a>
                     <a href="mailto:${brand.email}">${brand.email}</a>
+                    <p>Business Hours: ${businessHours}</p>
                     <p>Manufacturer / Importer: ${brand.manufacturer}</p>
                     <p>${brand.location}</p>
                 </div>
@@ -374,6 +376,125 @@ function initReplicaModals() {
     });
 }
 
+function initAdhesiveCalculator() {
+    const KG_PER_PAIL = 15;
+    const KG_PER_SAUSAGE = 0.944;
+    const LOW_RATE = 1.1;
+    const RECOMMENDED_RATE = 1.2;
+    const PROJECT_NOTES = {
+        "Solid Timber Flooring": "Solid timber projects often require close attention to subfloor flatness, adhesive transfer and board movement allowance.",
+        "Engineered Timber Flooring": "Engineered timber estimates should be checked against board width, substrate condition and site moisture readings.",
+        "Parquet / Patterned Flooring": "Patterned layouts can involve extra handling time and cut waste, so a procurement allowance is often useful.",
+        "Bamboo / Cork Flooring": "Bamboo and cork systems should be checked for product compatibility, substrate condition and installer method before ordering."
+    };
+
+    const formatKg = value => {
+        const rounded = Math.round(value * 10) / 10;
+        return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+    };
+
+    document.querySelectorAll("[data-adhesive-calculator]").forEach(calculator => {
+        const areaInput = calculator.querySelector("[data-calc-area]");
+        const flooringSelect = calculator.querySelector("[data-calc-flooring]");
+        const kgOutput = calculator.querySelector("[data-calc-kg]");
+        const rangeOutput = calculator.querySelector("[data-calc-range]");
+        const pailsOutput = calculator.querySelector("[data-calc-pails]");
+        const sausagesOutput = calculator.querySelector("[data-calc-sausages]");
+        const mixedOutput = calculator.querySelector("[data-calc-mixed]");
+        const mixedNote = calculator.querySelector("[data-calc-mixed-note]");
+        const projectNote = calculator.querySelector("[data-calc-note]");
+        const allowanceButtons = calculator.querySelectorAll("[data-calc-allowance]");
+        const quoteLink = calculator.querySelector("[data-calc-quote]");
+        let allowancePercent = 0;
+
+        const getMixedPack = recommendedKg => {
+            const pails = Math.floor(recommendedKg / KG_PER_PAIL);
+            const remainingKg = recommendedKg - (pails * KG_PER_PAIL);
+            const sausages = remainingKg > 0.01 ? Math.ceil(remainingKg / KG_PER_SAUSAGE) : 0;
+
+            if (pails === 0) {
+                return { label: `${Math.ceil(recommendedKg / KG_PER_SAUSAGE)} sausages`, pails: 0, sausages: Math.ceil(recommendedKg / KG_PER_SAUSAGE) };
+            }
+
+            if (sausages === 0) {
+                return { label: `${pails} ${pails === 1 ? "pail" : "pails"}`, pails, sausages };
+            }
+
+            return {
+                label: `${pails} ${pails === 1 ? "pail" : "pails"} + ${sausages} ${sausages === 1 ? "sausage" : "sausages"}`,
+                pails,
+                sausages
+            };
+        };
+
+        const reset = () => {
+            if (kgOutput) kgOutput.textContent = "Enter area to estimate";
+            if (rangeOutput) rangeOutput.textContent = "Based on 1.1-1.2 kg/m²";
+            if (pailsOutput) pailsOutput.textContent = "-";
+            if (sausagesOutput) sausagesOutput.textContent = "-";
+            if (mixedOutput) mixedOutput.textContent = "-";
+            if (mixedNote) mixedNote.textContent = "Optimised for practical ordering";
+            if (projectNote) projectNote.textContent = PROJECT_NOTES[flooringSelect?.value] || "Select flooring type and area to generate a project estimate.";
+            if (quoteLink) quoteLink.href = "/contact.html#inquiry";
+        };
+
+        const update = () => {
+            const area = Number.parseFloat(areaInput?.value || "");
+            const flooring = flooringSelect?.value || "Timber Flooring";
+
+            if (!Number.isFinite(area) || area <= 0) {
+                reset();
+                return;
+            }
+
+            const allowanceMultiplier = 1 + (allowancePercent / 100);
+            const lowKg = area * LOW_RATE;
+            const highKg = area * RECOMMENDED_RATE;
+            const recommendedKg = highKg * allowanceMultiplier;
+            const pailCount = Math.ceil(recommendedKg / KG_PER_PAIL);
+            const sausageCount = Math.ceil(recommendedKg / KG_PER_SAUSAGE);
+            const mixedPack = getMixedPack(recommendedKg);
+
+            if (kgOutput) kgOutput.textContent = `${formatKg(recommendedKg)} kg`;
+            if (rangeOutput) {
+                const allowanceText = allowancePercent ? ` + ${allowancePercent}% allowance` : "";
+                rangeOutput.textContent = `${formatKg(lowKg)}-${formatKg(highKg)} kg base range${allowanceText}`;
+            }
+            if (pailsOutput) pailsOutput.textContent = `${pailCount} ${pailCount === 1 ? "pail" : "pails"}`;
+            if (sausagesOutput) sausagesOutput.textContent = `${sausageCount} ${sausageCount === 1 ? "sausage" : "sausages"}`;
+            if (mixedOutput) mixedOutput.textContent = mixedPack.label;
+            if (mixedNote) mixedNote.textContent = "Uses pails for bulk volume and sausages for remainder.";
+            if (projectNote) projectNote.textContent = PROJECT_NOTES[flooring] || "Estimate prepared for professional timber flooring installation.";
+
+            if (quoteLink) {
+                const params = new URLSearchParams({
+                    area: String(area),
+                    flooring,
+                    allowance: `${allowancePercent}%`,
+                    recommendedKg: formatKg(recommendedKg),
+                    pails: String(pailCount),
+                    sausages: String(sausageCount),
+                    mixedPails: String(mixedPack.pails),
+                    mixedSausages: String(mixedPack.sausages)
+                });
+                quoteLink.href = `/contact.html?${params.toString()}#inquiry`;
+            }
+        };
+
+        areaInput?.addEventListener("input", update);
+        flooringSelect?.addEventListener("change", update);
+        allowanceButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                allowanceButtons.forEach(item => item.classList.remove("active"));
+                button.classList.add("active");
+                allowancePercent = Number.parseFloat(button.dataset.calcAllowance || "0") || 0;
+                update();
+            });
+        });
+        reset();
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     renderHeader();
     renderFooter();
@@ -387,5 +508,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeroSlider();
     initCertificateSlider();
     initReplicaModals();
+    initAdhesiveCalculator();
     initReveal();
 });
