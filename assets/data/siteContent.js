@@ -100,13 +100,13 @@ window.SETTO_CONTENT = {
         { label: "Cure Mechanism", value: "Moisture", unit: "curing" },
         { label: "Density", value: "approx. 1.6", unit: "g/cm3" },
         { label: "Skin Formation Time", value: "approx. 30-60", unit: "minutes" },
-        { label: "Open Time", value: "20-40", unit: "minutes" },
+        { label: "Extended Open Time", value: "refer to", unit: "latest TDS" },
         { label: "Full Cure Rate", value: "approx. 3 mm", unit: "/ 24 h" },
         { label: "Shore A Hardness", value: "approx. 35-50", unit: "" },
-        { label: "Tensile Strength", value: "≥0.8", unit: "MPa" },
-        { label: "Elongation at Break", value: "≥200", unit: "" },
+        { label: "Tensile Strength", value: ">=0.8", unit: "MPa" },
+        { label: "Elongation at Break", value: ">=200", unit: "" },
         { label: "VOC Content", value: "<50", unit: "g/L" },
-        { label: "Service Temperature", value: "-40°C to +90°C", unit: "" }
+        { label: "Service Temperature", value: "-40C to +90C", unit: "" }
     ],
     footerLinks: {
         quickLinks: ["Products", "Systems", "Trade", "Resources", "Contact"],
