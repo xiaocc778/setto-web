@@ -18,18 +18,18 @@ window.SETTO_CONTENT = {
     images: {
         heroSettoProduct: "/assets/generated/setto-s75-hero-system.png",
         heroProductImage: "/assets/generated/setto-s75-product-bucket.png",
-        heroFlooringImage: "/assets/generated/setto-s75-3in1-cutaway.png",
+        heroFlooringImage: "/assets/generated/setto-s75-hero-system.png",
         productPail: "/assets/generated/setto-s75-product-bucket.png",
-        productSausage: "/assets/generated/product-sausage.webp",
+        productSausage: "/assets/generated/setto-s75-packaging-steps.png",
         herringbone: "/assets/generated/herringbone-flooring-adhesive.webp",
         chevron: "/assets/generated/chevron-flooring-adhesive.webp",
         applyAdhesive: "/assets/generated/setto-s75-application-trowel.png",
         moistureBarrier: "/assets/generated/setto-s75-moisture-barrier.png",
-        comfortFlooring: "/assets/generated/setto-s75-foot-traffic-comfort.png",
-        systemCutaway: "/assets/generated/setto-s75-3in1-cutaway.png",
+        comfortFlooring: "/assets/generated/setto-s75-application-trowel.png",
+        systemCutaway: "/assets/generated/setto-s75-hero-system.png",
         packagingSteps: "/assets/generated/setto-s75-packaging-steps.png",
-        underfloorHeating: "/assets/generated/underfloor-heating-flooring.webp",
-        commercialProject: "/assets/generated/commercial-flooring-project.webp"
+        underfloorHeating: "/assets/generated/setto-s75-moisture-barrier.png",
+        commercialProject: "/assets/generated/setto-s75-application-trowel.png"
     },
     documents: {
         tds: "/assets/docs/setto-s75-tds.pdf"

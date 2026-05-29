@@ -568,7 +568,7 @@ main {
 }
 
 .home-links a::after {
-    content: "→";
+    content: "->";
     color: var(--green-800);
 }
 
@@ -1884,8 +1884,8 @@ h3 {
     inset: 0;
     z-index: 1;
     background:
-        linear-gradient(90deg, rgba(6, 45, 34, 0.18), rgba(6, 45, 34, 0.04) 44%, rgba(6, 45, 34, 0.36)),
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(6,45,34,0.2));
+        linear-gradient(90deg, rgba(6, 45, 34, 0.86) 0%, rgba(6, 45, 34, 0.52) 46%, rgba(6,45,34,0.08) 100%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(6,45,34,0.28));
 }
 
 .replica-hero-slide::after {
@@ -1904,12 +1904,12 @@ h3 {
     box-sizing: border-box;
     left: clamp(24px, 7vw, 112px);
     top: 50%;
-    max-width: 560px;
-    padding: clamp(24px, 4vw, 42px);
-    color: #062d22;
-    background: rgba(255, 255, 255, 0.96);
-    border-left: 8px solid var(--replica-red);
-    box-shadow: 0 24px 70px rgba(6, 45, 34, 0.22);
+    max-width: 650px;
+    padding: clamp(24px, 4vw, 48px) 0;
+    color: #fff;
+    background: transparent;
+    border-left: 0;
+    box-shadow: none;
     transform: translateY(-50%);
 }
 
@@ -1925,12 +1925,12 @@ h3 {
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #062d22;
+    color: #c6ad78;
 }
 
 .replica-hero-content h1 {
     margin: 0 0 16px;
-    color: #062d22;
+    color: #fff;
     font-size: clamp(2.1rem, 4vw, 4.3rem);
     line-height: 1.08;
     letter-spacing: 0;
@@ -1938,8 +1938,9 @@ h3 {
 
 .replica-hero-content p:last-child {
     margin-bottom: 0;
-    color: #24342f;
-    font-size: 16px;
+    max-width: 560px;
+    color: rgba(255,255,255,0.82);
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: 0;
     line-height: 1.65;
@@ -2015,15 +2016,17 @@ h3 {
 
 .hot-products {
     padding-top: 82px;
-    background: var(--replica-bg);
+    background:
+        linear-gradient(180deg, #f8f6ef 0%, #fff 72%),
+        var(--replica-bg);
 }
 
 .replica-title {
-    margin: 0 0 62px;
+    margin: 0 0 46px;
     color: var(--replica-ink);
-    font-size: clamp(2.4rem, 4vw, 4rem);
-    line-height: 1;
-    text-align: center;
+    font-size: clamp(2rem, 3.3vw, 3.4rem);
+    line-height: 1.04;
+    text-align: left;
     letter-spacing: 0;
 }
 
@@ -2034,54 +2037,69 @@ h3 {
 .product-catalog {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 40px 44px;
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid #d8d3c5;
+    background: #d8d3c5;
 }
 
 .replica-product-card {
-    min-height: 330px;
+    position: relative;
+    min-height: 285px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    padding: 34px 22px 34px;
+    justify-content: space-between;
+    padding: 26px 20px 24px;
     background: #fff;
-    border: 1px solid #d8d3c5;
-    box-shadow: 0 14px 34px rgba(6, 45, 34, 0.06);
+    border: 0;
+    box-shadow: none;
     text-align: center;
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
+.replica-product-card::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 18px;
+    height: 3px;
+    background: linear-gradient(90deg, #0b4b35, #c6ad78);
+    opacity: 0.75;
+}
+
 .replica-product-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--replica-red);
-    box-shadow: 0 22px 42px rgba(6, 45, 34, 0.16);
+    z-index: 2;
+    transform: translateY(-3px);
+    box-shadow: 0 18px 34px rgba(6, 45, 34, 0.13);
 }
 
 .replica-product-card img {
     width: 100%;
-    height: 205px;
-    margin-bottom: 26px;
+    height: 164px;
+    margin-bottom: 18px;
     object-fit: contain;
 }
 
 .replica-product-card h3 {
     margin: 0;
-    color: #343434;
-    font-size: 19px;
+    color: var(--replica-red-dark);
+    font-size: 18px;
     line-height: 1.2;
 }
 
 .replica-product-card p {
     margin: 4px 0 0;
-    color: #343434;
-    font-size: 16px;
+    color: #59655f;
+    font-size: 13px;
     font-weight: 800;
     line-height: 1.25;
 }
 
 .replica-cta-band {
     position: relative;
-    min-height: 340px;
+    min-height: 320px;
     display: grid;
     place-items: center;
     color: #fff;
@@ -2157,8 +2175,9 @@ h3 {
 }
 
 .stat-strip {
-    background: #fffdf8;
-    border-bottom: 1px solid #e7e7e7;
+    background: #062d22;
+    border-bottom: 0;
+    color: #fff;
 }
 
 .stat-grid {
@@ -2167,33 +2186,36 @@ h3 {
 }
 
 .stat-grid div {
-    min-height: 94px;
+    min-height: 104px;
     display: grid;
     place-items: center;
     padding: 18px;
     text-align: center;
-    border-left: 1px solid #bfbfbf;
+    border-left: 1px solid rgba(198,173,120,0.32);
 }
 
 .stat-grid div:last-child {
-    border-right: 1px solid #bfbfbf;
+    border-right: 1px solid rgba(198,173,120,0.32);
 }
 
 .stat-grid strong {
-    color: var(--replica-red-dark);
+    color: #fff;
     font-size: 24px;
     line-height: 1.1;
 }
 
 .stat-grid span {
-    color: var(--replica-blue);
+    color: #c6ad78;
     font-size: 14px;
     font-weight: 900;
 }
 
 .advantage-band {
     padding: 58px 0 72px;
-    background: linear-gradient(135deg, var(--replica-red-dark), var(--setto-teal-dark));
+    background:
+        linear-gradient(135deg, rgba(6,45,34,0.96), rgba(11,75,53,0.94)),
+        linear-gradient(90deg, rgba(198,173,120,0.12) 1px, transparent 1px);
+    background-size: auto, 54px 54px;
 }
 
 .advantage-band .replica-title {
@@ -2212,7 +2234,7 @@ h3 {
     display: grid;
     place-items: center;
     padding: 24px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.045);
     border: 1px solid rgba(198,173,120,0.45);
     text-align: center;
 }
@@ -2288,9 +2310,9 @@ h3 {
 .copy-note {
     margin: 20px 0;
     padding: 18px 20px;
-    border-left: 5px solid var(--replica-red);
-    background: #f3f3f3;
-    color: #555;
+    border-left: 5px solid #c6ad78;
+    background: #f7f5ef;
+    color: #3e4b43;
 }
 
 .check-list {
@@ -2304,15 +2326,19 @@ h3 {
 }
 
 .check-list li::before {
-    content: "✓";
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
     margin-right: 8px;
-    color: var(--replica-red);
-    font-weight: 900;
+    border-radius: 50%;
+    background: #0b4b35;
+    vertical-align: middle;
 }
 
 .certificate-section,
 .news-section {
-    background: #f9f9f9;
+    background: linear-gradient(180deg, #f3f5f0 0%, #faf9f5 100%);
 }
 
 .certificate-shell {
@@ -2340,8 +2366,8 @@ h3 {
     place-items: center;
     padding: 18px;
     background: linear-gradient(#fff, #f2f4f0);
-    border: 10px solid var(--setto-wood);
-    box-shadow: inset 0 0 0 2px #e4d2b5, 0 10px 24px rgba(0,0,0,0.08);
+    border: 8px solid #c6ad78;
+    box-shadow: inset 0 0 0 2px #e8dcc5;
     text-align: center;
 }
 
@@ -2388,29 +2414,35 @@ h3 {
 
 .section-subtitle {
     margin: -42px 0 42px;
-    color: #8a8f94;
-    text-align: center;
+    max-width: 760px;
+    color: #65716a;
+    font-weight: 650;
+    text-align: left;
 }
 
 .news-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 26px;
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid #d8d3c5;
+    background: #d8d3c5;
 }
 
 .news-card {
     background: #fff;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    border: 0;
+    box-shadow: none;
     transition: transform 0.2s ease;
 }
 
 .news-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .news-card img {
     width: 100%;
-    aspect-ratio: 1.45 / 1;
+    aspect-ratio: 1.55 / 1;
     object-fit: cover;
 }
 
@@ -2439,6 +2471,10 @@ h3 {
     font-weight: 900;
 }
 
+.news-card span::after {
+    content: " ->";
+}
+
 .installer-feedback-section {
     background: #fff;
 }
@@ -2455,9 +2491,9 @@ h3 {
     align-content: start;
     gap: 16px;
     padding: 28px;
-    border: 1px solid #d8d3c5;
-    background: linear-gradient(135deg, #fff, #f8f5ed);
-    box-shadow: 0 14px 34px rgba(6,45,34,0.07);
+    border: 1px solid rgba(198,173,120,0.55);
+    background: linear-gradient(180deg, #fff, #faf8f2);
+    box-shadow: none;
 }
 
 .installer-feedback-card strong {
@@ -2665,7 +2701,7 @@ h3 {
 }
 
 .trowel-icon span::after {
-    content: "45°";
+    content: "45deg";
     position: absolute;
     right: -6px;
     bottom: -24px;
@@ -3149,7 +3185,7 @@ h3 {
 }
 
 .adhesive-calculator-section {
-    background: linear-gradient(135deg, #fffdf8, #eef3ed);
+    background: #eef3ed;
 }
 
 .calculator-shell {
@@ -3158,11 +3194,11 @@ h3 {
     gap: 44px;
     align-items: stretch;
     padding: clamp(28px, 5vw, 54px);
-    border: 1px solid #d8d3c5;
+    border: 1px solid #c9d1c8;
     background:
         linear-gradient(90deg, rgba(198,173,120,0.08), transparent 42%),
         #fff;
-    box-shadow: 0 20px 48px rgba(6,45,34,0.12);
+    box-shadow: none;
 }
 
 .calculator-copy {
