@@ -255,9 +255,46 @@ function initNavigation() {
 function initInquiryForm() {
     document.querySelectorAll("[data-inquiry-form]").forEach(form => {
         const toast = document.querySelector("[data-toast]");
+        const query = new URLSearchParams(window.location.search);
+        const estimateFields = {
+            area: "calculator_area_m2",
+            flooring: "calculator_flooring_type",
+            recommendedKg: "calculator_recommended_kg",
+            pails: "calculator_pails",
+            sausages: "calculator_sausages",
+            mixedPails: "calculator_mixed_pails",
+            mixedSausages: "calculator_mixed_sausages"
+        };
+
+        const ensureHiddenField = (name, value) => {
+            if (!value || form.elements[name]) return;
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = name;
+            input.value = value;
+            form.appendChild(input);
+        };
+
+        Object.entries(estimateFields).forEach(([param, fieldName]) => {
+            ensureHiddenField(fieldName, query.get(param));
+        });
+        ensureHiddenField("page_url", window.location.href);
+
+        const estimateSummary = [
+            query.get("area") ? `Area: ${query.get("area")} m2` : "",
+            query.get("flooring") ? `Flooring: ${query.get("flooring")}` : "",
+            query.get("recommendedKg") ? `Recommended: ${query.get("recommendedKg")} kg` : "",
+            query.get("pails") ? `Pails: ${query.get("pails")}` : "",
+            query.get("sausages") ? `Sausages: ${query.get("sausages")}` : ""
+        ].filter(Boolean).join(" | ");
+
+        if (estimateSummary && form.elements.message && !form.elements.message.value) {
+            form.elements.message.value = `Calculator estimate - ${estimateSummary}\n\n`;
+        }
+
         form.addEventListener("submit", event => {
-            event.preventDefault();
             if (!form.checkValidity()) {
+                event.preventDefault();
                 form.reportValidity();
                 return;
             }
@@ -265,6 +302,12 @@ function initInquiryForm() {
             const original = button.textContent;
             button.disabled = true;
             button.textContent = "Sending...";
+
+            if (form.action && form.action !== window.location.href) {
+                return;
+            }
+
+            event.preventDefault();
             setTimeout(() => {
                 button.disabled = false;
                 button.textContent = original;
