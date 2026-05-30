@@ -32,7 +32,7 @@ function renderHeader() {
                                 <span class="nav-item-trigger" tabindex="0">Products</span>
                                 <div class="mega-menu">
                                     <a href="/product.html">Setto Supreme S75</a>
-                                    <a href="/product.html#quick-facts">10 L / 15 kg Pail</a>
+                                    <a href="/product.html#quick-facts">10L / Pail</a>
                                     <a href="/product.html#quick-facts">590 ml Sausage</a>
                                     <a href="/installation.html#technical-data">Technical Data Sheet</a>
                                 </div>
@@ -113,7 +113,7 @@ function renderFooter() {
                 <div>
                     <h3>Product Categories</h3>
                     <a href="/product.html">Setto Supreme S75</a>
-                    <a href="/product.html#quick-facts">10 L / 15 kg Pail</a>
+                    <a href="/product.html#quick-facts">10L / Pail</a>
                     <a href="/product.html#quick-facts">590 ml Sausage</a>
                     <a href="${content.documents.tds}">Technical Data Sheet</a>
                 </div>

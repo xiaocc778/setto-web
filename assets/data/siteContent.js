@@ -47,8 +47,8 @@ window.SETTO_CONTENT = {
     },
     productFormats: [
         {
-            title: "Setto Supreme S75 - 10 L / 15 kg Pail",
-            description: "10 L / 15 kg format for professional MS polymer timber flooring adhesive system installation.",
+            title: "Setto Supreme S75 - 10L / Pail",
+            description: "10L pail format for professional MS polymer timber flooring adhesive system installation.",
             imageKey: "productPail"
         },
         {
@@ -121,7 +121,7 @@ window.SETTO_CONTENT = {
     ],
     footerLinks: {
         quickLinks: ["Products", "Systems", "Trade", "Resources", "Contact"],
-        products: ["Setto Supreme S75", "10 L / 15 kg Pail", "590 ml Sausage", "Technical Data Sheet"]
+        products: ["Setto Supreme S75", "10L / Pail", "590 ml Sausage", "Technical Data Sheet"]
     }
 };
 
