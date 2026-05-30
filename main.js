@@ -312,7 +312,7 @@ function initFloatingQrActions() {
             <div class="qr-popover" data-qr-popover hidden>
                 <button class="qr-close" type="button" data-qr-close aria-label="Close QR code">x</button>
                 <p data-qr-title>Scan to contact SETTO</p>
-                <img data-qr-image src="" alt="" width="220" height="220">
+                <img data-qr-image alt="" width="220" height="220">
             </div>
             ${qrTargets.map(item => `
                 <button class="qr-float-button ${item.key}" type="button" data-qr-trigger="${item.key}" aria-expanded="false" aria-label="Show SETTO ${item.label} QR code">

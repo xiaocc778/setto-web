@@ -16,20 +16,31 @@ window.SETTO_CONTENT = {
         { label: "Contact", href: "/contact.html" }
     ],
     images: {
-        heroSettoProduct: "/assets/generated/setto-s75-hero-system.png",
-        heroProductImage: "/assets/generated/setto-s75-product-bucket.png",
-        heroFlooringImage: "/assets/generated/setto-s75-hero-system.png",
-        productPail: "/assets/generated/setto-s75-product-bucket.png",
-        productSausage: "/assets/generated/setto-s75-packaging-steps.png",
+        heroSettoProduct: "/assets/generated/setto-v2/home-hero-installation.png",
+        heroProductImage: "/assets/generated/setto-v2/product-pail-card.png",
+        heroFlooringImage: "/assets/generated/setto-v2/home-hero-system-cutaway.png",
+        productPail: "/assets/generated/setto-v2/product-pail-card.png",
+        productSausage: "/assets/generated/setto-v2/product-sausage-card.png",
         herringbone: "/assets/generated/herringbone-flooring-adhesive.webp",
         chevron: "/assets/generated/chevron-flooring-adhesive.webp",
-        applyAdhesive: "/assets/generated/setto-s75-application-trowel.png",
-        moistureBarrier: "/assets/generated/setto-s75-moisture-barrier.png",
-        comfortFlooring: "/assets/generated/setto-s75-application-trowel.png",
-        systemCutaway: "/assets/generated/setto-s75-hero-system.png",
-        packagingSteps: "/assets/generated/setto-s75-packaging-steps.png",
-        underfloorHeating: "/assets/generated/setto-s75-moisture-barrier.png",
-        commercialProject: "/assets/generated/setto-s75-application-trowel.png"
+        applyAdhesive: "/assets/generated/setto-v2/full-coverage-bonding-card.png",
+        moistureBarrier: "/assets/generated/setto-v2/moisture-film-support-card.png",
+        comfortFlooring: "/assets/generated/setto-v2/foot-traffic-comfort-card.png",
+        systemCutaway: "/assets/generated/setto-v2/home-hero-system-cutaway.png",
+        packagingSteps: "/assets/generated/setto-v2/product-sausage-card.png",
+        underfloorHeating: "/assets/generated/setto-v2/underfloor-heating-card.png",
+        commercialProject: "/assets/generated/setto-v2/commercial-project-supply-card.png",
+        herringboneProject: "/assets/generated/setto-v2/herringbone-flooring-card.png",
+        tradeHero: "/assets/generated/setto-v2/trade-portal-hero.png",
+        systemsHero: "/assets/generated/setto-v2/systems-overview-hero.png",
+        contactHero: "/assets/generated/setto-v2/contact-support-hero.png",
+        shippingHero: "/assets/generated/setto-v2/shipping-logistics-hero.png",
+        resourcesHero: "/assets/generated/setto-v2/resources-technical-hero.png",
+        technicalStandards: "/assets/generated/setto-v2/technical-standards-card.png",
+        solidTimber: "/assets/generated/setto-v2/solid-timber-application-card.png",
+        engineeredTimber: "/assets/generated/setto-v2/engineered-timber-application-card.png",
+        bambooCork: "/assets/generated/setto-v2/bamboo-cork-application-card.png",
+        installerSampleKit: "/assets/generated/setto-v2/installer-sample-kit-card.png"
     },
     documents: {
         tds: "/assets/docs/setto-s75-tds.pdf"
@@ -60,19 +71,19 @@ window.SETTO_CONTENT = {
         {
             title: "Solid Timber Flooring",
             description: "For professional installation of solid timber flooring with permanent elastic bonding.",
-            imageKey: "systemCutaway",
+            imageKey: "solidTimber",
             href: "/applications.html"
         },
         {
             title: "Engineered Timber Flooring",
             description: "For engineered timber flooring where moisture barrier support and installation comfort are required.",
-            imageKey: "applyAdhesive",
+            imageKey: "engineeredTimber",
             href: "/applications.html"
         },
         {
             title: "Multi-layer Parquet Systems",
             description: "Suitable for multi-layer parquet systems, including patterned layouts and premium project floors.",
-            imageKey: "moistureBarrier",
+            imageKey: "herringboneProject",
             href: "/applications.html"
         },
         {
@@ -84,7 +95,7 @@ window.SETTO_CONTENT = {
         {
             title: "Bamboo & Cork Flooring",
             description: "Supports bamboo flooring and cork flooring systems with correct subfloor preparation.",
-            imageKey: "packagingSteps",
+            imageKey: "bambooCork",
             href: "/applications.html"
         },
         {
