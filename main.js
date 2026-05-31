@@ -43,7 +43,7 @@ function renderHeader() {
                                 <span class="nav-item-trigger" tabindex="0">Resources</span>
                                 <div class="mega-menu">
                                     <a href="/blog.html">Technical Resource Center</a>
-                                    <a href="/blog.html#installation-guide">Installation Guide</a>
+                                    <a href="/installation.html">Installation Guide</a>
                                     <a href="/blog.html#technical-standards">Technical Standards</a>
                                     <a href="/blog.html#video-library">Video Library</a>
                                     <a href="/blog.html#downloads">Downloads</a>
@@ -290,6 +290,12 @@ function initInquiryForm() {
 
         if (estimateSummary && form.elements.message && !form.elements.message.value) {
             form.elements.message.value = `Calculator estimate - ${estimateSummary}\n\n`;
+        }
+
+        if (query.get("sent") === "1" && toast) {
+            toast.textContent = "Thanks. Your inquiry has been submitted.";
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 4200);
         }
 
         form.addEventListener("submit", event => {

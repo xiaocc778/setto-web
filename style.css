@@ -3179,6 +3179,7 @@ h3 {
 .step-visual {
     position: relative;
     min-height: 154px;
+    aspect-ratio: 16 / 9;
     margin: 0;
     overflow: hidden;
     background: #eef1ea;
