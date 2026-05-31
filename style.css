@@ -3185,26 +3185,9 @@ h3 {
 }
 
 .step-visual img {
-    width: 400%;
-    max-width: none;
+    width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.replica-step:nth-child(1) .step-visual img {
-    object-position: 0% center;
-}
-
-.replica-step:nth-child(2) .step-visual img {
-    transform: translateX(-25%);
-}
-
-.replica-step:nth-child(3) .step-visual img {
-    transform: translateX(-50%);
-}
-
-.replica-step:nth-child(4) .step-visual img {
-    transform: translateX(-75%);
 }
 
 .step-copy {
