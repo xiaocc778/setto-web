@@ -20,14 +20,14 @@ window.SETTO_CONTENT = {
         heroProductImage: "/assets/generated/setto-v2/product-pail-card.png",
         heroFlooringImage: "/assets/generated/setto-v2/home-hero-system-cutaway.png",
         productPail: "/assets/generated/setto-v2/product-pail-card.png",
-        productSausage: "/assets/generated/setto-v2/product-sausage-card.png",
+        productSausage: "/assets/generated/setto-v3/product-foil-sausage-pack.png",
         herringbone: "/assets/generated/herringbone-flooring-adhesive.webp",
         chevron: "/assets/generated/chevron-flooring-adhesive.webp",
         applyAdhesive: "/assets/generated/setto-v2/full-coverage-bonding-card.png",
         moistureBarrier: "/assets/generated/setto-v2/moisture-film-support-card.png",
         comfortFlooring: "/assets/generated/setto-v2/foot-traffic-comfort-card.png",
         systemCutaway: "/assets/generated/setto-v2/home-hero-system-cutaway.png",
-        packagingSteps: "/assets/generated/setto-v2/product-sausage-card.png",
+        packagingSteps: "/assets/generated/setto-v3/product-foil-sausage-pack.png",
         underfloorHeating: "/assets/generated/setto-v2/underfloor-heating-card.png",
         commercialProject: "/assets/generated/setto-v2/commercial-project-supply-card.png",
         herringboneProject: "/assets/generated/setto-v2/herringbone-flooring-card.png",
@@ -52,8 +52,8 @@ window.SETTO_CONTENT = {
             imageKey: "productPail"
         },
         {
-            title: "Setto Supreme S75 - 590 ml Sausage",
-            description: "590 ml format for controlled SETTO Supreme S75 application and detail work.",
+            title: "Setto Supreme S75 - 590 ml Foil Sausage Pack",
+            description: "590 ml aluminium foil soft pack for detail work, repair, perimeter bonding and controlled application with a barrel gun.",
             imageKey: "productSausage"
         },
         {
@@ -121,7 +121,7 @@ window.SETTO_CONTENT = {
     ],
     footerLinks: {
         quickLinks: ["Products", "Systems", "Trade", "Resources", "Contact"],
-        products: ["Setto Supreme S75", "10L / Pail", "590 ml Sausage", "Technical Data Sheet"]
+        products: ["Setto Supreme S75", "10L / Pail", "590 ml Foil Sausage Pack", "Technical Data Sheet"]
     }
 };
 

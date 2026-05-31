@@ -33,7 +33,7 @@ function renderHeader() {
                                 <div class="mega-menu">
                                     <a href="/product.html">Setto Supreme S75</a>
                                     <a href="/product.html#quick-facts">10L / Pail</a>
-                                    <a href="/product.html#quick-facts">590 ml Sausage</a>
+                                    <a href="/product.html#quick-facts">590 ml Foil Sausage Pack</a>
                                     <a href="/installation.html#technical-data">Technical Data Sheet</a>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ function renderFooter() {
                     <h3>Product Categories</h3>
                     <a href="/product.html">Setto Supreme S75</a>
                     <a href="/product.html#quick-facts">10L / Pail</a>
-                    <a href="/product.html#quick-facts">590 ml Sausage</a>
+                    <a href="/product.html#quick-facts">590 ml Foil Sausage Pack</a>
                     <a href="${content.documents.tds}">Technical Data Sheet</a>
                 </div>
                 <div>
@@ -285,7 +285,7 @@ function initInquiryForm() {
             query.get("flooring") ? `Flooring: ${query.get("flooring")}` : "",
             query.get("recommendedKg") ? `Recommended: ${query.get("recommendedKg")} kg` : "",
             query.get("pails") ? `Pails: ${query.get("pails")}` : "",
-            query.get("sausages") ? `Sausages: ${query.get("sausages")}` : ""
+            query.get("sausages") ? `Foil packs: ${query.get("sausages")}` : ""
         ].filter(Boolean).join(" | ");
 
         if (estimateSummary && form.elements.message && !form.elements.message.value) {
@@ -556,7 +556,7 @@ function initAdhesiveCalculator() {
             const sausages = remainingKg > 0.01 ? Math.ceil(remainingKg / KG_PER_SAUSAGE) : 0;
 
             if (pails === 0) {
-                return { label: `${Math.ceil(recommendedKg / KG_PER_SAUSAGE)} sausages`, pails: 0, sausages: Math.ceil(recommendedKg / KG_PER_SAUSAGE) };
+                return { label: `${Math.ceil(recommendedKg / KG_PER_SAUSAGE)} foil packs`, pails: 0, sausages: Math.ceil(recommendedKg / KG_PER_SAUSAGE) };
             }
 
             if (sausages === 0) {
@@ -564,7 +564,7 @@ function initAdhesiveCalculator() {
             }
 
             return {
-                label: `${pails} ${pails === 1 ? "pail" : "pails"} + ${sausages} ${sausages === 1 ? "sausage" : "sausages"}`,
+                label: `${pails} ${pails === 1 ? "pail" : "pails"} + ${sausages} ${sausages === 1 ? "foil pack" : "foil packs"}`,
                 pails,
                 sausages
             };
@@ -604,9 +604,9 @@ function initAdhesiveCalculator() {
                 rangeOutput.textContent = `${formatKg(lowKg)}-${formatKg(highKg)} kg base range${allowanceText}`;
             }
             if (pailsOutput) pailsOutput.textContent = `${pailCount} ${pailCount === 1 ? "pail" : "pails"}`;
-            if (sausagesOutput) sausagesOutput.textContent = `${sausageCount} ${sausageCount === 1 ? "sausage" : "sausages"}`;
+            if (sausagesOutput) sausagesOutput.textContent = `${sausageCount} ${sausageCount === 1 ? "foil pack" : "foil packs"}`;
             if (mixedOutput) mixedOutput.textContent = mixedPack.label;
-            if (mixedNote) mixedNote.textContent = "Uses pails for bulk volume and sausages for remainder.";
+            if (mixedNote) mixedNote.textContent = "Uses pails for bulk volume and foil packs for remainder/detail work.";
             if (projectNote) projectNote.textContent = PROJECT_NOTES[flooring] || "Estimate prepared for professional timber flooring installation.";
 
             if (quoteLink) {
