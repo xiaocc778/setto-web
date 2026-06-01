@@ -93,7 +93,7 @@ select {
 }
 
 .brand img {
-    width: 126px;
+    width: 150px;
     height: auto;
 }
 
@@ -3970,7 +3970,7 @@ h3 {
 }
 
 .homey-replica .brand img {
-    width: 168px;
+    width: 210px;
 }
 
 .homey-replica .nav {
@@ -4458,7 +4458,7 @@ h3 {
     }
 
     .homey-replica .brand img {
-        width: 134px;
+        width: 160px;
     }
 
     .language-trigger,
