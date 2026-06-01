@@ -6,14 +6,13 @@ window.SETTO_CONTENT = {
         phone: "1300-855-668",
         email: "info@setto.com.au",
         manufacturer: "Seven Fusion Pty Ltd",
-        location: "12-18 Lascelles St, Springvale VIC 3171, Australia"
+        location: "12-18 Lascelles St, Springvale VIC 3171, Australia",
+        businessHours: "Monday to Friday, 9:00 am - 5:00 pm AEST"
     },
     navigation: [
         { label: "Products", href: "/product.html" },
-        { label: "Systems", href: "/systems.html" },
-        { label: "Trade", href: "/trade.html" },
-        { label: "Resources", href: "/blog.html" },
-        { label: "Contact", href: "/contact.html" }
+        { label: "Technical Documentation", href: "/blog.html" },
+        { label: "Contact us", href: "/contact.html" }
     ],
     images: {
         heroSettoProduct: "/assets/generated/setto-v2/home-hero-installation.png",
@@ -36,7 +35,6 @@ window.SETTO_CONTENT = {
         contactHero: "/assets/generated/setto-v2/contact-support-hero.png",
         shippingHero: "/assets/generated/setto-v2/shipping-logistics-hero.png",
         resourcesHero: "/assets/generated/setto-v2/resources-technical-hero.png",
-        technicalStandards: "/assets/generated/setto-v2/technical-standards-card.png",
         solidTimber: "/assets/generated/setto-v2/solid-timber-application-card.png",
         engineeredTimber: "/assets/generated/setto-v2/engineered-timber-application-card.png",
         bambooCork: "/assets/generated/setto-v2/bamboo-cork-application-card.png",
@@ -52,8 +50,8 @@ window.SETTO_CONTENT = {
             imageKey: "productPail"
         },
         {
-            title: "Setto Supreme S75 - 590 ml Foil Sausage Pack",
-            description: "590 ml aluminium foil soft pack for detail work, repair, perimeter bonding and controlled application with a barrel gun.",
+            title: "Setto Supreme S75 - 600 ml Foil Sausage Pack",
+            description: "600 ml aluminium foil soft pack for detail work, repair, perimeter bonding and controlled application with a barrel gun.",
             imageKey: "productSausage"
         },
         {
@@ -120,8 +118,13 @@ window.SETTO_CONTENT = {
         { label: "Service Temperature", value: "-40C to +90C", unit: "" }
     ],
     footerLinks: {
-        quickLinks: ["Products", "Systems", "Trade", "Resources", "Contact"],
-        products: ["Setto Supreme S75", "10L / Pail", "590 ml Foil Sausage Pack", "Technical Data Sheet"]
+        quickLinks: ["Products", "Technical Documentation", "Contact us"]
+    },
+    socialLinks: {
+        facebook: "#",
+        instagram: "#",
+        youtube: "#",
+        linkedin: "#"
     }
 };
 

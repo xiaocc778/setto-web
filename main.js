@@ -1,6 +1,17 @@
 const content = window.SETTO_CONTENT || {};
 
 const imagePath = key => content.images?.[key] || "/assets/placeholders/missing-image.webp";
+const socialIcon = name => {
+    const icons = {
+        facebook: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8.2V6.8c0-.7.2-1.1 1.2-1.1h1.5V3.1c-.7-.1-1.4-.1-2.1-.1-2.2 0-3.8 1.4-3.8 3.9v1.3H8.3V11h2.5v10h3.1V11h2.5l.4-2.8H14Z"/></svg>`,
+        instagram: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 2A2.5 2.5 0 0 0 5 7.5v9A2.5 2.5 0 0 0 7.5 19h9a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 16.5 5h-9Zm4.5 3.4A3.6 3.6 0 1 1 8.4 12 3.6 3.6 0 0 1 12 8.4Zm0 2A1.6 1.6 0 1 0 13.6 12 1.6 1.6 0 0 0 12 10.4Zm4.2-2.9a1 1 0 1 1 1 1 1 1 0 0 1-1-1Z"/></svg>`,
+        youtube: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.6 7.1a3 3 0 0 0-2.1-2.1C17.6 4.5 12 4.5 12 4.5s-5.6 0-7.5.5a3 3 0 0 0-2.1 2.1A31.6 31.6 0 0 0 2 12a31.6 31.6 0 0 0 .4 4.9 3 3 0 0 0 2.1 2.1c1.9.5 7.5.5 7.5.5s5.6 0 7.5-.5a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 22 12a31.6 31.6 0 0 0-.4-4.9ZM10 15.4V8.6l5.8 3.4L10 15.4Z"/></svg>`,
+        linkedin: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.4 8.8h3.1V21H5.4V8.8ZM7 3a1.8 1.8 0 1 1 0 3.6A1.8 1.8 0 0 1 7 3Zm4 5.8h3v1.7h.1a3.3 3.3 0 0 1 3-1.9c3.2 0 3.8 2.1 3.8 4.8V21h-3.1v-6.6c0-1.6 0-3.6-2.2-3.6s-2.5 1.7-2.5 3.5V21H11V8.8Z"/></svg>`
+    };
+    return icons[name] || "";
+};
+
+const socialLink = name => content.socialLinks?.[name] || "#";
 
 function renderHeader() {
     document.querySelectorAll("[data-site-header]").forEach(header => {
@@ -15,10 +26,10 @@ function renderHeader() {
                             <span>Melbourne Stock Available | Apply for Trade Account & Get Free Installer Samples</span>
                         </div>
                         <div class="topbar-social" aria-label="Social links">
-                            <a href="#" aria-label="Facebook">f</a>
-                            <a href="#" aria-label="Instagram">i</a>
-                            <a href="#" aria-label="YouTube">y</a>
-                            <a href="#" aria-label="LinkedIn">in</a>
+                            <a href="${socialLink("facebook")}" aria-label="Facebook">${socialIcon("facebook")}</a>
+                            <a href="${socialLink("instagram")}" aria-label="Instagram">${socialIcon("instagram")}</a>
+                            <a href="${socialLink("youtube")}" aria-label="YouTube">${socialIcon("youtube")}</a>
+                            <a href="${socialLink("linkedin")}" aria-label="LinkedIn">${socialIcon("linkedin")}</a>
                         </div>
                     </div>
                 </div>
@@ -33,28 +44,24 @@ function renderHeader() {
                                 <div class="mega-menu">
                                     <a href="/product.html">Setto Supreme S75</a>
                                     <a href="/product.html#quick-facts">10L / Pail</a>
-                                    <a href="/product.html#quick-facts">590 ml Foil Sausage Pack</a>
+                                    <a href="/product.html#quick-facts">600 ml Foil Sausage Pack</a>
                                     <a href="/installation.html#technical-data">Technical Data Sheet</a>
                                 </div>
                             </div>
-                            <a href="/systems.html">Systems</a>
-                            <a href="/trade.html">Trade</a>
                             <div class="nav-item">
-                                <span class="nav-item-trigger" tabindex="0">Resources</span>
+                                <span class="nav-item-trigger" tabindex="0">Technical Documentation</span>
                                 <div class="mega-menu">
                                     <a href="/blog.html">Technical Resource Center</a>
                                     <a href="/installation.html">Installation Guide</a>
-                                    <a href="/blog.html#technical-standards">Technical Standards</a>
                                     <a href="/blog.html#video-library">Video Library</a>
                                     <a href="/blog.html#downloads">Downloads</a>
                                     <a href="/blog.html#faqs">FAQs</a>
                                 </div>
                             </div>
-                            <a href="/contact.html">Contact</a>
+                            <a href="/contact.html">Contact us</a>
                         </nav>
                     </div>
                     <div class="header-tools">
-                        <button class="language-trigger" type="button">English</button>
                         <a class="search-trigger" href="/contact.html#inquiry" aria-label="Search or inquiry">Search</a>
                         <a class="btn btn-primary header-quote" href="/contact.html#inquiry">Request Quote</a>
                         <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
@@ -99,23 +106,10 @@ function renderFooter() {
         footer.innerHTML = `
             <div class="container footer-grid">
                 <div class="footer-brand">
-                    <img src="${brand.logo}" alt="Setto logo" width="138" height="58">
+                    <img src="${brand.logo}" alt="Setto logo" width="156" height="66">
                     <p>${brand.tagline}</p>
                     <p>Trade, distributor and project supply enquiries welcome.</p>
-                </div>
-                <div>
-                    <h3>Quick Links</h3>
-                    ${content.footerLinks.quickLinks.map(label => {
-                        const item = content.navigation.find(nav => nav.label === label);
-                        return `<a href="${item?.href || "/index.html"}">${label}</a>`;
-                    }).join("")}
-                </div>
-                <div>
-                    <h3>Product Categories</h3>
-                    <a href="/product.html">Setto Supreme S75</a>
-                    <a href="/product.html#quick-facts">10L / Pail</a>
-                    <a href="/product.html#quick-facts">590 ml Foil Sausage Pack</a>
-                    <a href="${content.documents.tds}">Technical Data Sheet</a>
+                    <a class="footer-email-link" href="mailto:${brand.email}">${brand.email}</a>
                 </div>
                 <div>
                     <h3>Support</h3>
@@ -258,12 +252,9 @@ function initInquiryForm() {
         const query = new URLSearchParams(window.location.search);
         const estimateFields = {
             area: "calculator_area_m2",
-            flooring: "calculator_flooring_type",
-            recommendedKg: "calculator_recommended_kg",
+            trowel: "calculator_v_trowel_size",
             pails: "calculator_pails",
-            sausages: "calculator_sausages",
-            mixedPails: "calculator_mixed_pails",
-            mixedSausages: "calculator_mixed_sausages"
+            coverage: "calculator_coverage_range"
         };
 
         const ensureHiddenField = (name, value) => {
@@ -282,10 +273,9 @@ function initInquiryForm() {
 
         const estimateSummary = [
             query.get("area") ? `Area: ${query.get("area")} m2` : "",
-            query.get("flooring") ? `Flooring: ${query.get("flooring")}` : "",
-            query.get("recommendedKg") ? `Recommended: ${query.get("recommendedKg")} kg` : "",
+            query.get("trowel") ? `V Trowel: ${query.get("trowel")}` : "",
+            query.get("coverage") ? `Coverage: ${query.get("coverage")}` : "",
             query.get("pails") ? `Pails: ${query.get("pails")}` : "",
-            query.get("sausages") ? `Foil packs: ${query.get("sausages")}` : ""
         ].filter(Boolean).join(" | ");
 
         if (estimateSummary && form.elements.message && !form.elements.message.value) {
@@ -331,20 +321,9 @@ function initInquiryForm() {
 function initFloatingQrActions() {
     const qrTargets = [
         {
-            key: "wechat",
-            label: "WeChat",
-            image: "/assets/images/wechatwhatsapp/wechat.jpg",
-            alt: "SETTO WeChat QR code",
-            icon: `
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M9.2 5.4c-3.8 0-6.8 2.3-6.8 5.2 0 1.7 1.1 3.3 2.8 4.2l-.7 2.1 2.4-1.2c.7.2 1.5.3 2.3.3 3.8 0 6.8-2.3 6.8-5.3s-3-5.3-6.8-5.3Zm-2.3 4.4a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Zm4.5 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Z"/>
-                    <path d="M21.6 14.1c0-2.4-2.4-4.4-5.4-4.7.2.5.3 1 .3 1.5 0 3.3-3.3 6-7.3 6h-.5c1 1.2 2.8 2 4.8 2 .6 0 1.2-.1 1.8-.2l2 1 .6-1.7c2.2-.8 3.7-2.2 3.7-3.9Zm-7.3-.8a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4Zm3.6 0a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4Z"/>
-                </svg>`
-        },
-        {
             key: "whatsapp",
             label: "WhatsApp",
-            image: "/assets/images/wechatwhatsapp/whatsapp.jpg",
+            image: "/assets/images/whatsapp.jpg",
             alt: "SETTO WhatsApp QR code",
             icon: `
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -520,120 +499,72 @@ function initReplicaModals() {
 }
 
 function initAdhesiveCalculator() {
-    const KG_PER_PAIL = 15;
-    const KG_PER_SAUSAGE = 0.944;
-    const LOW_RATE = 1.1;
-    const RECOMMENDED_RATE = 1.2;
-    const PROJECT_NOTES = {
-        "Solid Timber Flooring": "Solid timber projects often require close attention to subfloor flatness, adhesive transfer and board movement allowance.",
-        "Engineered Timber Flooring": "Engineered timber estimates should be checked against board width, substrate condition and site moisture readings.",
-        "Parquet / Patterned Flooring": "Patterned layouts can involve extra handling time and cut waste, so a procurement allowance is often useful.",
-        "Bamboo / Cork Flooring": "Bamboo and cork systems should be checked for product compatibility, substrate condition and installer method before ordering."
-    };
-
-    const formatKg = value => {
-        const rounded = Math.round(value * 10) / 10;
-        return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+    const TROWEL_COVERAGE = {
+        "3 mm V-Notch": { low: 16, high: 18 },
+        "4 mm V-Notch": { low: 12, high: 14 },
+        "5 mm V-Notch": { low: 10, high: 12 },
+        "6 mm V-Notch": { low: 8, high: 10 }
     };
 
     document.querySelectorAll("[data-adhesive-calculator]").forEach(calculator => {
         const areaInput = calculator.querySelector("[data-calc-area]");
-        const flooringSelect = calculator.querySelector("[data-calc-flooring]");
+        const trowelSelect = calculator.querySelector("[data-calc-trowel], [data-calc-flooring]");
         const kgOutput = calculator.querySelector("[data-calc-kg]");
         const rangeOutput = calculator.querySelector("[data-calc-range]");
         const pailsOutput = calculator.querySelector("[data-calc-pails]");
-        const sausagesOutput = calculator.querySelector("[data-calc-sausages]");
-        const mixedOutput = calculator.querySelector("[data-calc-mixed]");
-        const mixedNote = calculator.querySelector("[data-calc-mixed-note]");
+        const packOutput = calculator.querySelector("[data-calc-sausages]");
+        const coverageOutput = calculator.querySelector("[data-calc-mixed]");
+        const coverageNote = calculator.querySelector("[data-calc-mixed-note]");
         const projectNote = calculator.querySelector("[data-calc-note]");
-        const allowanceButtons = calculator.querySelectorAll("[data-calc-allowance]");
         const quoteLink = calculator.querySelector("[data-calc-quote]");
-        let allowancePercent = 0;
-
-        const getMixedPack = recommendedKg => {
-            const pails = Math.floor(recommendedKg / KG_PER_PAIL);
-            const remainingKg = recommendedKg - (pails * KG_PER_PAIL);
-            const sausages = remainingKg > 0.01 ? Math.ceil(remainingKg / KG_PER_SAUSAGE) : 0;
-
-            if (pails === 0) {
-                return { label: `${Math.ceil(recommendedKg / KG_PER_SAUSAGE)} foil packs`, pails: 0, sausages: Math.ceil(recommendedKg / KG_PER_SAUSAGE) };
-            }
-
-            if (sausages === 0) {
-                return { label: `${pails} ${pails === 1 ? "pail" : "pails"}`, pails, sausages };
-            }
-
-            return {
-                label: `${pails} ${pails === 1 ? "pail" : "pails"} + ${sausages} ${sausages === 1 ? "foil pack" : "foil packs"}`,
-                pails,
-                sausages
-            };
-        };
 
         const reset = () => {
             if (kgOutput) kgOutput.textContent = "Enter area to estimate";
-            if (rangeOutput) rangeOutput.textContent = "Based on 1.1-1.2 kg/m²";
+            if (rangeOutput) rangeOutput.textContent = "Coverage depends on selected V-notch trowel";
             if (pailsOutput) pailsOutput.textContent = "-";
-            if (sausagesOutput) sausagesOutput.textContent = "-";
-            if (mixedOutput) mixedOutput.textContent = "-";
-            if (mixedNote) mixedNote.textContent = "Optimised for practical ordering";
-            if (projectNote) projectNote.textContent = PROJECT_NOTES[flooringSelect?.value] || "Select flooring type and area to generate a project estimate.";
+            if (packOutput) packOutput.textContent = "600 ml Foil Sausage Pack";
+            if (coverageOutput) coverageOutput.textContent = "-";
+            if (coverageNote) coverageNote.textContent = "Coverage range selected by trowel size";
+            if (projectNote) projectNote.textContent = "Recommend 5.5 mm V-notch trowel. Foil packs are available for detail work and controlled application, but are not included in the pail estimate.";
             if (quoteLink) quoteLink.href = "/contact.html#inquiry";
         };
 
         const update = () => {
             const area = Number.parseFloat(areaInput?.value || "");
-            const flooring = flooringSelect?.value || "Timber Flooring";
+            const trowel = trowelSelect?.value || "5 mm V-Notch";
+            const coverage = TROWEL_COVERAGE[trowel] || TROWEL_COVERAGE["5 mm V-Notch"];
 
             if (!Number.isFinite(area) || area <= 0) {
                 reset();
                 return;
             }
 
-            const allowanceMultiplier = 1 + (allowancePercent / 100);
-            const lowKg = area * LOW_RATE;
-            const highKg = area * RECOMMENDED_RATE;
-            const recommendedKg = highKg * allowanceMultiplier;
-            const pailCount = Math.ceil(recommendedKg / KG_PER_PAIL);
-            const sausageCount = Math.ceil(recommendedKg / KG_PER_SAUSAGE);
-            const mixedPack = getMixedPack(recommendedKg);
+            const minPails = Math.ceil(area / coverage.high);
+            const recommendedPails = Math.ceil(area / coverage.low);
+            const pailText = minPails === recommendedPails ? `${recommendedPails} pail${recommendedPails === 1 ? "" : "s"}` : `${minPails}-${recommendedPails} pails`;
+            const coverageText = `${coverage.low}-${coverage.high} m2 per pail`;
 
-            if (kgOutput) kgOutput.textContent = `${formatKg(recommendedKg)} kg`;
-            if (rangeOutput) {
-                const allowanceText = allowancePercent ? ` + ${allowancePercent}% allowance` : "";
-                rangeOutput.textContent = `${formatKg(lowKg)}-${formatKg(highKg)} kg base range${allowanceText}`;
-            }
-            if (pailsOutput) pailsOutput.textContent = `${pailCount} ${pailCount === 1 ? "pail" : "pails"}`;
-            if (sausagesOutput) sausagesOutput.textContent = `${sausageCount} ${sausageCount === 1 ? "foil pack" : "foil packs"}`;
-            if (mixedOutput) mixedOutput.textContent = mixedPack.label;
-            if (mixedNote) mixedNote.textContent = "Uses pails for bulk volume and foil packs for remainder/detail work.";
-            if (projectNote) projectNote.textContent = PROJECT_NOTES[flooring] || "Estimate prepared for professional timber flooring installation.";
+            if (kgOutput) kgOutput.textContent = pailText;
+            if (rangeOutput) rangeOutput.textContent = `${trowel}: ${coverageText}`;
+            if (pailsOutput) pailsOutput.textContent = pailText;
+            if (packOutput) packOutput.textContent = "Optional";
+            if (coverageOutput) coverageOutput.textContent = coverageText;
+            if (coverageNote) coverageNote.textContent = "Pail estimate is rounded up for procurement planning.";
+            if (projectNote) projectNote.textContent = "Recommend 5.5 mm V-notch trowel. Final usage depends on substrate flatness, trowel angle and site method.";
 
             if (quoteLink) {
                 const params = new URLSearchParams({
                     area: String(area),
-                    flooring,
-                    allowance: `${allowancePercent}%`,
-                    recommendedKg: formatKg(recommendedKg),
-                    pails: String(pailCount),
-                    sausages: String(sausageCount),
-                    mixedPails: String(mixedPack.pails),
-                    mixedSausages: String(mixedPack.sausages)
+                    trowel,
+                    coverage: coverageText,
+                    pails: pailText
                 });
                 quoteLink.href = `/contact.html?${params.toString()}#inquiry`;
             }
         };
 
         areaInput?.addEventListener("input", update);
-        flooringSelect?.addEventListener("change", update);
-        allowanceButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                allowanceButtons.forEach(item => item.classList.remove("active"));
-                button.classList.add("active");
-                allowancePercent = Number.parseFloat(button.dataset.calcAllowance || "0") || 0;
-                update();
-            });
-        });
+        trowelSelect?.addEventListener("change", update);
         reset();
     });
 }
