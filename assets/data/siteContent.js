@@ -38,7 +38,11 @@ window.SETTO_CONTENT = {
         solidTimber: "/assets/generated/setto-v2/solid-timber-application-card.png",
         engineeredTimber: "/assets/generated/setto-v2/engineered-timber-application-card.png",
         bambooCork: "/assets/generated/setto-v2/bamboo-cork-application-card.png",
-        installerSampleKit: "/assets/generated/setto-v2/installer-sample-kit-card.png"
+        installerSampleKit: "/assets/generated/setto-v2/installer-sample-kit-card.png",
+        resourceSystemSelection: "/assets/generated/setto-v4/technical-resource-system-selection.png",
+        resourceMoistureBarrier: "/assets/generated/setto-v4/technical-resource-moisture-barrier.png",
+        resourceFootTrafficComfort: "/assets/generated/setto-v4/technical-resource-foot-traffic-comfort.png",
+        resourceCommercialSupply: "/assets/generated/setto-v4/technical-resource-commercial-supply.png"
     },
     documents: {
         tds: "/assets/docs/setto-s75-tds.pdf"
