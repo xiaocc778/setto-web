@@ -106,7 +106,7 @@ function renderFooter() {
         footer.innerHTML = `
             <div class="container footer-grid">
                 <div class="footer-brand">
-                    <img src="${brand.logo}" alt="Setto logo" width="156" height="66">
+                    <img src="${brand.footerLogo || brand.logo}" alt="Setto logo" width="156" height="66">
                     <p>${brand.tagline}</p>
                     <p>Trade, distributor and project supply enquiries welcome.</p>
                     <a class="footer-email-link" href="mailto:${brand.email}">${brand.email}</a>
