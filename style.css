@@ -2791,48 +2791,74 @@ h3 {
     content: " ->";
 }
 
-.installer-feedback-section {
+.who-we-serve-section {
     background: #fff;
 }
 
-.installer-feedback-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
+.who-we-serve-heading {
+    margin-bottom: 32px;
+    text-align: center;
 }
 
-.installer-feedback-card {
-    min-height: 250px;
+.who-we-serve-heading .replica-kicker {
+    margin-bottom: 8px;
+}
+
+.who-we-serve-heading .replica-title {
+    margin: 0;
+}
+
+.who-we-serve-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.who-we-serve-card {
+    min-height: 270px;
     display: grid;
     align-content: start;
-    gap: 16px;
-    padding: 28px;
-    border: 1px solid rgba(198,173,120,0.55);
-    background: linear-gradient(180deg, #fff, #faf8f2);
-    box-shadow: none;
+    justify-items: center;
+    gap: 14px;
+    padding: 26px 18px;
+    border: 1px solid rgba(198,173,120,0.48);
+    background: #fff;
+    box-shadow: 0 14px 32px rgba(6,45,34,0.06);
+    text-align: center;
 }
 
-.installer-feedback-card strong {
+.who-we-serve-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    color: var(--replica-red-dark);
+}
+
+.who-we-serve-icon svg {
+    width: 48px;
+    height: 48px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
+}
+
+.who-we-serve-card h3 {
+    margin: 0;
     color: var(--replica-red-dark);
     font-family: Poppins, Inter, sans-serif;
-    font-size: 22px;
-    line-height: 1.15;
+    font-size: 16px;
+    line-height: 1.35;
 }
 
-.installer-feedback-card p {
+.who-we-serve-card p {
     margin: 0;
     color: #59655f;
-    font-weight: 650;
-    line-height: 1.7;
-}
-
-.installer-feedback-card span {
-    align-self: end;
-    color: #8a7a55;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.65;
 }
 
 .resource-subnav {
@@ -4174,7 +4200,7 @@ h3 {
 .advantage-card,
 .certificate-card,
 .news-card,
-.installer-feedback-card,
+.who-we-serve-card,
 .resource-step-card,
 .resource-standard-card,
 .resource-download-card,
@@ -4421,9 +4447,12 @@ h3 {
 
     .resource-standard-grid,
     .resource-download-grid,
-    .resource-faq-grid,
-    .installer-feedback-grid {
+    .resource-faq-grid {
         grid-template-columns: 1fr;
+    }
+
+    .who-we-serve-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .resource-standard-card {
@@ -4623,7 +4652,7 @@ h3 {
         grid-template-columns: 1fr;
     }
 
-    .installer-feedback-grid {
+    .who-we-serve-grid {
         grid-template-columns: 1fr;
     }
 
