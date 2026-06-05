@@ -1,7 +1,7 @@
 window.SETTO_CONTENT = {
     brand: {
         name: "Setto Australia",
-        logo: "/assets/logo.jpg",
+        logo: "/assets/generated/setto-logo.png",
         footerLogo: "/assets/generated/setto-logo-white.png",
         tagline: "SETTO Supreme S75 Professional MS Polymer Timber Flooring Adhesive System",
         phone: "1300-855-668",
