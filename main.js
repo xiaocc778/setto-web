@@ -226,20 +226,40 @@ function initNavigation() {
 
     menuToggles.forEach(toggle => {
         toggle.addEventListener("click", () => {
-        const isOpen = !nav?.classList.contains("open");
-        nav?.classList.toggle("open", isOpen);
-        menuToggles.forEach(item => {
-            item.classList.toggle("active", isOpen);
-            item.setAttribute("aria-expanded", String(isOpen));
-        });
+            const isOpen = !nav?.classList.contains("open");
+            nav?.classList.toggle("open", isOpen);
+            menuToggles.forEach(item => {
+                item.classList.toggle("active", isOpen);
+                item.setAttribute("aria-expanded", String(isOpen));
+                item.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+            });
+            if (!isOpen) navItems.forEach(item => item.classList.remove("open"));
         });
     });
 
     nav?.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
     navItems.forEach(item => {
-        item.querySelector(".nav-item-trigger")?.addEventListener("click", () => {
-            item.classList.toggle("open");
+        const trigger = item.querySelector(".nav-item-trigger");
+        const toggleItem = () => {
+            const isOpen = !item.classList.contains("open");
+            navItems.forEach(navItem => navItem.classList.remove("open"));
+            item.classList.toggle("open", isOpen);
+            trigger?.setAttribute("aria-expanded", String(isOpen));
+        };
+
+        trigger?.setAttribute("role", "button");
+        trigger?.setAttribute("aria-expanded", "false");
+        trigger?.addEventListener("click", toggleItem);
+        trigger?.addEventListener("keydown", event => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            event.preventDefault();
+            toggleItem();
         });
+    });
+    document.addEventListener("click", event => {
+        if (!nav?.classList.contains("open")) return;
+        if (header?.contains(event.target) || nav.contains(event.target)) return;
+        closeMenu();
     });
     document.addEventListener("keydown", event => {
         if (event.key === "Escape") closeMenu();

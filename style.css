@@ -1737,6 +1737,10 @@ h3 {
     transform: translateY(-4px) rotate(-45deg);
 }
 
+.homey-replica .mobile-menu-fallback {
+    display: none !important;
+}
+
 .homey-replica .site-header {
     position: sticky;
     top: 0;
@@ -4812,5 +4816,563 @@ h3 {
 
     .replica-float-actions {
         display: none;
+    }
+}
+
+/* First-pass mobile polish for the Setto replica layout. */
+@media (max-width: 1100px) {
+    .homey-replica .site-header {
+        z-index: 1400;
+    }
+
+    .homey-replica .header-inner {
+        position: relative;
+        min-height: 78px;
+    }
+
+    .homey-replica .nav {
+        top: 126px;
+        left: 16px;
+        right: 16px;
+        max-height: calc(100vh - 148px);
+        overflow-y: auto;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px;
+        border: 1px solid rgba(6, 45, 34, 0.14);
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 24px 64px rgba(5, 39, 29, 0.22);
+    }
+
+    .homey-replica .nav.open {
+        display: flex;
+    }
+
+    .homey-replica .nav a,
+    .homey-replica .nav .nav-item-trigger {
+        width: 100%;
+        min-height: 48px;
+        padding: 14px 16px;
+        border-bottom: 1px solid rgba(6, 45, 34, 0.08);
+        color: #062d22;
+        font-size: 14px;
+        line-height: 1.25;
+    }
+
+    .homey-replica .nav > a:last-child,
+    .homey-replica .nav .nav-item:last-child .nav-item-trigger {
+        border-bottom: 0;
+    }
+
+    .homey-replica .nav a::after {
+        display: none;
+    }
+
+    .nav-item-trigger::after {
+        margin-left: auto;
+        transition: transform 0.2s ease;
+    }
+
+    .nav-item.open .nav-item-trigger::after {
+        transform: rotate(180deg);
+    }
+
+    .homey-replica .mega-menu {
+        gap: 0;
+        padding: 0 8px 8px;
+        border-top: 0;
+        background: #f7f6f1;
+    }
+
+    .homey-replica .mega-menu a {
+        min-height: 44px;
+        padding: 12px 14px !important;
+        border-bottom-color: rgba(6, 45, 34, 0.08);
+        color: #3e4b43;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 780px) {
+    body.homey-replica {
+        background-size: 30px 30px;
+    }
+
+    .mobile-menu-fallback {
+        display: none !important;
+    }
+
+    .replica-topbar .topbar-inner {
+        width: calc(100% - 28px);
+        min-height: 38px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .topbar-contact {
+        min-width: 0;
+        gap: 0;
+    }
+
+    .topbar-contact span {
+        max-width: 100%;
+        overflow: hidden;
+        font-size: 11px;
+        line-height: 1.25;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .homey-replica .header-inner {
+        width: calc(100% - 28px);
+        min-height: 68px;
+        gap: 12px;
+    }
+
+    .homey-replica .brand img {
+        width: min(142px, 42vw);
+        max-height: 58px;
+    }
+
+    .replica-nav-wrap {
+        display: contents;
+    }
+
+    .homey-replica .header-tools {
+        position: static;
+        transform: none;
+        margin-left: auto;
+    }
+
+    .homey-replica .menu-toggle {
+        width: 44px;
+        height: 44px;
+        flex-basis: 44px;
+        border-color: #062d22;
+        background: #062d22;
+    }
+
+    .homey-replica .menu-toggle span {
+        width: 18px;
+        background: #fff;
+    }
+
+    .homey-replica .nav {
+        top: 104px;
+        left: 14px;
+        right: 14px;
+        max-height: calc(100vh - 122px);
+        border-radius: 0;
+    }
+
+    .replica-hero {
+        min-height: 600px;
+        background: #062d22;
+    }
+
+    .replica-hero-slide img {
+        object-position: 66% center;
+    }
+
+    .replica-hero-slide::before {
+        background:
+            linear-gradient(180deg, rgba(6, 45, 34, 0.08) 0%, rgba(6, 45, 34, 0.48) 34%, rgba(6, 45, 34, 0.9) 100%),
+            linear-gradient(90deg, rgba(6, 45, 34, 0.78), rgba(6, 45, 34, 0.08));
+    }
+
+    .replica-hero-slide::after {
+        height: 38px;
+        background: linear-gradient(90deg, var(--setto-teal) 0 34%, rgba(255,255,255,0.92) 34% 68%, var(--replica-red-dark) 68%);
+    }
+
+    .replica-hero-content {
+        left: 22px;
+        right: 22px;
+        top: auto;
+        bottom: 68px;
+        width: auto;
+        padding: 0 0 0 18px;
+        border-left: 3px solid #c6ad78;
+        transform: none;
+    }
+
+    .replica-hero-content.reveal,
+    .replica-hero-content.reveal.visible {
+        transform: none;
+    }
+
+    .replica-hero-content p {
+        margin-bottom: 9px;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+    }
+
+    .replica-hero-content h1 {
+        margin-bottom: 12px;
+        font-size: clamp(2rem, 9.6vw, 2.8rem);
+        line-height: 1.02;
+        text-wrap: balance;
+    }
+
+    .replica-hero-content p:last-child {
+        max-width: 31rem;
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .hero-arrow {
+        display: none;
+    }
+
+    .hero-progress {
+        bottom: 31px;
+    }
+
+    .replica-page-hero {
+        min-height: 460px;
+        align-items: end;
+    }
+
+    .replica-page-hero > img {
+        object-position: center;
+        opacity: 0.5;
+    }
+
+    .product-page-hero > img {
+        padding: 92px 0 132px 30vw;
+        object-position: right center;
+        opacity: 0.92;
+    }
+
+    .replica-page-hero::before {
+        background:
+            linear-gradient(180deg, rgba(6,45,34,0.12) 0%, rgba(6,45,34,0.7) 52%, rgba(6,45,34,0.96) 100%),
+            linear-gradient(90deg, rgba(6,45,34,0.78), rgba(6,45,34,0.08));
+    }
+
+    .replica-page-hero-inner {
+        width: 100%;
+        padding: 96px 16px 54px;
+        box-sizing: border-box;
+    }
+
+    .replica-page-hero h1 {
+        max-width: 12ch;
+        font-size: clamp(2.1rem, 9.6vw, 3rem);
+        line-height: 1;
+        text-wrap: balance;
+    }
+
+    .replica-page-hero p:not(.red-kicker) {
+        max-width: 35rem;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .replica-section {
+        padding: 46px 0;
+    }
+
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    .replica-title,
+    .tds-section-head .replica-title,
+    .product-tds-head .replica-title {
+        margin-bottom: 24px;
+        font-size: clamp(1.9rem, 8.5vw, 2.8rem);
+        line-height: 1.04;
+        text-wrap: balance;
+    }
+
+    .product-catalog,
+    .advantage-grid,
+    .stat-grid,
+    .news-grid,
+    .replica-card-grid,
+    .replica-metric-grid,
+    .resource-step-grid,
+    .who-we-serve-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        border: 0;
+        background: transparent;
+        overflow: visible;
+    }
+
+    .replica-product-card,
+    .news-card,
+    .replica-card-grid .solution-card,
+    .replica-card-grid .product-card,
+    .replica-card-grid .article-card,
+    .replica-metric-grid .metric-card,
+    .who-we-serve-card,
+    .advantage-card {
+        min-height: auto;
+        border: 1px solid rgba(6, 45, 34, 0.12);
+        box-shadow: 0 12px 30px rgba(5, 39, 29, 0.08);
+    }
+
+    .replica-product-card {
+        display: grid;
+        grid-template-columns: 112px minmax(0, 1fr);
+        align-items: center;
+        justify-items: start;
+        gap: 18px;
+        padding: 18px;
+        text-align: left;
+    }
+
+    .replica-product-card::before {
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: auto;
+        width: 4px;
+        height: auto;
+        background: linear-gradient(180deg, var(--replica-red), var(--setto-teal));
+    }
+
+    .replica-product-card img {
+        width: 112px;
+        height: 112px;
+        margin: 0;
+    }
+
+    .replica-product-card h3 {
+        font-size: 17px;
+    }
+
+    .replica-product-card p {
+        font-size: 13px;
+    }
+
+    .stat-grid div {
+        min-height: 88px;
+        border: 1px solid rgba(198,173,120,0.26);
+    }
+
+    .advantage-band {
+        padding: 46px 0;
+    }
+
+    .advantage-card {
+        justify-items: start;
+        min-height: 92px;
+        padding: 20px;
+        text-align: left;
+    }
+
+    .who-grid,
+    .contact-grid,
+    .replica-split,
+    .tds-preview-layout,
+    .calculator-shell,
+    .resource-video-shell,
+    .resource-standard-card,
+    .resource-download-grid,
+    .resource-faq-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .video-card img,
+    .replica-image-panel img {
+        aspect-ratio: 1.12 / 1;
+    }
+
+    .check-list {
+        gap: 10px;
+    }
+
+    .calculator-shell {
+        padding: 20px;
+        border-color: rgba(6, 45, 34, 0.12);
+        box-shadow: 0 16px 36px rgba(5, 39, 29, 0.08);
+    }
+
+    .calculator-copy h2,
+    .replica-copy-block h2,
+    .contact-copy h2 {
+        font-size: clamp(1.9rem, 8.5vw, 2.65rem);
+    }
+
+    .calculator-copy p:not(.red-kicker),
+    .replica-copy-block p:not(.red-kicker),
+    .contact-copy p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .calculator-panel {
+        gap: 14px;
+        padding: 20px;
+    }
+
+    .calculator-panel input,
+    .calculator-panel select,
+    .replica-form input,
+    .replica-form textarea {
+        min-height: 52px;
+        font-size: 16px;
+    }
+
+    .calculator-results {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .calculator-results article {
+        min-height: auto;
+        padding: 15px;
+    }
+
+    .tds-feature-card,
+    .tds-summary-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .tds-feature-copy {
+        padding: 22px;
+    }
+
+    .tds-summary-card {
+        padding: 16px;
+    }
+
+    .tds-summary-card img {
+        width: 100%;
+        height: 180px;
+    }
+
+    .tds-summary-card::after {
+        top: auto;
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .product-tds-preview .tds-page {
+        padding: 14px;
+    }
+
+    .replica-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 20px;
+        box-shadow: 0 14px 34px rgba(5, 39, 29, 0.1);
+    }
+
+    .replica-form input,
+    .replica-form textarea,
+    .replica-form button {
+        grid-column: 1;
+    }
+
+    .replica-form button,
+    .replica-btn,
+    .cta-actions .replica-btn,
+    .product-tds-actions .replica-btn {
+        width: 100%;
+        min-height: 50px;
+    }
+
+    .cta-actions,
+    .hero-actions,
+    .product-tds-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .news-card h3 {
+        min-height: auto;
+    }
+
+    .homey-replica .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .float-actions,
+    .replica-float-actions {
+        right: 14px;
+        bottom: 14px;
+        transform: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .replica-hero {
+        min-height: 580px;
+    }
+
+    .replica-hero-slide img {
+        object-position: 63% center;
+    }
+
+    .replica-hero-content {
+        left: 18px;
+        right: 18px;
+        bottom: 76px;
+    }
+
+    .replica-hero-content h1 {
+        font-size: clamp(2rem, 11vw, 2.75rem);
+    }
+
+    .hero-arrow {
+        width: 38px;
+        height: 38px;
+    }
+
+    .hero-arrow::before {
+        inset: 12px;
+    }
+
+    .replica-page-hero {
+        min-height: 430px;
+    }
+
+    .product-page-hero > img {
+        padding: 86px 0 126px 22vw;
+    }
+
+    .replica-product-card {
+        grid-template-columns: 94px minmax(0, 1fr);
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .replica-product-card img {
+        width: 94px;
+        height: 94px;
+    }
+
+    .tds-feature-visual img {
+        width: min(100%, 220px);
+        max-height: 290px;
+    }
+
+    .certificate-track {
+        padding-inline: 0;
+    }
+
+    .float-actions {
+        left: 14px;
+        right: 14px;
+        bottom: 12px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .float-actions a {
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 12px;
     }
 }
