@@ -343,6 +343,8 @@ function initFloatingQrActions() {
         {
             key: "whatsapp",
             label: "WhatsApp",
+            href: "https://wa.me/61451173597",
+            ariaLabel: "Chat with SETTO on WhatsApp",
             image: "/assets/images/whatsapp.jpg",
             alt: "SETTO WhatsApp QR code",
             icon: `
@@ -363,10 +365,17 @@ function initFloatingQrActions() {
                 <img data-qr-image alt="" width="220" height="220">
             </div>
             ${qrTargets.map(item => `
-                <button class="qr-float-button ${item.key}" type="button" data-qr-trigger="${item.key}" aria-expanded="false" aria-label="Show SETTO ${item.label} QR code">
+                ${item.href ? `
+                    <a class="qr-float-button ${item.key}" href="${item.href}" target="_blank" rel="noopener noreferrer" aria-label="${item.ariaLabel || `Open SETTO ${item.label}`}">
+                        ${item.icon}
+                        <span>${item.label}</span>
+                    </a>
+                ` : `
+                    <button class="qr-float-button ${item.key}" type="button" data-qr-trigger="${item.key}" aria-expanded="false" aria-label="Show SETTO ${item.label} QR code">
                     ${item.icon}
                     <span>${item.label}</span>
-                </button>
+                    </button>
+                `}
             `).join("")}
         `;
 
