@@ -21,8 +21,6 @@ window.SETTO_CONTENT = {
         heroFlooringImage: "/assets/generated/setto-v5/white-system-cutaway.png",
         productPail: "/assets/generated/setto-v5/white-pail-card.png",
         productSausage: "/assets/generated/setto-v5/white-foil-packaging.png",
-        productPailFormat: "/assets/generated/setto-v7/product-format-10l-pail.png",
-        productSausageFormat: "/assets/generated/setto-v7/product-format-600ml-foil-pack.png",
         herringbone: "/assets/generated/herringbone-flooring-adhesive.webp",
         chevron: "/assets/generated/chevron-flooring-adhesive.webp",
         applyAdhesive: "/assets/generated/setto-v5/white-application-trowel.png",
@@ -42,9 +40,9 @@ window.SETTO_CONTENT = {
         engineeredTimber: "/assets/generated/setto-v5/white-system-cutaway-card.png",
         bambooCork: "/assets/generated/setto-v5/white-application-trowel.png",
         installerSampleKit: "/assets/generated/setto-v5/white-packaging-row.png",
-        resourceSystemSelection: "/assets/generated/setto-v7/resource-system-selection-desk.png",
-        resourceMoistureBarrier: "/assets/generated/setto-v7/resource-moisture-test-barrier.png",
-        resourceFootTrafficComfort: "/assets/generated/setto-v7/resource-foot-traffic-comfort.png",
+        resourceSystemSelection: "/assets/generated/setto-v6/white-technical-resource-system-selection.png",
+        resourceMoistureBarrier: "/assets/generated/setto-v6/white-technical-resource-moisture-barrier.png",
+        resourceFootTrafficComfort: "/assets/generated/setto-v6/white-technical-resource-foot-traffic-comfort.png",
         resourceCommercialSupply: "/assets/generated/setto-v6/white-technical-resource-commercial-supply.png"
     },
     documents: {
@@ -54,12 +52,12 @@ window.SETTO_CONTENT = {
         {
             title: "Setto Supreme S75 - 10L / Pail",
             description: "10L pail format for professional MS polymer timber flooring adhesive system installation.",
-            imageKey: "productPailFormat"
+            imageKey: "productPail"
         },
         {
             title: "Setto Supreme S75 - 600 ml Foil Sausage Pack",
             description: "600 ml aluminium foil soft pack for detail work, repair, perimeter bonding and controlled application with a barrel gun.",
-            imageKey: "productSausageFormat"
+            imageKey: "productSausage"
         },
         {
             title: "Full-Coverage Bonding",
