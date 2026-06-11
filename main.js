@@ -44,7 +44,7 @@ function renderHeader() {
                                 <div class="mega-menu">
                                     <a href="/product.html">Setto Supreme S75</a>
                                     <a href="/product.html#quick-facts">10L / Pail</a>
-                                    <a href="/product.html#quick-facts">600 ml Foil Sausage Pack</a>
+                                    <a href="/product.html#quick-facts">590 ml Foil Sausage Pack</a>
                                     <a href="/installation.html#technical-data">Technical Data Sheet</a>
                                 </div>
                             </div>
@@ -528,11 +528,10 @@ function initReplicaModals() {
 }
 
 function initAdhesiveCalculator() {
+    const PAIL_WEIGHT_G = 15000;
     const TROWEL_COVERAGE = {
-        "3 mm V-Notch": { low: 16, high: 18 },
-        "4 mm V-Notch": { low: 12, high: 14 },
-        "5 mm V-Notch": { low: 10, high: 12 },
-        "6 mm V-Notch": { low: 8, high: 10 }
+        "5 mm V-Notch": { low: 700, high: 850 },
+        "6 mm V-Notch": { low: 850, high: 1000 }
     };
 
     document.querySelectorAll("[data-adhesive-calculator]").forEach(calculator => {
@@ -551,10 +550,10 @@ function initAdhesiveCalculator() {
             if (kgOutput) kgOutput.textContent = "Enter area to estimate";
             if (rangeOutput) rangeOutput.textContent = "Coverage depends on selected V-notch trowel";
             if (pailsOutput) pailsOutput.textContent = "-";
-            if (packOutput) packOutput.textContent = "600 ml Foil Sausage Pack";
+            if (packOutput) packOutput.textContent = "590 ml Foil Sausage Pack";
             if (coverageOutput) coverageOutput.textContent = "-";
-            if (coverageNote) coverageNote.textContent = "Coverage range selected by trowel size";
-            if (projectNote) projectNote.textContent = "Recommend 5.5 mm V-notch trowel. Foil packs are available for detail work and controlled application, but are not included in the pail estimate.";
+            if (coverageNote) coverageNote.textContent = "Application rate selected by V-notch size";
+            if (projectNote) projectNote.textContent = "Latest TDS basis: 700-1000 g/m2 for full-coverage bonding. Foil packs are available for detail work and controlled application, but are not included in the pail estimate.";
             if (quoteLink) quoteLink.href = "/contact.html#inquiry";
         };
 
@@ -568,18 +567,21 @@ function initAdhesiveCalculator() {
                 return;
             }
 
-            const minPails = Math.ceil(area / coverage.high);
-            const recommendedPails = Math.ceil(area / coverage.low);
+            const lowM2PerPail = PAIL_WEIGHT_G / coverage.high;
+            const highM2PerPail = PAIL_WEIGHT_G / coverage.low;
+            const minPails = Math.ceil(area / highM2PerPail);
+            const recommendedPails = Math.ceil(area / lowM2PerPail);
             const pailText = minPails === recommendedPails ? `${recommendedPails} pail${recommendedPails === 1 ? "" : "s"}` : `${minPails}-${recommendedPails} pails`;
-            const coverageText = `${coverage.low}-${coverage.high} m2 per pail`;
+            const coverageText = `${lowM2PerPail.toFixed(1)}-${highM2PerPail.toFixed(1)} m2 per 15kg pail`;
+            const usageText = `${coverage.low}-${coverage.high} g/m2`;
 
             if (kgOutput) kgOutput.textContent = pailText;
-            if (rangeOutput) rangeOutput.textContent = `${trowel}: ${coverageText}`;
+            if (rangeOutput) rangeOutput.textContent = `${trowel}: ${usageText}`;
             if (pailsOutput) pailsOutput.textContent = pailText;
             if (packOutput) packOutput.textContent = "Optional";
             if (coverageOutput) coverageOutput.textContent = coverageText;
-            if (coverageNote) coverageNote.textContent = "Pail estimate is rounded up for procurement planning.";
-            if (projectNote) projectNote.textContent = "Recommend 5.5 mm V-notch trowel. Final usage depends on substrate flatness, trowel angle and site method.";
+            if (coverageNote) coverageNote.textContent = "Calculated from latest TDS application rate and 15kg pail format.";
+            if (projectNote) projectNote.textContent = "Apply with a 5-6 mm V-notch trowel at 45 degrees. Final usage depends on substrate flatness, transfer target and site method.";
 
             if (quoteLink) {
                 const params = new URLSearchParams({

@@ -55,13 +55,13 @@ window.SETTO_CONTENT = {
             imageKey: "productPail"
         },
         {
-            title: "Setto Supreme S75 - 600 ml Foil Sausage Pack",
-            description: "600 ml aluminium foil soft pack for detail work, repair, perimeter bonding and controlled application with a barrel gun.",
+            title: "Setto Supreme S75 - 590 ml Foil Sausage Pack",
+            description: "590 ml aluminium foil soft pack for detail work, repair, perimeter bonding and controlled application with a barrel gun.",
             imageKey: "productSausage"
         },
         {
             title: "Full-Coverage Bonding",
-            description: "Recommended for full moisture barrier support and elastic foot-traffic comfort.",
+            description: "100% coverage is required for full moisture and acoustic performance.",
             imageKey: "systemCutaway"
         },
         {
@@ -114,13 +114,16 @@ window.SETTO_CONTENT = {
         { label: "Cure Mechanism", value: "Moisture", unit: "curing" },
         { label: "Density", value: "approx. 1.6", unit: "g/cm3" },
         { label: "Skin Formation Time", value: "approx. 30-60", unit: "minutes" },
-        { label: "Extended Open Time", value: "refer to", unit: "latest TDS" },
+        { label: "Open Time", value: "20-40", unit: "minutes" },
         { label: "Full Cure Rate", value: "approx. 3 mm", unit: "/ 24 h" },
         { label: "Shore A Hardness", value: "approx. 35-50", unit: "" },
         { label: "Tensile Strength", value: ">=0.8", unit: "MPa" },
         { label: "Elongation at Break", value: ">=200", unit: "" },
         { label: "VOC Content", value: "<50", unit: "g/L" },
-        { label: "Service Temperature", value: "-40C to +90C", unit: "" }
+        { label: "Application Rate", value: "700-1000", unit: "g/m2" },
+        { label: "Service Temperature", value: "-40C to +90C", unit: "" },
+        { label: "Packaging", value: "10L / 15kg", unit: "pail" },
+        { label: "Shelf Life", value: "12", unit: "months" }
     ],
     footerLinks: {
         quickLinks: ["Products", "Technical Documentation", "Contact us"]
