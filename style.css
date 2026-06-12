@@ -3667,7 +3667,21 @@ h3 {
 }
 
 .contact-help-grid .advantage-card {
-    min-height: 156px;
+    min-height: 178px;
+    align-content: center;
+    justify-items: center;
+    gap: 14px;
+    padding: 28px 22px;
+}
+
+.contact-help-grid .advantage-card strong {
+    line-height: 1.1;
+}
+
+.contact-help-grid .advantage-card span {
+    max-width: 24ch;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
 }
 
 .adhesive-calculator-section {
