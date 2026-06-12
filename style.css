@@ -3675,10 +3675,12 @@ h3 {
 }
 
 .contact-help-grid .advantage-card strong {
+    color: var(--replica-red);
     line-height: 1.1;
 }
 
 .contact-help-grid .advantage-card span {
+    color: #31433c;
     max-width: 24ch;
     line-height: 1.45;
     overflow-wrap: anywhere;
