@@ -40,10 +40,10 @@ window.SETTO_CONTENT = {
         engineeredTimber: "/assets/generated/setto-v13/real-flooring-installation-run-landscape.png",
         bambooCork: "/assets/generated/setto-v13/real-adhesive-ridges-closeup-landscape.png",
         installerSampleKit: "/assets/generated/setto-v2/installer-sample-kit-card.png",
-        resourceSystemSelection: "/assets/generated/setto-v12/resource-system-selection.png",
-        resourceMoistureBarrier: "/assets/generated/setto-v12/resource-moisture-barrier.png",
-        resourceFootTrafficComfort: "/assets/generated/setto-v12/resource-foot-traffic-comfort.png",
-        resourceCommercialSupply: "/assets/generated/setto-v12/resource-commercial-supply.png"
+        resourceSystemSelection: "/assets/generated/setto-v14/resource-system-selection.png",
+        resourceMoistureBarrier: "/assets/generated/setto-v14/resource-moisture-barrier.png",
+        resourceFootTrafficComfort: "/assets/generated/setto-v14/resource-foot-traffic-comfort.png",
+        resourceCommercialSupply: "/assets/generated/setto-v14/resource-commercial-supply.png"
     },
     documents: {
         tds: "/assets/docs/setto-s75-tds.pdf"
