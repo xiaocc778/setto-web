@@ -16,7 +16,32 @@ const socialLink = name => content.socialLinks?.[name] || "#";
 function renderHeader() {
     document.querySelectorAll("[data-site-header]").forEach(header => {
         const isReplicaHome = document.body.classList.contains("homey-replica");
+        const isReferenceHome = document.body.classList.contains("reference-home");
         const nav = content.navigation || [];
+
+        if (isReferenceHome) {
+            header.innerHTML = `
+                <div class="ref-header-inner">
+                    <a class="ref-brand" href="/index.html" aria-label="Setto home">
+                        <img src="${content.brand.footerLogo || content.brand.logo}" alt="Setto logo" width="176" height="64">
+                    </a>
+                    <nav class="ref-nav" id="siteNav" aria-label="Primary navigation">
+                        <a href="/index.html">Home</a>
+                        <a href="/product.html">Product System</a>
+                        <a href="/applications.html">Applications</a>
+                        <a href="/blog.html">Technical Resources</a>
+                        <a href="/contact.html#inquiry">Project Supply</a>
+                        <a href="/index.html#product-system">About Us</a>
+                        <a href="/contact.html">Contact</a>
+                    </nav>
+                    <a class="ref-header-quote" href="/contact.html#inquiry">Request Quote</a>
+                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+                        <span></span><span></span>
+                    </button>
+                </div>
+            `;
+            return;
+        }
 
         if (isReplicaHome) {
             header.innerHTML = `
