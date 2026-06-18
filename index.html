@@ -104,12 +104,12 @@
                 <p class="ref-kicker">Project Estimation Tool</p>
                 <h2>Adhesive Calculator</h2>
                 <p>Estimate adhesive coverage and quantity based on your project size and trowel selection.</p>
-                <label><span>Floor Area (m2)</span><input type="number" min="0" step="0.1" value="100" data-calc-area></label>
-                <label><span>Trowel Size</span><select data-calc-trowel><option value="5 mm V-Notch" selected>5-6 mm V-notch</option><option value="6 mm V-Notch">6 mm V-notch</option></select></label>
-                <label><span>Packaging</span><select><option>15kg Pail</option><option>600 ml Foil Sausage Pack</option></select></label>
-                <div class="ref-calc-result"><strong data-calc-pails>-</strong><span data-calc-range>Calculated from latest TDS.</span></div>
-                <button class="ref-btn ref-btn-gold" type="button">Calculate Now</button>
-                <p class="ref-fineprint" data-calc-note>* Results are for estimation only. Contact us for project supply planning.</p>
+                <label><span>Floor Area (m²)</span><input type="number" min="0" step="0.1" value="100" data-calc-area></label>
+                <label><span>V-Notch Trowel Size</span><select data-calc-trowel><option value="3 mm V-Notch">3 mm V-Notch</option><option value="4 mm V-Notch">4 mm V-Notch</option><option value="5 mm V-Notch" selected>5 mm V-Notch</option><option value="6 mm V-Notch">6 mm V-Notch</option></select></label>
+                <label><span>Calculated Format</span><input type="text" value="10L / 15kg Pail" readonly></label>
+                <div class="ref-calc-result"><strong data-calc-pails>-</strong><span data-calc-range>Select an area and trowel size.</span></div>
+                <button class="ref-btn ref-btn-gold" type="button" data-calc-submit>Calculate Now</button>
+                <p class="ref-fineprint" data-calc-note>* 600 ml foil sausage packs are for detail work only and are not included in this calculation.</p>
             </div>
         </section>
 
