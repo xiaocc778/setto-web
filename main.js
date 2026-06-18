@@ -21,43 +21,6 @@ function renderHeader() {
 
         if (isReferenceHome) {
             header.innerHTML = `
-                <div class="ref-header-inner">
-                    <a class="ref-brand" href="/index.html" aria-label="Setto home">
-                        <img src="${content.brand.footerLogo || content.brand.logo}" alt="Setto logo" width="176" height="64">
-                    </a>
-                    <nav class="ref-nav" id="siteNav" aria-label="Primary navigation">
-                        <a href="/index.html">Home</a>
-                        <a href="/product.html">Product System</a>
-                        <a href="/applications.html">Applications</a>
-                        <a href="/blog.html">Technical Resources</a>
-                        <a href="/contact.html#inquiry">Project Supply</a>
-                        <a href="/index.html#product-system">About Us</a>
-                        <a href="/contact.html">Contact</a>
-                    </nav>
-                    <a class="ref-header-quote" href="/contact.html#inquiry">Request Quote</a>
-                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
-                        <span></span><span></span>
-                    </button>
-                </div>
-            `;
-            return;
-        }
-
-        if (isReplicaHome) {
-            header.innerHTML = `
-                <div class="replica-topbar">
-                    <div class="topbar-inner">
-                        <div class="topbar-contact">
-                            <span>Melbourne Stock Available | Apply for Trade Account & Get Free Installer Samples</span>
-                        </div>
-                        <div class="topbar-social" aria-label="Social links">
-                            <a href="${socialLink("facebook")}" aria-label="Facebook">${socialIcon("facebook")}</a>
-                            <a href="${socialLink("instagram")}" aria-label="Instagram">${socialIcon("instagram")}</a>
-                            <a href="${socialLink("youtube")}" aria-label="YouTube">${socialIcon("youtube")}</a>
-                            <a href="${socialLink("linkedin")}" aria-label="LinkedIn">${socialIcon("linkedin")}</a>
-                        </div>
-                    </div>
-                </div>
                 <div class="header-inner">
                     <a class="brand" href="/index.html" aria-label="Setto home">
                         <img src="${content.brand.logo}" alt="Setto logo" width="190" height="76">
@@ -69,7 +32,50 @@ function renderHeader() {
                                 <div class="mega-menu">
                                     <a href="/product.html">Setto Supreme S75</a>
                                     <a href="/product.html#quick-facts">10L / Pail</a>
-                                    <a href="/product.html#quick-facts">590 ml Foil Sausage Pack</a>
+                                    <a href="/product.html#quick-facts">600 ml Foil Sausage Pack</a>
+                                    <a href="/installation.html#technical-data">Technical Data Sheet</a>
+                                </div>
+                            </div>
+                            <div class="nav-item">
+                                <span class="nav-item-trigger" tabindex="0">Technical Documentation</span>
+                                <div class="mega-menu">
+                                    <a href="/blog.html">Technical Resource Center</a>
+                                    <a href="/installation.html">Installation Guide</a>
+                                    <a href="/blog.html#video-library">Video Library</a>
+                                    <a href="/blog.html#downloads">Downloads</a>
+                                    <a href="/blog.html#faqs">FAQs</a>
+                                </div>
+                            </div>
+                            <a href="/contact.html">Contact us</a>
+                        </nav>
+                    </div>
+                    <div class="header-tools">
+                        <a class="search-trigger" href="/contact.html#inquiry" aria-label="Search or inquiry">Search</a>
+                        <a class="btn btn-primary header-quote" href="/contact.html#inquiry">Request Quote</a>
+                        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+                            <span></span><span></span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
+        if (isReplicaHome) {
+            const replicaLogo = content.brand.logo;
+            header.innerHTML = `
+                <div class="header-inner">
+                    <a class="brand" href="/index.html" aria-label="Setto home">
+                        <img src="${replicaLogo}" alt="Setto logo" width="190" height="76">
+                    </a>
+                    <div class="replica-nav-wrap">
+                        <nav class="nav" id="siteNav" aria-label="Primary navigation">
+                            <div class="nav-item">
+                                <span class="nav-item-trigger" tabindex="0">Products</span>
+                                <div class="mega-menu">
+                                    <a href="/product.html">Setto Supreme S75</a>
+                                    <a href="/product.html#quick-facts">10L / Pail</a>
+                                    <a href="/product.html#quick-facts">600 ml Foil Sausage Pack</a>
                                     <a href="/installation.html#technical-data">Technical Data Sheet</a>
                                 </div>
                             </div>
@@ -129,27 +135,40 @@ function renderFooter() {
         ];
         const businessHours = brand.businessHours || "Monday to Friday, 9:00 am - 5:00 pm AEST";
         footer.innerHTML = `
-            <div class="container footer-grid">
+            <div class="container footer-grid site-footer-main">
                 <div class="footer-brand">
                     <img src="${brand.footerLogo || brand.logo}" alt="Setto logo" width="156" height="66">
                     <p>${brand.tagline}</p>
                     <p>Trade, distributor and project supply enquiries welcome.</p>
-                    <a class="footer-email-link" href="mailto:${brand.email}">${brand.email}</a>
+                    <a class="footer-email-link" href="mailto:${brand.email}"><span aria-hidden="true">@</span>${brand.email}</a>
                 </div>
-                <div>
+                <div class="footer-support">
                     <h3>Support</h3>
-                    ${supportLinks.map(item => `<a href="${item.href}">${item.label}</a>`).join("")}
+                    <nav aria-label="Footer support links">
+                        ${supportLinks.map(item => `<a href="${item.href}"><span>${item.label}</span><b aria-hidden="true">›</b></a>`).join("")}
+                    </nav>
                 </div>
-                <div>
+                <div class="footer-contact">
                     <h3>Stay In Touch</h3>
-                    <a href="tel:${brand.phone?.replace(/[^0-9]/g, "")}">${brand.phone}</a>
-                    <a href="mailto:${brand.email}">${brand.email}</a>
-                    <p>Business Hours: ${businessHours}</p>
-                    <p>Manufacturer / Importer: ${brand.manufacturer}</p>
-                    <p>${brand.location}</p>
+                    <div class="footer-contact-list">
+                        <a href="tel:${brand.phone?.replace(/[^0-9]/g, "")}"><strong>Phone</strong><span>${brand.phone}</span></a>
+                        <a href="mailto:${brand.email}"><strong>Email</strong><span>${brand.email}</span></a>
+                        <p><strong>Business Hours</strong><span>${businessHours}</span></p>
+                        <p><strong>Manufacturer / Importer</strong><span>${brand.manufacturer}</span></p>
+                        <p><strong>Location</strong><span>${brand.location}</span></p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">&copy; Setto Australia. All rights reserved.</div>
+            <div class="footer-bottom">
+                <span>&copy; Setto Australia. All rights reserved.</span>
+                <div class="footer-social" aria-label="Social links">
+                    <a href="${socialLink("linkedin")}" aria-label="LinkedIn">${socialIcon("linkedin")}</a>
+                    <a href="${socialLink("facebook")}" aria-label="Facebook">${socialIcon("facebook")}</a>
+                    <a href="${socialLink("instagram")}" aria-label="Instagram">${socialIcon("instagram")}</a>
+                    <a href="${socialLink("youtube")}" aria-label="YouTube">${socialIcon("youtube")}</a>
+                </div>
+                <strong>Built for <em>Professional Flooring Supply</em></strong>
+            </div>
         `;
     });
 }
@@ -575,7 +594,7 @@ function initAdhesiveCalculator() {
             if (kgOutput) kgOutput.textContent = "Enter area to estimate";
             if (rangeOutput) rangeOutput.textContent = "Coverage depends on selected V-notch trowel";
             if (pailsOutput) pailsOutput.textContent = "-";
-            if (packOutput) packOutput.textContent = "590 ml Foil Sausage Pack";
+            if (packOutput) packOutput.textContent = "600 ml Foil Sausage Pack";
             if (coverageOutput) coverageOutput.textContent = "-";
             if (coverageNote) coverageNote.textContent = "Application rate selected by V-notch size";
             if (projectNote) projectNote.textContent = "Latest TDS basis: 700-1000 g/m2 for full-coverage bonding. Foil packs are available for detail work and controlled application, but are not included in the pail estimate.";

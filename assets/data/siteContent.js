@@ -20,14 +20,14 @@ window.SETTO_CONTENT = {
         heroProductImage: "/assets/generated/setto-v2/product-pail-card.png",
         heroFlooringImage: "/assets/generated/setto-v11/home-hero-system-cutaway-adhesive-color.png",
         productPail: "/assets/generated/setto-v2/product-pail-card.png",
-        productSausage: "/assets/generated/setto-v3/product-foil-sausage-pack.png",
+        productSausage: "/assets/generated/setto-v3/product-foil-sausage-pack-600ml.png",
         herringbone: "/assets/generated/herringbone-flooring-adhesive.webp",
         chevron: "/assets/generated/chevron-flooring-adhesive.webp",
         applyAdhesive: "/assets/generated/setto-v15/vnotch-board-adhesive-closeup.png",
         moistureBarrier: "/assets/generated/setto-v11/moisture-film-support-card-adhesive-color.png",
         comfortFlooring: "/assets/generated/setto-v11/foot-traffic-comfort-card-adhesive-color.png",
         systemCutaway: "/assets/generated/setto-v11/home-hero-system-cutaway-adhesive-color.png",
-        packagingSteps: "/assets/generated/setto-v3/product-foil-sausage-pack.png",
+        packagingSteps: "/assets/generated/setto-v3/product-foil-sausage-pack-600ml.png",
         underfloorHeating: "/assets/generated/setto-v11/underfloor-heating-card-adhesive-color.png",
         commercialProject: "/assets/generated/setto-v2/commercial-project-supply-card.png",
         herringboneProject: "/assets/generated/setto-v15/installation-floor-run.png",
@@ -55,8 +55,8 @@ window.SETTO_CONTENT = {
             imageKey: "productPail"
         },
         {
-            title: "Setto Supreme S75 - 590 ml Foil Sausage Pack",
-            description: "590 ml aluminium foil soft pack for detail work, repair, perimeter bonding and controlled application with a barrel gun.",
+            title: "Setto Supreme S75 - 600 ml Foil Sausage Pack",
+            description: "600 ml aluminium foil soft pack for detail work, repair, perimeter bonding and controlled application with a barrel gun.",
             imageKey: "productSausage"
         },
         {

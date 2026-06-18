@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,37 +8,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=mobile-v1">
+    <link rel="stylesheet" href="style.css?v=contact-replica-v1-footer-v2">
 </head>
-<body class="homey-replica">
+<body class="homey-replica contact-dark-page">
     <header class="site-header" data-site-header></header>
-    <button class="mobile-menu-fallback" type="button" data-mobile-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
 
-    <main class="replica-main replica-subpage">
-        <section class="replica-page-hero">
+    <main class="contact-dark-main">
+        <section class="contact-dark-hero">
             <img src="/assets/generated/setto-v2/contact-support-hero.png" data-image-key="contactHero" alt="SETTO Supreme S75 product and installation system">
-            <div class="container replica-page-hero-inner">
-                <p class="red-kicker">Contact</p>
+            <div class="contact-dark-hero-shade"></div>
+            <div class="container contact-dark-hero-inner">
+                <p class="contact-kicker">Contact</p>
                 <h1>Get In Touch</h1>
-                <p>Tell us about your SETTO Supreme S75 project, technical requirement or distribution inquiry.</p>
+                <p>Tell us about your SETTO Supreme S75 project, technical requirements, distribution inquiry or project support. We're here to help.</p>
+                <div class="contact-hero-points" aria-label="Available support">
+                    <span>Expert Technical Support</span>
+                    <span>Reliable Product Supply</span>
+                    <span>Trade &amp; Distribution Enquiries</span>
+                    <span>Project Support Australia Wide</span>
+                </div>
             </div>
         </section>
 
-        <section class="replica-section contact-section" id="inquiry">
-            <div class="container contact-grid">
-                <div class="contact-copy reveal">
-                    <p class="red-kicker">Setto Australia</p>
-                    <h2>Planning a timber flooring adhesive system project?</h2>
-                    <p>Send your flooring type, subfloor condition, area size and expected installation date so our team can support the right SETTO Supreme S75 recommendation.</p>
-                    <ul>
-                        <li>Email: <a href="mailto:info@setto.com.au">info@setto.com.au</a></li>
-                        <li>Phone: <a href="tel:1300855668">1300-855-668</a></li>
-                        <li>Manufacturer / Importer: Seven Fusion Pty Ltd</li>
-                        <li>Location: 12-18 Lascelles St, Springvale VIC 3171, Australia</li>
-                    </ul>
-                    <a class="replica-btn blue" href="#" data-tds-link>Download TDS</a>
+        <section class="contact-dark-section" id="inquiry">
+            <div class="container contact-dark-grid">
+                <div class="contact-dark-copy reveal">
+                    <p class="contact-kicker">Get In Touch</p>
+                    <h2>Let's Talk About<br>Your Project</h2>
+                    <p>Provide a few details about your flooring project and our team will respond with the right advice, documentation and product support.</p>
+                    <dl class="contact-details-list">
+                        <div><dt>Email</dt><dd><a href="mailto:info@setto.com.au">info@setto.com.au</a></dd></div>
+                        <div><dt>Phone</dt><dd><a href="tel:1300855668">1300-855-668</a></dd></div>
+                        <div><dt>Manufacturer / Importer</dt><dd>Seven Fusion Pty Ltd</dd></div>
+                        <div><dt>Location</dt><dd>12-18 Lascelles St, Springvale<br>VIC 3171, Australia</dd></div>
+                    </dl>
+                    <a class="contact-outline-btn" href="#" data-tds-link>Download TDS</a>
                 </div>
-                <form class="replica-form reveal" action="https://formsubmit.co/info@setto.com.au" method="POST" data-inquiry-form>
+                <form class="contact-dark-form reveal" action="https://formsubmit.co/info@setto.com.au" method="POST" data-inquiry-form>
                     <input type="hidden" name="_subject" value="SETTO Contact Inquiry">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
@@ -48,29 +54,52 @@
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="text" name="company" placeholder="Company / Business Name">
                     <input type="tel" name="phone" placeholder="Phone" required>
-                    <textarea name="message" rows="5" placeholder="Tell us about your trade pricing, sample or project supply requirement" required></textarea>
-                    <button class="replica-btn red" type="submit">Request Quote</button>
+                    <select name="project_type" required>
+                        <option value="">Project Type / Area *</option>
+                        <option>Residential timber flooring</option>
+                        <option>Commercial flooring project</option>
+                        <option>Trade or distribution enquiry</option>
+                        <option>Technical support</option>
+                    </select>
+                    <textarea name="message" rows="7" placeholder="Tell us about your trade pricing, sample or project supply requirement *&#10;&#10;Provide details about your project, flooring type, area size, subfloor condition, installation timing or any specific requirements." required></textarea>
+                    <button class="contact-gold-btn" type="submit">Submit Enquiry</button>
                 </form>
+            </div>
+
+            <div class="container contact-service-grid">
+                <a href="mailto:info@setto.com.au"><span>Email Us</span><small>For enquiries, quotes and documentation.</small><strong>info@setto.com.au</strong></a>
+                <a href="tel:1300855668"><span>Call Us</span><small>Speak with our team about your project.</small><strong>1300-855-668</strong></a>
+                <a href="#inquiry"><span>Business Hours</span><small>Monday to Friday, 9:00 am - 5:00 pm AEST.</small><strong>View all hours</strong></a>
+                <a href="/installation.html"><span>Technical Support</span><small>Product advice, TDS and installation guidance.</small><strong>Request support</strong></a>
+                <a href="/trade.html"><span>Trade &amp; Distribution</span><small>Become a trade partner or stock our products.</small><strong>Trade enquiry</strong></a>
             </div>
         </section>
 
-        <section class="replica-section">
+        <section class="contact-project-details">
             <div class="container">
-                <h2 class="replica-title reveal">Helpful Project Details</h2>
-                <div class="advantage-grid contact-help-grid">
-                    <div class="advantage-card reveal"><strong>Floor</strong><span>Solid, engineered, parquet, bamboo, cork or exotic timber</span></div>
-                    <div class="advantage-card reveal"><strong>Need</strong><span>Bonding, moisture barrier support, foot-traffic comfort or VOC requirement</span></div>
-                    <div class="advantage-card reveal"><strong>Base</strong><span>Concrete, screed, levelling compound, timber panel or heating system</span></div>
-                    <div class="advantage-card reveal"><strong>Area</strong><span>Project size, installation timing and preferred packaging format</span></div>
+                <p class="contact-kicker">Helpful Project Details</p>
+                <h2>Help Us Recommend the Right Solution</h2>
+                <div class="contact-project-grid">
+                    <article class="reveal"><strong>Floor</strong><span>Solid timber, engineered, parquet, bamboo, cork or exotic timber.</span></article>
+                    <article class="reveal"><strong>Need</strong><span>Bonding, moisture barrier support, foot-traffic comfort or low VOC requirement.</span></article>
+                    <article class="reveal"><strong>Base</strong><span>Concrete, screed, levelling compound, timber panel or heating system.</span></article>
+                    <article class="reveal"><strong>Area</strong><span>Project size, installation timing and preferred packaging format.</span></article>
                 </div>
+            </div>
+        </section>
+
+        <section class="contact-bottom-cta">
+            <div class="container contact-bottom-cta-inner">
+                <div><p class="contact-kicker">Get Started</p><h2>Download TDS or Talk to Our Team</h2><span>Access technical data sheets, installation guides and compliance documents or speak with our experts for tailored project support.</span></div>
+                <div><a class="contact-gold-btn" href="#" data-tds-link>Download TDS</a><a class="contact-outline-btn" href="#inquiry">Request Technical Support</a></div>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer" data-site-footer></footer>
+    <footer id="site-footer" class="site-footer" data-site-footer></footer>
     <div class="float-actions" aria-label="Quick contact actions"><a href="mailto:info@setto.com.au">Email</a><a href="#inquiry">Contact</a></div>
     <div class="toast" data-toast role="status" aria-live="polite"></div>
-    <script src="/assets/data/siteContent.js"></script>
-    <script src="main.js"></script>
+    <script src="/assets/data/siteContent.js?v=600ml-v1"></script>
+    <script src="main.js?v=footer-replica-v1"></script>
 </body>
 </html>
