@@ -36,9 +36,12 @@ window.SETTO_CONTENT = {
         contactHero: "/assets/generated/setto-v2/contact-support-hero.png",
         shippingHero: "/assets/generated/setto-v2/shipping-logistics-hero.png",
         resourcesHero: "/assets/generated/setto-v2/resources-technical-hero.png",
-        solidTimber: "/assets/generated/setto-v15/vnotch-board-adhesive-closeup.png",
-        engineeredTimber: "/assets/generated/setto-v15/installation-floor-run.png",
-        bambooCork: "/assets/generated/setto-v15/adhesive-ridges-texture.png",
+        solidTimber: "/assets/generated/applications-v1/solid-timber-installation.webp",
+        engineeredTimber: "/assets/generated/applications-v1/engineered-timber-layers.webp",
+        applicationParquet: "/assets/generated/applications-v1/multilayer-parquet.webp",
+        applicationEndGrain: "/assets/generated/applications-v1/end-grain-blocks.webp",
+        bambooCork: "/assets/generated/applications-v1/bamboo-cork.webp",
+        applicationExoticTimber: "/assets/generated/applications-v1/sensitive-exotic-timber.webp",
         installerSampleKit: "/assets/generated/setto-v2/installer-sample-kit-card.png",
         resourceSystemSelection: "/assets/generated/setto-v14/resource-system-selection.png",
         resourceMoistureBarrier: "/assets/generated/setto-v14/resource-moisture-barrier.png",
@@ -86,13 +89,13 @@ window.SETTO_CONTENT = {
         {
             title: "Multi-layer Parquet Systems",
             description: "Suitable for multi-layer parquet systems, including patterned layouts and premium project floors.",
-            imageKey: "herringboneProject",
+            imageKey: "applicationParquet",
             href: "/applications.html"
         },
         {
             title: "End-grain Wood Blocks",
             description: "For dimensionally demanding end-grain wood block installations when properly specified.",
-            imageKey: "comfortFlooring",
+            imageKey: "applicationEndGrain",
             href: "/applications.html"
         },
         {
@@ -104,7 +107,7 @@ window.SETTO_CONTENT = {
         {
             title: "Sensitive & Exotic Timber",
             description: "For dimensionally sensitive and exotic timber species subject to project and manufacturer requirements.",
-            imageKey: "productPail",
+            imageKey: "applicationExoticTimber",
             href: "/applications.html"
         }
     ],
