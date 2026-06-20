@@ -35,7 +35,7 @@ window.SETTO_CONTENT = {
         systemsHero: "/assets/generated/setto-v2/systems-overview-hero.png",
         contactHero: "/assets/generated/setto-v2/contact-support-hero.png",
         shippingHero: "/assets/generated/setto-v2/shipping-logistics-hero.png",
-        resourcesHero: "/assets/generated/setto-v2/resources-technical-hero.png",
+        resourcesHero: "/assets/generated/setto-v17/resources-technical-hero-vnotch.webp",
         solidTimber: "/assets/generated/applications-v1/solid-timber-installation.webp",
         engineeredTimber: "/assets/generated/applications-v1/engineered-timber-layers.webp",
         applicationParquet: "/assets/generated/applications-v1/multilayer-parquet.webp",
