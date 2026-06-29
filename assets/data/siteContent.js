@@ -27,7 +27,7 @@ window.SETTO_CONTENT = {
         moistureBarrier: "/assets/generated/setto-v11/moisture-film-support-card-adhesive-color.png",
         comfortFlooring: "/assets/generated/setto-v11/foot-traffic-comfort-card-adhesive-color.png",
         systemCutaway: "/assets/generated/setto-v11/home-hero-system-cutaway-adhesive-color.png",
-        packagingSteps: "/assets/generated/setto-v3/product-foil-sausage-pack-600ml.png",
+        packagingSteps: "/assets/generated/setto-v18/product-foil-sausage-pack-12l.png",
         underfloorHeating: "/assets/generated/setto-v11/underfloor-heating-card-adhesive-color.png",
         commercialProject: "/assets/generated/setto-v2/commercial-project-supply-card.png",
         herringboneProject: "/assets/generated/setto-v15/installation-floor-run.png",
@@ -53,8 +53,8 @@ window.SETTO_CONTENT = {
     },
     productFormats: [
         {
-            title: "Setto Supreme S75 - 10L / Pail",
-            description: "10L pail format for professional MS polymer timber flooring adhesive system installation.",
+            title: "Setto Supreme S75 - 12L / Pail",
+            description: "12L pail format for professional MS polymer timber flooring adhesive system installation.",
             imageKey: "productPail"
         },
         {
@@ -125,7 +125,7 @@ window.SETTO_CONTENT = {
         { label: "VOC Content", value: "<50", unit: "g/L" },
         { label: "Application Rate", value: "700-1000", unit: "g/m2" },
         { label: "Service Temperature", value: "-40C to +90C", unit: "" },
-        { label: "Packaging", value: "10L / 15kg", unit: "pail" },
+        { label: "Packaging", value: "12L", unit: "pail" },
         { label: "Shelf Life", value: "12", unit: "months" }
     ],
     footerLinks: {

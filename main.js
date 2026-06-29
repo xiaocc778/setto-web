@@ -31,7 +31,7 @@ function renderHeader() {
                                 <span class="nav-item-trigger" tabindex="0">Products</span>
                                 <div class="mega-menu">
                                     <a href="/product.html">Setto Supreme S75</a>
-                                    <a href="/product.html#quick-facts">10L / Pail</a>
+                                    <a href="/product.html#quick-facts">12L / Pail</a>
                                     <a href="/product.html#quick-facts">600 ml Foil Sausage Pack</a>
                                     <a href="/installation.html#technical-data">Technical Data Sheet</a>
                                 </div>
@@ -74,7 +74,7 @@ function renderHeader() {
                                 <span class="nav-item-trigger" tabindex="0">Products</span>
                                 <div class="mega-menu">
                                     <a href="/product.html">Setto Supreme S75</a>
-                                    <a href="/product.html#quick-facts">10L / Pail</a>
+                                    <a href="/product.html#quick-facts">12L / Pail</a>
                                     <a href="/product.html#quick-facts">600 ml Foil Sausage Pack</a>
                                     <a href="/installation.html#technical-data">Technical Data Sheet</a>
                                 </div>
@@ -626,14 +626,14 @@ function initAdhesiveCalculator() {
             }
 
             const pailText = result.min === result.max ? `${result.max} pail${result.max === 1 ? "" : "s"}` : `${result.min}-${result.max} pails`;
-            const coverageText = `${result.coverage} m² per 10L / 15kg pail`;
+            const coverageText = `${result.coverage} m² per 12L pail`;
 
             if (kgOutput) kgOutput.textContent = pailText;
             if (rangeOutput) rangeOutput.textContent = `${trowel}: ${coverageText}`;
             if (pailsOutput) pailsOutput.textContent = pailText;
             if (packOutput) packOutput.textContent = "Optional";
             if (coverageOutput) coverageOutput.textContent = coverageText;
-            if (coverageNote) coverageNote.textContent = "Calculated from latest TDS application rate and 15kg pail format.";
+            if (coverageNote) coverageNote.textContent = "Calculated from latest TDS application rate and 12L pail format.";
             if (projectNote) projectNote.textContent = "* All quantities are rounded up. 600 ml foil sausage packs are for detail work only and are not included in this calculation.";
 
             if (quoteLink) {
